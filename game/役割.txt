@@ -1,0 +1,12 @@
+setTrigger<=方向変化＆拡大
+setDrag<=対象移動
+message<=メッセージ
+divのclass"scene"はゲームが画面の大きさ
+escapegame.jsはAPI的なもの
+z-indexは高さ
+cssの↓
+#door1, #door2, #deguchi, #card1, #card2, #card3, #card4, #card5, #redkey, #item_redkey, #box_small, #rakugaki_small, #table_small, #colorbox {
+	position: absolute;
+	background: url(images.gif) no-repeat;
+}
+これがimages.gifから画像を切り取っている

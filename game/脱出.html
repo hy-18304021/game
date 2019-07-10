@@ -273,7 +273,7 @@ p.text {
 (function()
 {
 	var esc = new EscapeGame();
-	esc.addPreLoadImages( ['images.gif'] );
+	esc.addPreLoadImages( ['test.gif'] );
 	var flag = [];
 	var $ = function( id ){ return document.getElementById( id ); };
 
@@ -307,6 +307,7 @@ p.text {
 			esc.backScene();
 		};
 
+		//East
 		esc.setTrigger( 'east_left_trigger', turnNorth );
 		esc.setTrigger( 'east_right_trigger', turnSouth );
 		esc.setTrigger( 'door1',
@@ -327,17 +328,21 @@ p.text {
 			}
 		);
 		esc.setDrag( 'door2', 0, [85,131,318,323] );
+		//場所移動
 		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );
 
+		//North
 		esc.setTrigger( 'south_left_trigger', turnEast );
 		esc.setTrigger( 'south_right_trigger', turnWest );
 		esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
 
+		//West
 		esc.setTrigger( 'west_left_trigger', turnSouth );
 		esc.setTrigger( 'west_right_trigger', turnNorth );
 		esc.setTrigger( 'rakugaki_small', function(){esc.changeScene('rakugaki');} );
 		esc.setDrag( 'colorbox', 0, [114,208,372,336] );
 
+		//South
 		esc.setTrigger( 'north_left_trigger', turnWest );
 		esc.setTrigger( 'north_right_trigger', turnEast );
 		esc.setTrigger( 'table_small', function(){esc.changeScene('table');} );
@@ -377,6 +382,7 @@ p.text {
 			}
 		);
 
+		//一番初めの場所
 		esc.setTrigger( 'start',
 			function()
 			{
