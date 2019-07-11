@@ -5,21 +5,24 @@
 <meta name="viewport" content="width=640px">
 <meta name="referrer" content="origin-when-crossorigin">
 <meta name="referrer" content="origin-when-cross-origin">
-<title>脱出ゲーム</title>
-<link rel="stylesheet" href="game.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="dashutu.css">
+
+
+<title>JavaScriptで脱出ゲーム テスト1</title>
+<meta http-equiv="Content-Style-Type" content="text/css" />
 <script type="text/javascript"><!--
 if(location.protocol == 'http:'){
 	location.replace(location.href.replace(/^http:/, 'https:'));
 }
-// --></script>
-<style type="text/css"></style>
+</script>
+
 <script type="text/javascript" src="escapegame.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 (function()
 {
 	var esc = new EscapeGame();
-	esc.addPreLoadImages( ['test.gif'] );
+	esc.addPreLoadImages( ['images.gif'] );
 	var flag = [];
 	var $ = function( id ){ return document.getElementById( id ); };
 
@@ -53,7 +56,6 @@ if(location.protocol == 'http:'){
 			esc.backScene();
 		};
 
-		//East
 		esc.setTrigger( 'east_left_trigger', turnNorth );
 		esc.setTrigger( 'east_right_trigger', turnSouth );
 		esc.setTrigger( 'door1',
@@ -74,21 +76,17 @@ if(location.protocol == 'http:'){
 			}
 		);
 		esc.setDrag( 'door2', 0, [85,131,318,323] );
-		//場所移動
 		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );
 
-		//North
 		esc.setTrigger( 'south_left_trigger', turnEast );
 		esc.setTrigger( 'south_right_trigger', turnWest );
 		esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
 
-		//West
 		esc.setTrigger( 'west_left_trigger', turnSouth );
 		esc.setTrigger( 'west_right_trigger', turnNorth );
 		esc.setTrigger( 'rakugaki_small', function(){esc.changeScene('rakugaki');} );
 		esc.setDrag( 'colorbox', 0, [114,208,372,336] );
 
-		//South
 		esc.setTrigger( 'north_left_trigger', turnWest );
 		esc.setTrigger( 'north_right_trigger', turnEast );
 		esc.setTrigger( 'table_small', function(){esc.changeScene('table');} );
@@ -128,7 +126,6 @@ if(location.protocol == 'http:'){
 			}
 		);
 
-		//一番初めの場所
 		esc.setTrigger( 'start',
 			function()
 			{
@@ -168,10 +165,18 @@ if(location.protocol == 'http:'){
 
 	load = null; // なんとなく
 })();
-//]]></script>
-</head><body><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script><br /><div id="htmlbox">
+//]]>
+</script>
 
-<h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">脱出ゲーム</h1>
+</head>
+<body>
+
+	<script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script><br /><div id="htmlbox">
+<br />
+
+<hr style="margin-bottom:48px" />
+
+<h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">JavaScriptで脱出ゲーム　テスト１</h1>
 
 <div id="escapegame_main" unselectable="on" onselectstart="return false">
 
@@ -180,7 +185,7 @@ if(location.protocol == 'http:'){
 <div id="messagebox_outer1"><div id="messagebox_outer2"><div id="messagebox">JavaScriptを使っています。無効にしている場合は有効にしないと遊べません。</div></div></div>
 
 <div id="title" class="scene">
-<div id="start"></div>
+<div id="start" onClick="timeOut()"></div>
 </div>
 
 <div id="east" class="scene">
@@ -225,11 +230,33 @@ if(location.protocol == 'http:'){
 
 <div id="box" class="scene">
 <div id="redkey"></div>
-<form id="box_form"><input class="text" type="text" value="" maxlength="8" unselectable="off" onselectstart="return true" /><br/><input class="button" type="reset" value="Clear"><input class="button" type="submit" value="Enter"></form>
+<form id="box_form">
+	<input class="text" type="text" value="" maxlength="8" unselectable="off" onselectstart="return true" />
+	<br/>
+	<input class="button" type="reset" value="Clear">
+	<input class="button" type="submit" value="Enter">
+</form>
 <div id="box_down_trigger" class="down_arrow"></div>
 </div>
 
 <div id="ome" class="scene"><div id="restart"></div></div>
 
 </div>
+
+
+
+<center>
+	<div id="clockdiv">
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">分</div>
+  </div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">秒</div>
+  </div>
+</div>
+</center>
+
+
 </html>
