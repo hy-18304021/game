@@ -1,0 +1,256 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=640px">
+<meta name="referrer" content="origin-when-crossorigin">
+<meta name="referrer" content="origin-when-cross-origin">
+<link rel="stylesheet" type="text/css" href="dashutu.css">
+<title>脱出ゲーム</title>
+<script type="text/javascript"><!--
+if(location.protocol == 'http:'){
+	location.replace(location.href.replace(/^http:/, 'https:'));
+}-->
+</script>
+<script type="text/javascript" src="escapegame.js"></script>
+<script type="text/javascript">
+<!--[CDATA[
+(function()
+{
+	var esc = new EscapeGame();
+	esc.addPreLoadImages( ['images.gif'] );
+	var flag = [];
+	var $ = function( id ){ return document.getElementById( id ); };
+
+	var load = function()
+	{
+		esc.setMessageBox( 'messagebox' );
+		esc.addScenes( ['nowloading', 'title', 'east', 'south', 'west', 'north', 'rakugaki', 'table', 'box', 'ome'] );
+
+		var turnEast = function()
+		{
+			esc.changeScene( 'east' );
+			esc.message( '東を向いた。', 1000 );
+		};
+		var turnSouth = function()
+		{
+			esc.changeScene( 'south' );
+			esc.message( '南を向いた。', 1000 );
+		};
+		var turnWest = function()
+		{
+			esc.changeScene( 'west' );
+			esc.message( '西を向いた。', 1000 );
+		};
+		var turnNorth = function()
+		{
+			esc.changeScene( 'north' );
+			esc.message( '北を向いた。', 1000 );
+		};
+		var back = function()
+		{
+			esc.backScene();
+		};
+
+		esc.setTrigger( 'east_left_trigger', turnNorth );
+		esc.setTrigger( 'east_right_trigger', turnSouth );
+		esc.setTrigger( 'door1',
+			function()
+			{
+				if( flag['redkey'] )
+				{
+					esc.message( 'ガチャっとロックが外れる音がした。' );
+					// 注:visibility='visible'だと親要素が優先されないので'inherit'にする
+					$( 'door2' ).style.visibility = 'inherit';
+					$( 'door1' ).style.visibility = 'hidden';
+					$( 'item_redkey' ).style.visibility = 'hidden';
+				}
+				else
+				{
+					esc.message( '鍵が掛かってる。', 3000 );
+				}
+			}
+		);
+		esc.setDrag( 'door2', 0, [85,131,318,323] );
+		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );
+
+		esc.setTrigger( 'south_left_trigger', turnEast );
+		esc.setTrigger( 'south_right_trigger', turnWest );
+		esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
+
+		esc.setTrigger( 'west_left_trigger', turnSouth );
+		esc.setTrigger( 'west_right_trigger', turnNorth );
+		esc.setTrigger( 'rakugaki_small', function(){esc.changeScene('rakugaki');} );
+		esc.setDrag( 'colorbox', 0, [114,208,372,336] );
+
+		esc.setTrigger( 'north_left_trigger', turnWest );
+		esc.setTrigger( 'north_right_trigger', turnEast );
+		esc.setTrigger( 'table_small', function(){esc.changeScene('table');} );
+
+		esc.setDrag( 'card1', 0, [0,0,512,384] );
+		esc.setDrag( 'card2', 0, [0,0,512,384] );
+		esc.setDrag( 'card3', 0, [0,0,512,384] );
+		esc.setDrag( 'card4', 0, [0,0,512,384] );
+		esc.setDrag( 'card5', 0, [0,0,512,384] );
+		esc.setTrigger( 'table_down_trigger', back );
+
+		esc.setTrigger( 'rakugaki_down_trigger', back );
+
+		esc.setTrigger( 'box_down_trigger', back );
+		esc.setForm( 'box_form', 'HdHboveYPaSGhX62q3B1BGMg', 'JavaScriptで脱出ゲーム テスト1', 16,
+			function()
+			{
+				if( flag['box_open'] ) return;
+				flag['box_open'] = true;
+				esc.message( '開いた', 3000 );
+				$( 'box' ).style.backgroundPosition = '0px -1884px';
+				$( 'redkey' ).style.visibility = 'inherit';
+			},
+			function()
+			{
+				if( flag['box_open'] ) return;
+				esc.message( '……', 3000 );
+			}
+		);
+		esc.setTrigger( 'redkey',
+			function()
+			{
+				flag['redkey'] = true;
+				$( 'item_redkey' ).style.visibility = 'inherit';
+				$( 'redkey' ).style.visibility = 'hidden';
+				esc.message( '赤い鍵を入手した<br />（※自動的に使用されます）' );
+			}
+		);
+
+		esc.setTrigger( 'start',
+			function()
+			{
+				esc.changeScene('east');
+			}
+		);
+
+		esc.setTrigger( 'restart',
+			function()
+			{
+				// 初期化する
+				esc.restartAllDrag();
+				esc.restartAllForm();
+				esc.message( '' );
+				flag = [];
+				$( 'door1' ).style.visibility = 'inherit';
+				$( 'door2' ).style.visibility = 'hidden';
+				$( 'item_redkey' ).style.visibility = 'hidden';
+				$( 'redkey' ).style.visibility = 'hidden';
+				$( 'box' ).style.backgroundPosition = '0px -1500px';
+				esc.changeScene( 'title' );
+			}
+		);
+
+		esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
+	};
+
+	
+	if( window.addEventListener )
+	{
+		window.addEventListener( 'load', load, false );
+	}
+	else if( window.attachEvent )
+	{
+		window.attachEvent( 'on'+'load', load );
+	}
+
+	load = null; // なんとなく
+})();
+-->
+</script>
+
+</head>
+<body>
+	<script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script><div id="htmlbox">
+
+<h2 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">脱出ゲーム</h2>
+
+<center>
+	<div id="clockdiv">
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">分</div>
+  </div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">秒</div>
+  </div>
+</div>
+</center>
+
+<div id="escapegame_main" unselectable="on" onselectstart="return false">
+
+<div id="nowloading">Now Loading....</div>
+<div id="itembox_outer1"><div id="itembox_outer2"><div id="itembox"><div id="item_redkey"></div></div></div></div>
+<div id="messagebox_outer1"><div id="messagebox_outer2"><div id="messagebox">JavaScriptを使っています。無効にしている場合は有効にしないと遊べません。</div></div></div>
+
+<div id="title" class="scene">
+<div id="start" onClick="timeOut()"></div>
+</div>
+
+<div id="east" class="scene">
+<div id="east_left_trigger" class="left_arrow"></div>
+<div id="east_right_trigger" class="right_arrow"></div>
+<div id="deguchi"></div>
+<div id="door2"></div>
+<div id="door1"></div>
+</div>
+
+<div id="south" class="scene">
+<div id="south_left_trigger" class="left_arrow"></div>
+<div id="south_right_trigger" class="right_arrow"></div>
+<div id="box_small"></div>
+</div>
+
+<div id="west" class="scene">
+<div id="west_left_trigger" class="left_arrow"></div>
+<div id="west_right_trigger" class="right_arrow"></div>
+<div id="rakugaki_small"></div>
+<div id="colorbox"></div>
+</div>
+
+<div id="north" class="scene">
+<div id="north_left_trigger" class="left_arrow"></div>
+<div id="north_right_trigger" class="right_arrow"></div>
+<div id="table_small"></div>
+</div>
+
+<div id="rakugaki" class="scene">
+<div id="rakugaki_down_trigger" class="down_arrow"></div>
+</div>
+
+<div id="table" class="scene">
+<div id="card1"></div>
+<div id="card2"></div>
+<div id="card3"></div>
+<div id="card4"></div>
+<div id="card5"></div>
+<div id="table_down_trigger" class="down_arrow"></div>
+</div>
+
+<div id="box" class="scene">
+<div id="redkey"></div>
+<form id="box_form">
+	<input class="text" type="text" value="" maxlength="8" unselectable="off" onselectstart="return true" />
+	<br/>
+	<input class="button" type="reset" value="Clear">
+	<input class="button" type="submit" value="Enter">
+</form>
+<div id="box_down_trigger" class="down_arrow"></div>
+</div>
+
+<div id="ome" class="scene"><div id="restart"></div></div>
+
+</div>
+
+
+
+
+
+
+</html>
