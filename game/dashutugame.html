@@ -14,7 +14,7 @@ if(location.protocol == 'http:'){
 </script>
 <script type="text/javascript" src="escapegame.js"></script>
 <script type="text/javascript">
-<!--[CDATA[
+//<![CDATA[
 (function()
 {
 	var esc = new EscapeGame();
@@ -71,22 +71,27 @@ if(location.protocol == 'http:'){
 				}
 			}
 		);
+		//East
 		esc.setDrag( 'door2', 0, [85,131,318,323] );
 		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );
 
+		//South
 		esc.setTrigger( 'south_left_trigger', turnEast );
 		esc.setTrigger( 'south_right_trigger', turnWest );
 		esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
 
+		//West
 		esc.setTrigger( 'west_left_trigger', turnSouth );
 		esc.setTrigger( 'west_right_trigger', turnNorth );
 		esc.setTrigger( 'rakugaki_small', function(){esc.changeScene('rakugaki');} );
 		esc.setDrag( 'colorbox', 0, [114,208,372,336] );
 
+		//North
 		esc.setTrigger( 'north_left_trigger', turnWest );
 		esc.setTrigger( 'north_right_trigger', turnEast );
 		esc.setTrigger( 'table_small', function(){esc.changeScene('table');} );
 
+		//TableCards
 		esc.setDrag( 'card1', 0, [0,0,512,384] );
 		esc.setDrag( 'card2', 0, [0,0,512,384] );
 		esc.setDrag( 'card3', 0, [0,0,512,384] );
@@ -161,8 +166,7 @@ if(location.protocol == 'http:'){
 
 	load = null; // なんとなく
 })();
--->
-</script>
+//]]></script>
 
 </head>
 <body>
