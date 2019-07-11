@@ -126,7 +126,7 @@ p.text {
 	top: 0px;
 	width: 512px;
 	height: 384px;
-	background: url(test.gif) no-repeat;
+	background: url(images.gif) no-repeat;
 	visibility: hidden;
 }
 #east,#south,#west,#north { background-position: 0 -348px; }
@@ -175,7 +175,7 @@ p.text {
 
 #door1, #door2, #deguchi, #card1, #card2, #card3, #card4, #card5, #redkey, #item_redkey, #box_small, #rakugaki_small, #table_small, #colorbox {
 	position: absolute;
-	background: url(test.gif) no-repeat;
+	background: url(images.gif) no-repeat;
 }
 #door1, #door2 {
 	background-position: 0px -156px;
