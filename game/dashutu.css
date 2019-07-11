@@ -126,10 +126,13 @@ p.text {
 	top: 0px;
 	width: 512px;
 	height: 384px;
-	background: url(images.gif) no-repeat;
+	background: url(game.gif) no-repeat;
 	visibility: hidden;
 }
-#east,#south,#west,#north { background-position: 0 -348px; }
+#sea{ background-position: 0 0px; }
+#beach{ background-position: 0 -384px; }
+#west{ background-position: 0 -384px; }
+#north{ background-position: 0 -384px; }
 #table		{ background-position: 0 -732px; }
 #rakugaki	{ background-position: 0 -1116px; }
 #box		{ background-position: 0 -1500px; }
@@ -270,7 +273,7 @@ p.text {
 }
 
 #clockdiv div > span{
-    padding: 15px;
+    padding: 20px;
     border-radius: 3px;
     background: #00816A;
     display: inline-block;
@@ -279,4 +282,9 @@ p.text {
 .smalltext{
     padding-top: 5px;
     font-size: 20px;
+}
+
+#timespace{
+	position: absolute;
+	right: 80px;
 }

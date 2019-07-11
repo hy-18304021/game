@@ -25,35 +25,36 @@ if(location.protocol == 'http:'){
 	var load = function()
 	{
 		esc.setMessageBox( 'messagebox' );
-		esc.addScenes( ['nowloading', 'title', 'east', 'south', 'west', 'north', 'rakugaki', 'table', 'box', 'ome'] );
+		esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house', 'rakugaki', 'table', 'box', 'ome'] );
 
-		var turnEast = function()
+		var turnSea = function()
 		{
-			esc.changeScene( 'east' );
-			esc.message( '東を向いた。', 1000 );
+			esc.changeScene( 'sea' );
+			esc.message( '海だ。', 1000 );
 		};
-		var turnSouth = function()
+		var turnBeach = function()
 		{
-			esc.changeScene( 'south' );
-			esc.message( '南を向いた。', 1000 );
+			esc.changeScene( 'beach' );
+			esc.message( '海岸だ。', 1000 );
 		};
-		var turnWest = function()
+		var turnForest = function()
 		{
-			esc.changeScene( 'west' );
-			esc.message( '西を向いた。', 1000 );
+			esc.changeScene( 'forest' );
+			esc.message( '森だ。', 1000 );
 		};
-		var turnNorth = function()
+		var turnHouse = function()
 		{
-			esc.changeScene( 'north' );
-			esc.message( '北を向いた。', 1000 );
+			esc.changeScene( 'house' );
+			esc.message( '小屋の中にいる。', 1000 );
 		};
 		var back = function()
 		{
 			esc.backScene();
 		};
-
-		esc.setTrigger( 'east_left_trigger', turnNorth );
-		esc.setTrigger( 'east_right_trigger', turnSouth );
+		
+		//sea
+		esc.setTrigger( 'sea_left_trigger', turnBeach );
+		esc.setTrigger( 'sea_right_trigger', turnForest );
 		esc.setTrigger( 'door1',
 			function()
 			{
@@ -71,25 +72,23 @@ if(location.protocol == 'http:'){
 				}
 			}
 		);
-		//East
 		esc.setDrag( 'door2', 0, [85,131,318,323] );
 		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );
 
-		//South
-		esc.setTrigger( 'south_left_trigger', turnEast );
-		esc.setTrigger( 'south_right_trigger', turnWest );
+		//beach
+		esc.setTrigger( 'beach_left_trigger', turnSea );
+		esc.setTrigger( 'beach_right_trigger', turnForest );
 		esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
 
-		//West
-		esc.setTrigger( 'west_left_trigger', turnSouth );
-		esc.setTrigger( 'west_right_trigger', turnNorth );
-		esc.setTrigger( 'rakugaki_small', function(){esc.changeScene('rakugaki');} );
+		//forest
+		esc.setTrigger( 'forest_left_trigger', turnBeach );
+		esc.setTrigger( 'forest_right_trigger', turnSea );
+		esc.setTrigger( 'forest_previous_trigger', turnHouse );
 		esc.setDrag( 'colorbox', 0, [114,208,372,336] );
-
-		//North
-		esc.setTrigger( 'north_left_trigger', turnWest );
-		esc.setTrigger( 'north_right_trigger', turnEast );
-		esc.setTrigger( 'table_small', function(){esc.changeScene('table');} );
+		
+		//house
+		esc.setTrigger( 'house_down_trigger', turnWest );
+		<!--ここから救急箱とそのヒントのズーム-->
 
 		//TableCards
 		esc.setDrag( 'card1', 0, [0,0,512,384] );
@@ -130,7 +129,7 @@ if(location.protocol == 'http:'){
 		esc.setTrigger( 'start',
 			function()
 			{
-				esc.changeScene('east');
+				esc.changeScene('sea');
 			}
 		);
 
@@ -172,8 +171,9 @@ if(location.protocol == 'http:'){
 <body>
 	<script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script><div id="htmlbox">
 
-<h2 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">脱出ゲーム</h2>
+<h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">脱出ゲーム</h1>
 
+<div id="timespace">
 <center>
 	<div id="clockdiv">
   <div>
@@ -186,6 +186,7 @@ if(location.protocol == 'http:'){
   </div>
 </div>
 </center>
+</div>
 
 <div id="escapegame_main" unselectable="on" onselectstart="return false">
 
@@ -197,36 +198,31 @@ if(location.protocol == 'http:'){
 <div id="start" onClick="timeOut()"></div>
 </div>
 
-<div id="east" class="scene">
-<div id="east_left_trigger" class="left_arrow"></div>
-<div id="east_right_trigger" class="right_arrow"></div>
+<div id="sea" class="scene">
+<div id="sea_left_trigger" class="left_arrow"></div>
+<div id="sea_right_trigger" class="right_arrow"></div>
 <div id="deguchi"></div>
 <div id="door2"></div>
 <div id="door1"></div>
 </div>
 
-<div id="south" class="scene">
-<div id="south_left_trigger" class="left_arrow"></div>
-<div id="south_right_trigger" class="right_arrow"></div>
-<div id="box_small"></div>
+<div id="beach" class="scene">
+<div id="beach_left_trigger" class="left_arrow"></div>
+<div id="beach_right_trigger" class="right_arrow"></div>
 </div>
 
-<div id="west" class="scene">
-<div id="west_left_trigger" class="left_arrow"></div>
-<div id="west_right_trigger" class="right_arrow"></div>
-<div id="rakugaki_small"></div>
-<div id="colorbox"></div>
+<div id="forest" class="scene">
+<div id="forest_left_trigger" class="left_arrow"></div>
+<div id="forest_right_trigger" class="right_arrow"></div>
+<div id="forest_previous_trigger" class="previous_arrow"></div>
+<div id="house_smail"></div>
 </div>
 
-<div id="north" class="scene">
-<div id="north_left_trigger" class="left_arrow"></div>
-<div id="north_right_trigger" class="right_arrow"></div>
+<div id="house" class="scene">
+<div id="house_down_trigger" class="down_arrow"></div>
 <div id="table_small"></div>
 </div>
 
-<div id="rakugaki" class="scene">
-<div id="rakugaki_down_trigger" class="down_arrow"></div>
-</div>
 
 <div id="table" class="scene">
 <div id="card1"></div>
