@@ -73,7 +73,7 @@ if(location.protocol == 'http:'){
 			}
 		);
 		esc.setDrag( 'door2', 0, [85,131,318,323] );
-		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );
+		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );<!--クリア-->
 
 		//beach
 		esc.setTrigger( 'beach_left_trigger', turnSea );
@@ -87,7 +87,7 @@ if(location.protocol == 'http:'){
 		esc.setDrag( 'colorbox', 0, [114,208,372,336] );
 		
 		//house
-		esc.setTrigger( 'house_down_trigger', turnWest );
+		esc.setTrigger( 'house_down_trigger', turnForest );
 		<!--ここから救急箱とそのヒントのズーム-->
 
 		//TableCards
@@ -191,7 +191,9 @@ if(location.protocol == 'http:'){
 <div id="escapegame_main" unselectable="on" onselectstart="return false">
 
 <div id="nowloading">Now Loading....</div>
+<!--アイテムボックス-->
 <div id="itembox_outer1"><div id="itembox_outer2"><div id="itembox"><div id="item_redkey"></div></div></div></div>
+<!--メッセージボックス-->
 <div id="messagebox_outer1"><div id="messagebox_outer2"><div id="messagebox">JavaScriptを使っています。無効にしている場合は有効にしないと遊べません。</div></div></div>
 
 <div id="title" class="scene">
@@ -214,7 +216,7 @@ if(location.protocol == 'http:'){
 <div id="forest" class="scene">
 <div id="forest_left_trigger" class="left_arrow"></div>
 <div id="forest_right_trigger" class="right_arrow"></div>
-<div id="forest_previous_trigger" class="previous_arrow"></div>
+<div id="forest_previous_trigger" class="up_arrow"></div>
 <div id="house_smail"></div>
 </div>
 

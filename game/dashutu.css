@@ -131,8 +131,8 @@ p.text {
 }
 #sea{ background-position: 0 0px; }
 #beach{ background-position: 0 -384px; }
-#west{ background-position: 0 -384px; }
-#north{ background-position: 0 -384px; }
+#forest{ background-position: 0 -732px; }
+#house{ background-position: 0 -1116px; }
 #table		{ background-position: 0 -732px; }
 #rakugaki	{ background-position: 0 -1116px; }
 #box		{ background-position: 0 -1500px; }
