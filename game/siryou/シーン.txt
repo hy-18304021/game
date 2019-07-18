@@ -4,7 +4,7 @@ beach
 forest
 house
 start
-gameover
+black
 
 //アイテム　アイテムリストの表示はitem_**
 手紙の瓶開 open_bottle
@@ -23,8 +23,8 @@ gameover
 
 //ギミック
 
-船　ship
-
+船　横ship_side
+　　前ship_front
 
 木をずらして鍵の場所のヒント
 新聞にガラスの瓶で火災事故がおきた
