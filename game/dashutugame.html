@@ -18,7 +18,7 @@ if(location.protocol == 'http:'){
 (function()
 {
 	var esc = new EscapeGame();
-	esc.addPreLoadImages( ['images.gif'] );
+	esc.addPreLoadImages( ['images/game.gif'] );
 	var flag = [];
 	var $ = function( id ){ return document.getElementById( id ); };
 
@@ -76,13 +76,13 @@ if(location.protocol == 'http:'){
 		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );<!--クリア-->
 
 		//beach
-		esc.setTrigger( 'beach_left_trigger', turnSea );
-		esc.setTrigger( 'beach_right_trigger', turnForest );
+		esc.setTrigger( 'beach_left_trigger', turnForest );
+		esc.setTrigger( 'beach_right_trigger', turnSea );
 		esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
 
 		//forest
-		esc.setTrigger( 'forest_left_trigger', turnBeach );
-		esc.setTrigger( 'forest_right_trigger', turnSea );
+		esc.setTrigger( 'forest_left_trigger', turnSea );
+		esc.setTrigger( 'forest_right_trigger', turnBeach );
 		esc.setTrigger( 'forest_previous_trigger', turnHouse );
 		esc.setDrag( 'colorbox', 0, [114,208,372,336] );
 		

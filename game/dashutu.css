@@ -28,7 +28,7 @@ p.text {
 }
 .up_arrow {
 	left: 24px;
-	top: 0px;
+	top: 360px;
 	width: 464px;
 	height: 24px;
 	background: url(data:image/gif;base64,R0lGODlhIAAYAJEDAAAAAH9/f////wD//yH5BAEAAAMALAAAAAAgABgAAAJanI+py20AnGQghDjzEwJrCXCc9y2VKFwlhY6rErbu+wQyp9Lx3ek8SsqcfrggiAj87JAzkI0pyjmW0N60KjMehtiodkDtWhNh8bhmlknB6ZsHAo/L53Q4TVMAAA==);
@@ -126,18 +126,16 @@ p.text {
 	top: 0px;
 	width: 512px;
 	height: 384px;
-	background: url(game.gif) no-repeat;
+	background: url(images/start.png) no-repeat;
 	visibility: hidden;
 }
 #sea{ background-position: 0 0px; }
 #beach{ background-position: 0 -384px; }
-#forest{ background-position: 0 -732px; }
-#house{ background-position: 0 -1116px; }
-#table		{ background-position: 0 -732px; }
-#rakugaki	{ background-position: 0 -1116px; }
+#forest{ background-position: 0 -768px; }
+#house{ background-position: 0 -1152px; }
 #box		{ background-position: 0 -1500px; }
 #ome		{ background-position: 0 -2268px; }
-#title		{ background-position: 0 -2652px; }
+#title		{ background-position: 0 -1536px; }
 #start {
 	position: absolute;
 	left: 142px;
@@ -176,6 +174,7 @@ p.text {
 	font-family : aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
 }
 
+/*拡大関係*/
 #door1, #door2, #deguchi, #card1, #card2, #card3, #card4, #card5, #redkey, #item_redkey, #box_small, #rakugaki_small, #table_small, #colorbox {
 	position: absolute;
 	background: url(images.gif) no-repeat;
