@@ -21,14 +21,14 @@ house(a)->forest(back)
 *(z)->*zoom_item//拡大可能なアイテムの右上のボタン押すと拡大
 *zoom_item(a)->*(back)//拡大から元の画面に戻る
 //
-//sea
+//at sea
 sea(i)closed_bottle->item_closed_bottle
 zoom_closed_bottle(i)item_closed_bottle->black->zoom_letter,item_letter,item_open_bottle
 sea(u)item_open_bottle->item_filled_bottle
-//beach
+//at beach
 beach(i)smokecandle->item_smokecandle
 zoom_smokecandle()
-
+//at 
 
 
 
