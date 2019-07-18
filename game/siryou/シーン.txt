@@ -5,8 +5,12 @@ forest
 house
 start
 black
+open_box
+closed_box
+newspaper
+zoom_**
 
-//アイテム　アイテムリストの表示はitem_**
+//アイテム　アイテムリストの表示はitem_** 
 手紙の瓶開 open_bottle
 	閉 closed_bottle
 	水入り filled_bottle
@@ -15,16 +19,20 @@ black
 発煙筒	smokecandle
 	点火 kindled_smokecandle
 
-救急箱	開 open_firstaidkit
-	閉 closed_firstaidkit
+
 消毒用アルコール alcohol
 
 
 
 //ギミック
 
+救急箱	開 open_firstaidkit
+	閉 closed_firstaidkit(パスワード)
+
 船　横ship_side
 　　前ship_front
+
+新聞
 
 木をずらして鍵の場所のヒント
 新聞にガラスの瓶で火災事故がおきた
