@@ -3,21 +3,28 @@ sea
 beach
 forest
 house
+start
+gameover
 
-//アイテム
-手紙の瓶開 openbottle
-	閉 closedbottle
-	水入り filledbottle
+//アイテム　アイテムリストの表示はitem_**
+手紙の瓶開 open_bottle
+	閉 closed_bottle
+	水入り filled_bottle
 手紙 letter
 	アルコールの染みた alcoholletter
 発煙筒	smokecandle
-	点火 kindledsmokecandle
+	点火 kindled_smokecandle
 
-救急箱開 openfirstaidkit
-閉 closedfirstaidkit
+救急箱	開 open_firstaidkit
+	閉 closed_firstaidkit
 消毒用アルコール alcohol
 
+
+
 //ギミック
+
+船　ship
+
 
 木をずらして鍵の場所のヒント
 新聞にガラスの瓶で火災事故がおきた
