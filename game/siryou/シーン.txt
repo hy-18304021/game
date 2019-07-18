@@ -1,0 +1,26 @@
+//シーンw:512px,h:384px
+sea
+beach
+forest
+house
+
+//アイテム
+手紙の瓶開 openbottle
+	閉 closedbottle
+	水入り filledbottle
+手紙 letter
+	アルコールの染みた alcoholletter
+発煙筒	smokecandle
+	点火 kindledsmokecandle
+
+救急箱開 openfirstaidkit
+閉 closedfirstaidkit
+消毒用アルコール alcohol
+
+//ギミック
+
+木をずらして鍵の場所のヒント
+新聞にガラスの瓶で火災事故がおきた
+
+
+
