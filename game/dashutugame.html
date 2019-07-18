@@ -25,7 +25,7 @@ if(location.protocol == 'http:'){
 	var load = function()
 	{
 		esc.setMessageBox( 'messagebox' );
-		esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house', 'rakugaki', 'table', 'box', 'ome'] );
+		esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome'] );
 
 		var turnSea = function()
 		{
@@ -47,6 +47,68 @@ if(location.protocol == 'http:'){
 			esc.changeScene( 'house' );
 			esc.message( '小屋の中にいる。', 1000 );
 		};
+		<!--アイテム拡大-->
+		var turnOpen_bottle = function()
+		{
+			esc.changeScene( 'open_bottle' );
+			esc.message( '手紙入りの瓶だ。', 1000 );
+		};
+		
+		var turnClosed_bottle = function()
+		{
+			esc.changeScene( 'closed_bottle' );
+			esc.message( '手紙入りの瓶だ。', 1000 );
+		};
+		
+		var turnFilled_bottle = function()
+		{
+			esc.changeScene( 'filled_bottle' );
+			esc.message( '水入りの瓶だ。', 1000 );
+		};
+		
+		var turnLetter = function()
+		{
+			esc.changeScene( 'letter' );
+			esc.message( '手紙だ。', 1000 );
+		};
+		
+		var turnAlcoholletter = function()
+		{
+			esc.changeScene( 'alcoholletter' );
+			esc.message( '濡れた手紙だ。', 1000 );
+		};
+		
+		var turnSmokecandle = function()
+		{
+			esc.changeScene( 'smokecandle' );
+			esc.message( '発煙筒だ。', 1000 );
+		};
+		
+		var turnKindled_smokecandle = function()
+		{
+			esc.changeScene( 'kindled_smokecandle' );
+			esc.message( '点火できた発煙筒だ。', 1000 );
+		};
+		
+		var turnAlcohol = function()
+		{
+			esc.changeScene( 'alcohol' );
+			esc.message( 'アルコール溶液だ。', 1000 );
+		};
+		
+		<!--/アイテム拡大-->
+		var turnOpen_firstaidkit = function()
+		{
+			esc.changeScene( 'open_firstaidkit' );
+			esc.message( '救急箱だ。', 1000 );
+		};
+		
+		var turnClosed_firstaidkit = function()
+		{
+			esc.changeScene( 'closed_firstaidkit' );
+			esc.message( '救急箱だ。', 1000 );
+		};
+		
 		var back = function()
 		{
 			esc.backScene();
@@ -125,6 +187,9 @@ if(location.protocol == 'http:'){
 				esc.message( '赤い鍵を入手した<br />（※自動的に使用されます）' );
 			}
 		);
+		
+		esc.setTrigger( 'item_redkey',
+		);
 
 		esc.setTrigger( 'start',
 			function()
@@ -192,7 +257,15 @@ if(location.protocol == 'http:'){
 
 <div id="nowloading">Now Loading....</div>
 <!--アイテムボックス-->
-<div id="itembox_outer1"><div id="itembox_outer2"><div id="itembox"><div id="item_redkey"></div></div></div></div>
+<div id="itembox_outer1"><div id="itembox_outer2"><div id="itembox">
+<div id="item_closed_bottle"></div>
+<div id="item_open_bottle"></div>
+<div id="item_letter"></div>
+<div id="item_alcohol"></div>
+<div id="item_filled_bottle"></div>
+<div id="item_alcoholletter"></div>
+<div id="item_kindled_smokecandle"></div>
+</div></div></div>
 <!--メッセージボックス-->
 <div id="messagebox_outer1"><div id="messagebox_outer2"><div id="messagebox">JavaScriptを使っています。無効にしている場合は有効にしないと遊べません。</div></div></div>
 
