@@ -142,6 +142,23 @@ if(location.protocol == 'http:'){
 		esc.setTrigger( 'beach_right_trigger', turnSea );
 		esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
 
+
+		// bottle is clicked
+		esc.setTrigger( 'closed_bottle1',
+			function()
+			{
+				flag['closed_bottle1'] = true;
+				$( 'item_closed_bottle').style.display='block';
+				$( 'item_closed_bottle' ).style.visibility = 'inherit';
+				$( 'closed_bottle1' ).style.visibility = 'hidden';
+				esc.message( 'A water bottle...' );
+
+			}
+		);
+		esc.setTrigger( 'item_closed_bottle', function(){
+			turnClosed_bottle();});
+		esc.setTrigger( 'bottle_down_trigger', turnSea); //考え中
+
 		//forest
 		esc.setTrigger( 'forest_left_trigger', turnSea );
 		esc.setTrigger( 'forest_right_trigger', turnBeach );
@@ -151,6 +168,7 @@ if(location.protocol == 'http:'){
 		//house
 		esc.setTrigger( 'house_down_trigger', turnForest );
 		<!--ここから救急箱とそのヒントのズーム-->
+		esc.setTrigger( 'house_door', turnHouse);
 
 		//TableCards
 		esc.setDrag( 'card1', 0, [0,0,512,384] );
@@ -257,69 +275,88 @@ if(location.protocol == 'http:'){
 
 <div id="nowloading">Now Loading....</div>
 <!--アイテムボックス-->
-<div id="itembox_outer1"><div id="itembox_outer2"><div id="itembox">
-<div id="item_closed_bottle"></div>
-<div id="item_open_bottle"></div>
-<div id="item_letter"></div>
-<div id="item_alcohol"></div>
-<div id="item_filled_bottle"></div>
-<div id="item_alcoholletter"></div>
-<div id="item_kindled_smokecandle"></div>
-</div></div></div>
+<div id="itembox_outer1">
+	<div id="itembox_outer2">
+		<div id="itembox">
+			<div id="item_closed_bottle"></div>
+			<div id="item_open_bottle"></div>
+			<div id="item_letter"></div>
+			<div id="item_alcohol"></div>
+			<div id="item_filled_bottle"></div>
+			<div id="item_alcoholletter"></div>
+			<div id="item_kindled_smokecandle"></div>
+		</div>
+	</div>
+</div>
 <!--メッセージボックス-->
-<div id="messagebox_outer1"><div id="messagebox_outer2"><div id="messagebox">JavaScriptを使っています。無効にしている場合は有効にしないと遊べません。</div></div></div>
+<div id="messagebox_outer1">
+	<div id="messagebox_outer2">
+		<div id="messagebox">JavaScriptを使っています。無効にしている場合は有効にしないと遊べません。</div>
+	</div>
+</div>
 
 <div id="title" class="scene">
-<div id="start" onClick="timeOut()"></div>
+	<div id="start" onClick="timeOut()"></div>
 </div>
-
+<!-- Sea -->
 <div id="sea" class="scene">
-<div id="sea_left_trigger" class="left_arrow"></div>
-<div id="sea_right_trigger" class="right_arrow"></div>
-<div id="deguchi"></div>
-<div id="door2"></div>
-<div id="door1"></div>
+	<div id="sea_left_trigger" class="left_arrow"></div>
+	<div id="sea_right_trigger" class="right_arrow"></div>
+	<div id="deguchi"></div>
+	<div id="door2"></div>
+	<div id="door1"></div>
 </div>
-
+<!-- Beach -->
 <div id="beach" class="scene">
-<div id="beach_left_trigger" class="left_arrow"></div>
-<div id="beach_right_trigger" class="right_arrow"></div>
-</div>
+	<div id="beach_left_trigger" class="left_arrow"></div>
+	<div id="beach_right_trigger" class="right_arrow"></div>
+	<div id="closed_bottle1"></div>
 
+</div>
+<!-- Forest -->
 <div id="forest" class="scene">
-<div id="forest_left_trigger" class="left_arrow"></div>
-<div id="forest_right_trigger" class="right_arrow"></div>
-<div id="forest_previous_trigger" class="up_arrow"></div>
-<div id="house_smail"></div>
-</div>
+	<div id="forest_left_trigger" class="left_arrow"></div>
+	<div id="forest_right_trigger" class="right_arrow"></div>
+	<div id="forest_previous_trigger" class="up_arrow"></div>
+	<div id="house_smail"></div>
+	<div id="house_door"></div>
 
+</div>
+<!-- House's inside -->
 <div id="house" class="scene">
-<div id="house_down_trigger" class="down_arrow"></div>
-<div id="table_small"></div>
+	<div id="house_down_trigger" class="down_arrow"></div>
+	<div id="table_small"></div>
 </div>
 
+<div id="closed_bottle">
+	<div id="bottle_down_trigger" class="down_arrow"></div>
+</div>
 
 <div id="table" class="scene">
-<div id="card1"></div>
-<div id="card2"></div>
-<div id="card3"></div>
-<div id="card4"></div>
-<div id="card5"></div>
-<div id="table_down_trigger" class="down_arrow"></div>
+	<div id="card1"></div>
+	<div id="card2"></div>
+	<div id="card3"></div>
+	<div id="card4"></div>
+	<div id="card5"></div>
+	<div id="table_down_trigger" class="down_arrow"></div>
 </div>
+
+
 
 <div id="box" class="scene">
-<div id="redkey"></div>
-<form id="box_form">
-	<input class="text" type="text" value="" maxlength="8" unselectable="off" onselectstart="return true" />
-	<br/>
-	<input class="button" type="reset" value="Clear">
-	<input class="button" type="submit" value="Enter">
-</form>
-<div id="box_down_trigger" class="down_arrow"></div>
+	<div id="redkey"></div>
+	<form id="box_form">
+		<input class="text" type="text" value="" maxlength="8" unselectable="off" onselectstart="return true" />
+		<br/>
+		<input class="button" type="reset" value="Clear">
+		<input class="button" type="submit" value="Enter">
+	</form>
+	<div id="box_down_trigger" class="down_arrow"></div>
 </div>
 
-<div id="ome" class="scene"><div id="restart"></div></div>
+<div id="ome" class="scene">
+	<div id="restart"></div>
+</div>
 
 </div>
 
