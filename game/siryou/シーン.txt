@@ -12,13 +12,12 @@ zoom_**
 
 //アイテム　アイテムリストの表示はitem_** 
 手紙の瓶開 open_bottle
-	閉 closed_bottle
+	閉 closed_bottle (0,2306)74*94
 	水入り filled_bottle
 手紙 letter
 	アルコールの染みた alcoholletter
 	燃えてる　kindled_letter
-発煙筒	smokecandle
-	点火 kindled_smokecandle
+ダイナマイト　dynamite
 
 
 消毒用アルコール alcohol

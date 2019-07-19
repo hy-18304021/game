@@ -18,7 +18,7 @@ if(location.protocol == 'http:'){
 (function()
 {
 	var esc = new EscapeGame();
-	esc.addPreLoadImages( ['images/game.gif'] );
+	esc.addPreLoadImages( ['images/gameover.png'] );
 	var flag = [];
 	var $ = function( id ){ return document.getElementById( id ); };
 
@@ -206,9 +206,8 @@ if(location.protocol == 'http:'){
 			}
 		);
 		
-		esc.setTrigger( 'item_redkey',
-		);
-
+		esc.setTrigger('title',turnTitle);
+		
 		esc.setTrigger( 'start',
 			function()
 			{
@@ -254,7 +253,8 @@ if(location.protocol == 'http:'){
 <body>
 	<script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script><div id="htmlbox">
 
-<h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">脱出ゲーム</h1>
+
+<h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">無人島からの脱出</h1>
 
 <div id="timespace">
 <center>
@@ -300,14 +300,15 @@ if(location.protocol == 'http:'){
 </div>
 <!-- Sea -->
 <div id="sea" class="scene">
-	<div id="sea_left_trigger" class="left_arrow"></div>
-	<div id="sea_right_trigger" class="right_arrow"></div>
-	<div id="deguchi"></div>
-	<div id="door2"></div>
-	<div id="door1"></div>
+
+<div id="sea_left_trigger" class="left_arrow"></div>
+<div id="sea_right_trigger" class="right_arrow"></div>
+<div id="closed_bottle"></div>
+
 </div>
 <!-- Beach -->
 <div id="beach" class="scene">
+
 	<div id="beach_left_trigger" class="left_arrow"></div>
 	<div id="beach_right_trigger" class="right_arrow"></div>
 	<div id="closed_bottle1"></div>
@@ -354,9 +355,11 @@ if(location.protocol == 'http:'){
 	<div id="box_down_trigger" class="down_arrow"></div>
 </div>
 
-<div id="ome" class="scene">
-	<div id="restart"></div>
-</div>
+
+<div id="ome" class="scene"><div id="restart"></div></div>
+<div id="over" class="scene"><div id="title"></div>
+<div id="restart"></div></div>
+
 
 </div>
 
