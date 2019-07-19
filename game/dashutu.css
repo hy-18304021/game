@@ -126,7 +126,7 @@ p.text {
 	top: 0px;
 	width: 512px;
 	height: 384px;
-	background: url(images/start.png) no-repeat;
+	background: url(images/gameover.png) no-repeat;
 	visibility: hidden;
 }
 #sea{ background-position: 0 0px; }
@@ -138,10 +138,10 @@ p.text {
 #title		{ background-position: 0 -1536px; }
 #start {
 	position: absolute;
-	left: 142px;
-	top: 238px;
-	width: 200px;
-	height: 73px;
+	left: 102px;
+	top: 268px;
+	width: 274px;
+	height: 89px;
 	cursor: pointer;
 }
 #restart {
@@ -177,7 +177,7 @@ p.text {
 /*拡大関係*/
 #door1, #door2, #deguchi, #card1, #card2, #card3, #card4, #card5, #redkey, #item_redkey, #box_small, #rakugaki_small, #table_small, #colorbox {
 	position: absolute;
-	background: url(images.gif) no-repeat;
+	background: url(gameover.png) no-repeat;
 }
 #door1, #door2 {
 	background-position: 0px -156px;
@@ -206,7 +206,7 @@ p.text {
 #card3 { background-position: -192px 0px; left: 100px; top: 184px; z-index: 1; }
 #card4 { background-position: -288px 0px; left:  18px; top:  22px; z-index: 5; }  
 #card5 { background-position: -384px 0px; left: 300px; top: 180px; z-index: 4; }
-#redkey, #item_redkey {
+#closed_bottle, #item_closed_bottle {
 	background-position: -456px -156px;
 	width: 56px;
 	height: 56px;

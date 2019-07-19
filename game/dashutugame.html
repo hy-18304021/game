@@ -18,7 +18,7 @@ if(location.protocol == 'http:'){
 (function()
 {
 	var esc = new EscapeGame();
-	esc.addPreLoadImages( ['images/game.gif'] );
+	esc.addPreLoadImages( ['images/gameover.png'] );
 	var flag = [];
 	var $ = function( id ){ return document.getElementById( id ); };
 
@@ -27,6 +27,11 @@ if(location.protocol == 'http:'){
 		esc.setMessageBox( 'messagebox' );
 		esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome'] );
 
+		var turnTitle = function()
+		{
+			esc.changeScene( 'title' );
+		};
+		
 		var turnSea = function()
 		{
 			esc.changeScene( 'sea' );
@@ -146,7 +151,6 @@ if(location.protocol == 'http:'){
 		esc.setTrigger( 'forest_left_trigger', turnSea );
 		esc.setTrigger( 'forest_right_trigger', turnBeach );
 		esc.setTrigger( 'forest_previous_trigger', turnHouse );
-		esc.setDrag( 'colorbox', 0, [114,208,372,336] );
 		
 		//house
 		esc.setTrigger( 'house_down_trigger', turnForest );
@@ -188,9 +192,8 @@ if(location.protocol == 'http:'){
 			}
 		);
 		
-		esc.setTrigger( 'item_redkey',
-		);
-
+		esc.setTrigger('title',turnTitle);
+		
 		esc.setTrigger( 'start',
 			function()
 			{
@@ -236,7 +239,7 @@ if(location.protocol == 'http:'){
 <body>
 	<script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script><div id="htmlbox">
 
-<h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">脱出ゲーム</h1>
+<h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">無人島からの脱出</h1>
 
 <div id="timespace">
 <center>
@@ -276,21 +279,19 @@ if(location.protocol == 'http:'){
 <div id="sea" class="scene">
 <div id="sea_left_trigger" class="left_arrow"></div>
 <div id="sea_right_trigger" class="right_arrow"></div>
-<div id="deguchi"></div>
-<div id="door2"></div>
-<div id="door1"></div>
+<div id="closed_bottle"></div>
 </div>
 
 <div id="beach" class="scene">
 <div id="beach_left_trigger" class="left_arrow"></div>
 <div id="beach_right_trigger" class="right_arrow"></div>
+<div id="smokecandle"></div>
 </div>
 
 <div id="forest" class="scene">
 <div id="forest_left_trigger" class="left_arrow"></div>
 <div id="forest_right_trigger" class="right_arrow"></div>
 <div id="forest_previous_trigger" class="up_arrow"></div>
-<div id="house_smail"></div>
 </div>
 
 <div id="house" class="scene">
@@ -320,6 +321,8 @@ if(location.protocol == 'http:'){
 </div>
 
 <div id="ome" class="scene"><div id="restart"></div></div>
+<div id="over" class="scene"><div id="title"></div>
+<div id="restart"></div></div>
 
 </div>
 

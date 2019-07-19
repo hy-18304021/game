@@ -536,7 +536,7 @@ function timeOut(){
 }
 	function isTime(){
 		alert("TimeOut");
-		location.href = "dashutugame.html" ;
+		
 	}
 
 function initializeClock(id, endtime) {
