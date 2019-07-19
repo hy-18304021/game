@@ -136,6 +136,7 @@ p.text {
 #box		{ background-position: 0 -1500px; }
 #ome		{ background-position: 0 -2268px; }
 #title		{ background-position: 0 -1536px; }
+#over		{ background-position: 0 -1920px; }
 #start {
 	position: absolute;
 	left: 102px;
@@ -146,10 +147,18 @@ p.text {
 }
 #restart {
 	position: absolute;
-	left: 380px;
-	top: 317px;
-	width: 199px;
-	height: 50px;
+	left: 285px;
+	top: 272px;
+	width: 210px;
+	height: 65px;
+	cursor: pointer;
+}
+#go_title{
+	position: absolute;
+	left: 71px;
+	top: 272px;
+	width: 190px;
+	height: 65px;
 	cursor: pointer;
 }
 #box_form {
