@@ -16,6 +16,7 @@ zoom_**
 	水入り filled_bottle
 手紙 letter
 	アルコールの染みた alcoholletter
+	燃えてる　kindled_letter
 発煙筒	smokecandle
 	点火 kindled_smokecandle
 
@@ -32,7 +33,7 @@ zoom_**
 船　横ship_side
 　　前ship_front
 
-新聞
+新聞 
 
 木をずらして鍵の場所のヒント
 新聞にガラスの瓶で火災事故がおきた
