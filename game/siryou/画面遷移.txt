@@ -18,19 +18,16 @@ forest(a)->sea,beach,house(left,right,front)
 beach(a)->sea,forest(right,left)
 house(a)->forest(back)
 *(t)->start
-
 *(z)->*zoom_item//Šg‘å‰Â”\‚ÈƒAƒCƒeƒ€‚Ì‰Eã‚Ìƒ{ƒ^ƒ“‰Ÿ‚·‚ÆŠg‘å
 *zoom_item(a)->*(back)//Šg‘å‚©‚çŒ³‚Ì‰æ–Ê‚É–ß‚é
 //
-
-
 //at sea
 sea(i)closed_bottle->item_closed_bottle
 zoom_closed_bottle(i)item_closed_bottle->black->zoom_letter,item_letter,item_open_bottle
 sea(u)item_open_bottle->item_filled_bottle
 //at beach
 beach(i)smokecandle->item_smokecandle
-zoom_smokecandle()
+zoom_smokecandle(i)kindled_letter->
 //at 
 
 
