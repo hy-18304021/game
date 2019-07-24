@@ -1,6 +1,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="ja"><head>
+<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=640px">
 <meta name="referrer" content="origin-when-crossorigin">
@@ -18,14 +19,40 @@ if(location.protocol == 'http:'){
 	esc.addPreLoadImages( ['images/gameover.png'] );
 	var flag = [];
 	var $ = function( id ){ return document.getElementById( id ); };
-	esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
+	esc.addScenes( ['nowloading','go_title','restart', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
+	
+	//タイトルへ
+	esc.setTrigger( 'go_title',
+		function()
+		{
+			
+			// 初期化する
+			esc.restartAllDrag();
+			esc.restartAllForm();
+			esc.message( '' );
+			flag = [];
+			esc.changeScene( 'title' );
+		}
+	);
+	
+	//リスタート
+	esc.setTrigger( 'restart',
+		function()
+		{
+			// 初期化する
+			esc.restartAllDrag();
+			esc.restartAllForm();
+			esc.message( '' );
+			esc.changeScene( 'sea' );
+		}
+	);
 //<![CDATA[
 (function()
 {
 	var load = function()
 	{
 		esc.setMessageBox( 'messagebox' );
-
+		
 		var turnSea = function()
 		{
 			esc.changeScene( 'sea' );
@@ -136,7 +163,7 @@ if(location.protocol == 'http:'){
 		);
 		esc.setDrag( 'door2', 0, [85,131,318,323] );
 		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );<!--クリア-->
-
+		
 		//beach
 		esc.setTrigger( 'beach_left_trigger', turnForest );
 		esc.setTrigger( 'beach_right_trigger', turnSea );
@@ -151,14 +178,13 @@ if(location.protocol == 'http:'){
 				$( 'item_closed_bottle').style.display='block';
 				$( 'item_closed_bottle' ).style.visibility = 'inherit';
 				$( 'closed_bottle1' ).style.visibility = 'hidden';
-				esc.message( 'A water bottle...' );
+				esc.message( 'ボトルを拾った',3000 );
 
 			}
 		);
-		esc.setTrigger( 'item_closed_bottle', function(){
-			turnClosed_bottle();});
+		esc.setTrigger( 'item_closed_bottle', function(){esc.changeScene('closed_bottle');});
 		esc.setTrigger( 'bottle_down_trigger', turnSea); //考え中
-
+		
 		//forest
 		esc.setTrigger( 'forest_left_trigger', turnSea );
 		esc.setTrigger( 'forest_right_trigger', turnBeach );
@@ -167,8 +193,8 @@ if(location.protocol == 'http:'){
 		
 		//house
 		esc.setTrigger( 'house_down_trigger', turnForest );
-		<!--ここから救急箱とそのヒントのズーム-->
 		esc.setTrigger( 'house_door', turnHouse);
+		<!--ここから救急箱とそのヒントのズーム-->
 
 		//TableCards
 		esc.setDrag( 'card1', 0, [0,0,512,384] );
@@ -212,45 +238,10 @@ if(location.protocol == 'http:'){
 				esc.changeScene('sea');
 			}
 		);
-
-		//タイトルへ
-		esc.setTrigger( 'go_title',
-			function()
-			{
-				// 初期化する
-				esc.restartAllDrag();
-				esc.restartAllForm();
-				esc.message( '' );
-				flag = [];
-				$( 'door1' ).style.visibility = 'inherit';
-				$( 'door2' ).style.visibility = 'hidden';
-				$( 'item_redkey' ).style.visibility = 'hidden';
-				$( 'redkey' ).style.visibility = 'hidden';
-				$( 'box' ).style.backgroundPosition = '0px -1500px';
-				esc.changeScene( 'sea' );
-			}
-		);
 		
-		//リスタート
-		esc.setTrigger( 'restart',
-			function()
-			{
-				// 初期化する
-				esc.restartAllDrag();
-				esc.restartAllForm();
-				esc.message( '' );
-				$( 'door1' ).style.visibility = 'inherit';
-				$( 'door2' ).style.visibility = 'hidden';
-				$( 'item_redkey' ).style.visibility = 'hidden';
-				$( 'redkey' ).style.visibility = 'hidden';
-				$( 'box' ).style.backgroundPosition = '0px -1500px';
-				esc.changeScene( 'sea' );
-			}
-		);
-
 		esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
 	};
-
+	
 	
 	if( window.addEventListener )
 	{
@@ -306,13 +297,35 @@ function initializeClock(id, endtime) {
 var deadline = new Date(Date.parse(new Date()) +  5 * 60 * 1000);
 initializeClock('clockdiv', deadline);
 }
+
+function popupImage() {
+  var popup = document.getElementById('js-popup');
+  if(!popup) return;
+
+  var blackBg = document.getElementById('js-black-bg');
+
+  var blackBg = document.getElementById('js-black-bg');
+  var closeBtn = document.getElementById('js-close-btn');
+  var showBtn = document.getElementById('js-show-popup');
+
+  closePopUp(blackBg);
+  closePopUp(closeBtn);
+  closePopUp(showBtn);
+  function closePopUp(elem) {
+    if(!elem) return;
+    elem.addEventListener('click', function() {
+      popup.classList.toggle('is-show');
+    });
+  }
+}
+popupImage();
+
 //]]></script>
 
 </head>
 <body>
-	<script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script><div id="htmlbox">
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="images.js"></script>
 <h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">無人島からの脱出</h1>
 
 <div id="timespace">
@@ -362,7 +375,7 @@ initializeClock('clockdiv', deadline);
 
 <div id="sea_left_trigger" class="left_arrow"></div>
 <div id="sea_right_trigger" class="right_arrow"></div>
-<div id="closed_bottle"></div>
+<div id="closed_bottle1"></div>
 
 </div>
 <!-- Beach -->
@@ -370,7 +383,6 @@ initializeClock('clockdiv', deadline);
 
 	<div id="beach_left_trigger" class="left_arrow"></div>
 	<div id="beach_right_trigger" class="right_arrow"></div>
-	<div id="closed_bottle1"></div>
 
 </div>
 <!-- Forest -->
@@ -388,7 +400,8 @@ initializeClock('clockdiv', deadline);
 	<div id="table_small"></div>
 </div>
 
-<div id="closed_bottle">
+<!--拡大-->
+<div id="closed_bottle" class="scene">
 	<div id="bottle_down_trigger" class="down_arrow"></div>
 </div>
 
@@ -415,16 +428,25 @@ initializeClock('clockdiv', deadline);
 </div>
 
 
-<div id="ome" class="scene"><div id="restart"></div></div>
-<div id="over" class="scene"><div id="go_title"></div>
-<div id="restart"></div></div>
-
-
+<div id="ome" class="scene">
+<div id="restart"></div>
 </div>
 
-
-
-
-
-
+<div id="over" class="scene">
+<div id="go_title"></div>
+<div id="restart"></div>
+</div>
+</div>
+<!--アイテム拡大に使える-->
+    <div class="content">
+        <a class="js-modal-open" href="">クリックでモーダルを表示</a>
+    </div>
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+            <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
+            <a class="js-modal-close" href="">閉じる</a>
+        </div><!--modal__inner-->
+    </div><!--modal-->
+</body>
 </html>
