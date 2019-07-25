@@ -1,17 +1,16 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="ja"><head>
-<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+<html lang="ja">
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=640px">
 <meta name="referrer" content="origin-when-crossorigin">
 <meta name="referrer" content="origin-when-cross-origin">
 <link rel="stylesheet" type="text/css" href="dashutu.css">
 <title>脱出ゲーム</title>
-<script type="text/javascript"><!--
+<script type="text/javascript">
 if(location.protocol == 'http:'){
 	location.replace(location.href.replace(/^http:/, 'https:'));
-}-->
+}
 </script>
 <script type="text/javascript" src="escapegame.js"></script>
 <script type="text/javascript">
@@ -19,33 +18,8 @@ if(location.protocol == 'http:'){
 	esc.addPreLoadImages( ['images/gameover.png'] );
 	var flag = [];
 	var $ = function( id ){ return document.getElementById( id ); };
-	esc.addScenes( ['nowloading','go_title','restart', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
+	esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
 	
-	//タイトルへ
-	esc.setTrigger( 'go_title',
-		function()
-		{
-			
-			// 初期化する
-			esc.restartAllDrag();
-			esc.restartAllForm();
-			esc.message( '' );
-			flag = [];
-			esc.changeScene( 'title' );
-		}
-	);
-	
-	//リスタート
-	esc.setTrigger( 'restart',
-		function()
-		{
-			// 初期化する
-			esc.restartAllDrag();
-			esc.restartAllForm();
-			esc.message( '' );
-			esc.changeScene( 'sea' );
-		}
-	);
 //<![CDATA[
 (function()
 {
@@ -175,9 +149,8 @@ if(location.protocol == 'http:'){
 			function()
 			{
 				flag['closed_bottle1'] = true;
-				$( 'item_closed_bottle').style.display='block';
-				$( 'item_closed_bottle' ).style.visibility = 'inherit';
-				$( 'closed_bottle1' ).style.visibility = 'hidden';
+				$('item_closed_bottle').style.visibility = 'inherit';
+				$('closed_bottle1').style.visibility = 'hidden';
 				esc.message( 'ボトルを拾った',3000 );
 
 			}
@@ -194,7 +167,6 @@ if(location.protocol == 'http:'){
 		//house
 		esc.setTrigger( 'house_down_trigger', turnForest );
 		esc.setTrigger( 'house_door', turnHouse);
-		<!--ここから救急箱とそのヒントのズーム-->
 
 		//TableCards
 		esc.setDrag( 'card1', 0, [0,0,512,384] );
@@ -233,6 +205,28 @@ if(location.protocol == 'http:'){
 		);
 		
 		esc.setTrigger( 'start',
+			function()
+			{
+				esc.changeScene('sea');
+			}
+		);
+		
+			<!--タイトルへ-->
+	esc.setTrigger( 'go_title',
+		function()
+		{
+			
+			// 初期化する
+			esc.restartAllDrag();
+			esc.restartAllForm();
+			esc.message( '' );
+			flag = [];
+			esc.changeScene( 'title' );
+		}
+	);
+	
+	<!--リスタート-->
+		esc.setTrigger( 'restart',
 			function()
 			{
 				esc.changeScene('sea');
@@ -434,7 +428,7 @@ popupImage();
 
 <div id="over" class="scene">
 <div id="go_title"></div>
-<div id="restart"></div>
+<div id="restart" onClick="timeOut()"></div>
 </div>
 </div>
 <!--アイテム拡大に使える-->
