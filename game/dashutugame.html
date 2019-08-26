@@ -17,7 +17,7 @@ if(location.protocol == 'http:'){
 	var esc = new EscapeGame();
 	esc.addPreLoadImages( ['images/gameover.png'] );
 	var flag = [];
-	var $ = function( id ){ return document.getElementById( id ); };
+	var $$ = function( id ){ return document.getElementById( id ); };
 	esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
 	
 //<![CDATA[
@@ -115,6 +115,15 @@ if(location.protocol == 'http:'){
 			esc.backScene();
 		};
 		
+		var turnRestart = function()
+		{
+			esc.restartAllDrag();
+			esc.restartAllForm();
+			esc.message( '' );
+			flag = [];
+			esc.changeScene( 'sea' );
+		}
+		
 		//sea
 		esc.setTrigger( 'sea_left_trigger', turnBeach );
 		esc.setTrigger( 'sea_right_trigger', turnForest );
@@ -149,14 +158,13 @@ if(location.protocol == 'http:'){
 			function()
 			{
 				flag['closed_bottle1'] = true;
-				$('item_closed_bottle').style.visibility = 'inherit';
-				$('closed_bottle1').style.visibility = 'hidden';
+				$$('item_closed_bottle').style.display='block';
+				$$('item_closed_bottle').style.visibility = 'inherit';
+				$$('closed_bottle1').style.visibility = 'hidden';
 				esc.message( 'ボトルを拾った',3000 );
 
 			}
 		);
-		esc.setTrigger( 'item_closed_bottle', function(){esc.changeScene('closed_bottle');});
-		esc.setTrigger( 'bottle_down_trigger', turnSea); //考え中
 		
 		//forest
 		esc.setTrigger( 'forest_left_trigger', turnSea );
@@ -226,12 +234,7 @@ if(location.protocol == 'http:'){
 	);
 	
 	<!--リスタート-->
-		esc.setTrigger( 'restart',
-			function()
-			{
-				esc.changeScene('sea');
-			}
-		);
+		esc.setTrigger( 'restart',turnRestart);
 		
 		esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
 	};
@@ -429,7 +432,6 @@ popupImage();
 <div id="over" class="scene">
 <div id="go_title"></div>
 <div id="restart" onClick="timeOut()"></div>
-</div>
 </div>
 <!--アイテム拡大に使える-->
     <div class="content">
