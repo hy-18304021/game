@@ -115,14 +115,6 @@ if(location.protocol == 'http:'){
 			esc.backScene();
 		};
 		
-		var turnRestart = function()
-		{
-			esc.restartAllDrag();
-			esc.restartAllForm();
-			esc.message( '' );
-			flag = [];
-			esc.changeScene( 'sea' );
-		}
 		
 		//sea
 		esc.setTrigger( 'sea_left_trigger', turnBeach );
@@ -234,7 +226,7 @@ if(location.protocol == 'http:'){
 		);
 		
 		esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
-	
+	};
 	
 	if( window.addEventListener )
 	{
