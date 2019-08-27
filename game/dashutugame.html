@@ -48,7 +48,7 @@ if(location.protocol == 'http:'){
 			esc.message( '小屋の中にいる。', 1000 );
 		};
 		
-		<!--アイテム拡大-->
+		//アイテム拡大
 		var turnOpen_bottle = function()
 		{
 			esc.changeScene( 'open_bottle' );
@@ -97,7 +97,7 @@ if(location.protocol == 'http:'){
 			esc.message( 'アルコール溶液だ。', 1000 );
 		};
 		
-		<!--/アイテム拡大-->
+		//アイテム拡大
 		var turnOpen_firstaidkit = function()
 		{
 			esc.changeScene( 'open_firstaidkit' );
@@ -137,7 +137,7 @@ if(location.protocol == 'http:'){
 			}
 		);
 		esc.setDrag( 'door2', 0, [85,131,318,323] );
-		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );<!--クリア-->
+		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );//クリア
 		
 		//beach
 		esc.setTrigger( 'beach_left_trigger', turnForest );
@@ -211,7 +211,7 @@ if(location.protocol == 'http:'){
 			}
 		);
 		
-		<!--タイトルへ-->
+		//タイトルへ
 		esc.setTrigger( 'go_title',
 			function()
 			{
@@ -335,13 +335,13 @@ popupImage();
 <div id="itembox_outer1">
 	<div id="itembox_outer2">
 		<div id="itembox">
-			<div id="item_closed_bottle"></div>
-			<div id="item_open_bottle"></div>
-			<div id="item_letter"></div>
-			<div id="item_alcohol"></div>
-			<div id="item_filled_bottle"></div>
-			<div id="item_alcoholletter"></div>
-			<div id="item_kindled_smokecandle"></div>
+			<div id="item_closed_bottle" class="js-modal-open"></div>
+			<div id="item_open_bottle" class="js-modal-open"></div>
+			<div id="item_letter" class="js-modal-open"></div>
+			<div id="item_alcohol" class="js-modal-open"></div>
+			<div id="item_filled_bottle" class="js-modal-open"></div>
+			<div id="item_alcoholletter" class="js-modal-open"></div>
+			<div id="item_kindled_smokecandle" class="js-modal-open"></div>
 		</div>
 	</div>
 </div>
@@ -385,10 +385,6 @@ popupImage();
 	<div id="table_small"></div>
 </div>
 
-<!--拡大-->
-<div id="closed_bottle" class="scene">
-	<div id="bottle_down_trigger" class="down_arrow"></div>
-</div>
 
 <div id="table" class="scene">
 	<div id="card1"></div>
@@ -420,17 +416,13 @@ popupImage();
 <div id="over" class="scene">
 <div id="go_title"></div>
 </div>
-<br><br><br><br>
 <!--アイテム拡大に使える-->
-    <div class="content">
-        <a class="js-modal-open" href="">クリックでモーダルを表示</a>
-    </div>
-    <div class="modal js-modal">
-        <div class="modal__bg js-modal-close"></div>
-        <div class="modal__content">
-            <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
-            <a class="js-modal-close" href="">閉じる</a>
-        </div><!--modal__inner-->
-    </div><!--modal-->
+	<div id="modal_scene" class="modal js-modal">
+	    <div class="modal__bg js-modal-close"></div>
+	    <div class="modal__content">
+	        <a class="js-modal-close">閉じる</a>
+	    </div><!--modal__inner-->
+	</div><!--modal-->
+</div>
 </body>
 </html>

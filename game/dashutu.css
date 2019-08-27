@@ -335,20 +335,29 @@ p.text {
 #content{
     left: 50px;
 }
+
+#modal_scene{
+	left: 0px;
+	top: 0px;
+	width: 512px;
+	height: 384px;
+}
+
 .modal{
     display: none;
     float:left;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 512px;
+	height: 384px;
     z-index: 100000000;
 }
 .modal__bg{
+	position: absolute;
     background: rgba(0,0,0,0.8);
-    height: 100vh;
-    position: absolute;
-    width: 100%;
+    width: 512px;
+	height: 384px;
 }
 .modal__content{
     background: #fff;
