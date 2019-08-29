@@ -365,3 +365,12 @@ p.text {
     transform: translate(-50%,-50%);
     width: 60%;
 }
+#modal_closed_bottle{
+	background: url(images/bottle.png) no-repeat;
+	background-position: 0px 0px;
+	margin-left:36px;
+	margin-top: 12px;
+	width: 102px;
+	height: 156px;
+	z-index: 500;
+}

@@ -20,7 +20,6 @@
 			var $$ = function( id ){ return document.getElementById( id ); };
 			esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
 			
-			//<![CDATA[
 			(function()
 			{
 				var load = function()
@@ -303,7 +302,14 @@
 				});
 			}
 			}
-			popupImage();//]]>
+			popupImage();
+			
+			function itemModal(m_img){
+				switch(m_img){
+					case "cbm":
+					$$('modal_closed_bottle').style.visibility = 'inherit';
+				}
+			}
 		</script>
 
 	</head>
@@ -334,7 +340,7 @@
 		<div id="itembox_outer1">
 			<div id="itembox_outer2">
 				<div id="itembox">
-					<div id="item_closed_bottle" class="js-modal-open"></div>
+					<div id="item_closed_bottle" class="js-modal-open" onclick="itemModal(cbm)"></div>
 					<div id="item_open_bottle" class="js-modal-open"></div>
 					<div id="item_letter" class="js-modal-open"></div>
 					<div id="item_alcohol" class="js-modal-open"></div>
@@ -415,6 +421,7 @@
 			<div id="modal_scene" class="modal js-modal">
 				<div class="modal__bg js-modal-close"></div>
 				<div class="modal__content">
+					<div id="modal_closed_bottle"></div>
 					<a class="js-modal-close">閉じる</a>
 				</div><!--modal__inner-->
 			</div><!--modal-->
