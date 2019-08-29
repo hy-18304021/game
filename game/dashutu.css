@@ -326,6 +326,7 @@ p.text {
 	z-index: 500;
 	cursor: pointer;
 	display: none;
+	background-size: 100px;
 }
 
 
@@ -363,14 +364,13 @@ p.text {
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 60%;
 }
 #modal_closed_bottle{
 	background: url(images/bottle.png) no-repeat;
 	background-position: 0px 0px;
-	margin-left:36px;
 	margin-top: 12px;
-	width: 102px;
-	height: 156px;
+	width: 300px;
+	height: 150px;
 	z-index: 500;
+	background-size: 300px;
 }
