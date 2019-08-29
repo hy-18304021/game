@@ -1,3 +1,4 @@
+// モーダルウィンドウ
 $(function(){
     $('.js-modal-open').on('click',function(){
         $('.js-modal').fadeIn();

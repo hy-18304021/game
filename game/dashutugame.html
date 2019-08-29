@@ -1,428 +1,423 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="ja">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<meta name="viewport" content="width=640px">
-<meta name="referrer" content="origin-when-crossorigin">
-<meta name="referrer" content="origin-when-cross-origin">
-<link rel="stylesheet" type="text/css" href="dashutu.css">
-<title>脱出ゲーム</title>
-<script type="text/javascript">
-if(location.protocol == 'http:'){
-	location.replace(location.href.replace(/^http:/, 'https:'));
-}
-</script>
-<script type="text/javascript" src="escapegame.js"></script>
-<script type="text/javascript">
-	var esc = new EscapeGame();
-	esc.addPreLoadImages( ['images/gameover.png'] );
-	var flag = [];
-	var $$ = function( id ){ return document.getElementById( id ); };
-	esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
-	
-//<![CDATA[
-(function()
-{
-	var load = function()
-	{
-		esc.setMessageBox( 'messagebox' );
-		
-		var turnSea = function()
-		{
-			esc.changeScene( 'sea' );
-			esc.message( '海だ。', 1000 );
-		};
-		var turnBeach = function()
-		{
-			esc.changeScene( 'beach' );
-			esc.message( '海岸だ。', 1000 );
-		};
-		var turnForest = function()
-		{
-			esc.changeScene( 'forest' );
-			esc.message( '森だ。', 1000 );
-		};
-		var turnHouse = function()
-		{
-			esc.changeScene( 'house' );
-			esc.message( '小屋の中にいる。', 1000 );
-		};
-		
-		//アイテム拡大
-		var turnOpen_bottle = function()
-		{
-			esc.changeScene( 'open_bottle' );
-			esc.message( '手紙入りの瓶だ。', 1000 );
-		};
-		
-		var turnClosed_bottle = function()
-		{
-			esc.changeScene( 'closed_bottle' );
-			esc.message( '手紙入りの瓶だ。', 1000 );
-		};
-		
-		var turnFilled_bottle = function()
-		{
-			esc.changeScene( 'filled_bottle' );
-			esc.message( '水入りの瓶だ。', 1000 );
-		};
-		
-		var turnLetter = function()
-		{
-			esc.changeScene( 'letter' );
-			esc.message( '手紙だ。', 1000 );
-		};
-		
-		var turnAlcoholletter = function()
-		{
-			esc.changeScene( 'alcoholletter' );
-			esc.message( '濡れた手紙だ。', 1000 );
-		};
-		
-		var turnSmokecandle = function()
-		{
-			esc.changeScene( 'smokecandle' );
-			esc.message( '発煙筒だ。', 1000 );
-		};
-		
-		var turnKindled_smokecandle = function()
-		{
-			esc.changeScene( 'kindled_smokecandle' );
-			esc.message( '点火できた発煙筒だ。', 1000 );
-		};
-		
-		var turnAlcohol = function()
-		{
-			esc.changeScene( 'alcohol' );
-			esc.message( 'アルコール溶液だ。', 1000 );
-		};
-		
-		//アイテム拡大
-		var turnOpen_firstaidkit = function()
-		{
-			esc.changeScene( 'open_firstaidkit' );
-			esc.message( '救急箱だ。', 1000 );
-		};
-		
-		var turnClosed_firstaidkit = function()
-		{
-			esc.changeScene( 'closed_firstaidkit' );
-			esc.message( '救急箱だ。', 1000 );
-		};
-		
-		var back = function()
-		{
-			esc.backScene();
-		};
-		
-		
-		//sea
-		esc.setTrigger( 'sea_left_trigger', turnBeach );
-		esc.setTrigger( 'sea_right_trigger', turnForest );
-		esc.setTrigger( 'door1',
-			function()
-			{
-				if( flag['redkey'] )
-				{
-					esc.message( 'ガチャっとロックが外れる音がした。' );
-					// 注:visibility='visible'だと親要素が優先されないので'inherit'にする
-					$( 'door2' ).style.visibility = 'inherit';
-					$( 'door1' ).style.visibility = 'hidden';
-					$( 'item_redkey' ).style.visibility = 'hidden';
-				}
-				else
-				{
-					esc.message( '鍵が掛かってる。', 3000 );
-				}
-			}
-		);
-		esc.setDrag( 'door2', 0, [85,131,318,323] );
-		esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );//クリア
-		
-		//beach
-		esc.setTrigger( 'beach_left_trigger', turnForest );
-		esc.setTrigger( 'beach_right_trigger', turnSea );
-		esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
-
-
-		// bottle is clicked
-		esc.setTrigger( 'closed_bottle1',
-			function()
-			{
-				flag['closed_bottle1'] = true;
-				$$('item_closed_bottle').style.display='block';
-				$$('item_closed_bottle').style.visibility = 'inherit';
-				$$('closed_bottle1').style.visibility = 'hidden';
-				esc.message( 'ボトルを拾った',3000 );
-
-			}
-		);
-		
-		//forest
-		esc.setTrigger( 'forest_left_trigger', turnSea );
-		esc.setTrigger( 'forest_right_trigger', turnBeach );
-		esc.setTrigger( 'forest_previous_trigger', turnHouse );
-		esc.setDrag( 'colorbox', 0, [114,208,372,336] );
-		
-		//house
-		esc.setTrigger( 'house_down_trigger', turnForest );
-		esc.setTrigger( 'house_door', turnHouse);
-
-		//TableCards
-		esc.setDrag( 'card1', 0, [0,0,512,384] );
-		esc.setDrag( 'card2', 0, [0,0,512,384] );
-		esc.setDrag( 'card3', 0, [0,0,512,384] );
-		esc.setDrag( 'card4', 0, [0,0,512,384] );
-		esc.setDrag( 'card5', 0, [0,0,512,384] );
-		esc.setTrigger( 'table_down_trigger', back );
-
-		esc.setTrigger( 'rakugaki_down_trigger', back );
-
-		esc.setTrigger( 'box_down_trigger', back );
-		esc.setForm( 'box_form', 'HdHboveYPaSGhX62q3B1BGMg', 'JavaScriptで脱出ゲーム テスト1', 16,
-			function()
-			{
-				if( flag['box_open'] ) return;
-				flag['box_open'] = true;
-				esc.message( '開いた', 3000 );
-				$( 'box' ).style.backgroundPosition = '0px -1884px';
-				$( 'redkey' ).style.visibility = 'inherit';
-			},
-			function()
-			{
-				if( flag['box_open'] ) return;
-				esc.message( '……', 3000 );
-			}
-		);
-		esc.setTrigger( 'redkey',
-			function()
-			{
-				flag['redkey'] = true;
-				$( 'item_redkey' ).style.visibility = 'inherit';
-				$( 'redkey' ).style.visibility = 'hidden';
-				esc.message( '赤い鍵を入手した<br />（※自動的に使用されます）' );
-			}
-		);
-		
-		esc.setTrigger( 'start',
-			function()
-			{
-				esc.changeScene('sea');
-			}
-		);
-		
-		//タイトルへ
-		esc.setTrigger( 'go_title',
-			function()
-			{
-				
-				// 初期化する
-				esc.restartAllDrag();
-				esc.restartAllForm();
-				esc.message( '' );
-				flag = [];
-				esc.changeScene( 'title' );
-			}
-		);
-		
-		esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
-	};
-	
-	if( window.addEventListener )
-	{
-		window.addEventListener( 'load', load, false );
-	}
-	else if( window.attachEvent )
-	{
-		window.attachEvent( 'on'+'load', load );
-	}
-
-	load = null; // なんとなく
-})();
-
-//TimeOut
-function timeOut(){
-	function getTimeRemaining(endtime) {
-		var t = Date.parse(endtime) - Date.parse(new Date());
-		var seconds = Math.floor((t / 1000) % 60);
-		var minutes = Math.floor((t / 1000 / 60) % 60);
-
-		return {
-			'total': t,
-			'minutes': minutes,
-			'seconds': seconds
-		};
-	}
-	function isTime(){
-		alert("TimeOut");
-		esc.changeScene( 'over' );
-	}
-
-	function initializeClock(id, endtime) {
-	var clock = document.getElementById(id);
-	var minutesSpan = clock.querySelector('.minutes');
-	var secondsSpan = clock.querySelector('.seconds');
-
-		function updateClock() {
-			var t = getTimeRemaining(endtime);
-
-			minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-			secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-			if (t.total <= 0) {
-			clearInterval(timeinterval);
-			isTime();
-			}
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=640px">
+		<meta name="referrer" content="origin-when-crossorigin">
+		<meta name="referrer" content="origin-when-cross-origin">
+		<link rel="stylesheet" type="text/css" href="dashutu.css">
+		<title>脱出ゲーム</title>
+		<script type="text/javascript">
+		if(location.protocol == 'http:'){
+			location.replace(location.href.replace(/^http:/, 'https:'));
 		}
+		</script>
+		<script type="text/javascript" src="escapegame.js"></script>
+		<script type="text/javascript">
+			var esc = new EscapeGame();
+			esc.addPreLoadImages( ['images/gameover.png'] );
+			var flag = [];
+			var $$ = function( id ){ return document.getElementById( id ); };
+			esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
+			
+			//<![CDATA[
+			(function()
+			{
+				var load = function()
+				{
+					esc.setMessageBox( 'messagebox' );
+					
+					var turnSea = function()
+					{
+						esc.changeScene( 'sea' );
+						esc.message( '海だ。', 1000 );
+					};
+					var turnBeach = function()
+					{
+						esc.changeScene( 'beach' );
+						esc.message( '海岸だ。', 1000 );
+					};
+					var turnForest = function()
+					{
+						esc.changeScene( 'forest' );
+						esc.message( '森だ。', 1000 );
+					};
+					var turnHouse = function()
+					{
+						esc.changeScene( 'house' );
+						esc.message( '小屋の中にいる。', 1000 );
+					};
+					
+					//アイテム拡大
+					var turnOpen_bottle = function()
+					{
+						esc.changeScene( 'open_bottle' );
+						esc.message( '空き瓶だ。', 1000 );
+					};
+					
+					var turnClosed_bottle = function()
+					{
+						esc.changeScene( 'closed_bottle' );
+						esc.message( '手紙入りの瓶だ。', 1000 );
+					};
+					
+					var turnFilled_bottle = function()
+					{
+						esc.changeScene( 'filled_bottle' );
+						esc.message( '水入りの瓶だ。', 1000 );
+					};
+					
+					var turnLetter = function()
+					{
+						esc.changeScene( 'letter' );
+						esc.message( '手紙だ。', 1000 );
+					};
+					
+					var turnAlcoholletter = function()
+					{
+						esc.changeScene( 'alcoholletter' );
+						esc.message( 'アルコールの染みた手紙だ。', 1000 );
+					};
+					
+					var turnSmokecandle = function()
+					{
+						esc.changeScene( 'smokecandle' );
+						esc.message( '発煙筒だ。', 1000 );
+					};
+					
+					var turnKindled_smokecandle = function()
+					{
+						esc.changeScene( 'kindled_smokecandle' );
+						esc.message( '点火できた発煙筒だ。', 1000 );
+					};
+					
+					var turnAlcohol = function()
+					{
+						esc.changeScene( 'alcohol' );
+						esc.message( 'アルコール溶液だ。', 1000 );
+					};
+					
+					//アイテム拡大
+					var turnOpen_firstaidkit = function()
+					{
+						esc.changeScene( 'open_firstaidkit' );
+						esc.message( '救急箱だ。', 1000 );
+					};
+					
+					var turnClosed_firstaidkit = function()
+					{
+						esc.changeScene( 'closed_firstaidkit' );
+						esc.message( '救急箱だ。', 1000 );
+					};
+					
+					var back = function()
+					{
+						esc.backScene();
+					};
+					
+					
+					//sea
+					esc.setTrigger( 'sea_left_trigger', turnBeach );
+					esc.setTrigger( 'sea_right_trigger', turnForest );
+					esc.setTrigger( 'door1',
+						function()
+						{
+							if( flag['redkey'] )
+							{
+								esc.message( 'ガチャっとロックが外れる音がした。' );
+								// 注:visibility='visible'だと親要素が優先されないので'inherit'にする
+								$( 'door2' ).style.visibility = 'inherit';
+								$( 'door1' ).style.visibility = 'hidden';
+								$( 'item_redkey' ).style.visibility = 'hidden';
+							}
+							else
+							{
+								esc.message( '鍵が掛かってる。', 3000 );
+							}
+						}
+					);
+					esc.setDrag( 'door2', 0, [85,131,318,323] );
+					esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );//クリア
+					
+					//beach
+					esc.setTrigger( 'beach_left_trigger', turnForest );
+					esc.setTrigger( 'beach_right_trigger', turnSea );
+					esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
 
-		updateClock();
-		var timeinterval = setInterval(updateClock, 1000);
-	}
 
-	var deadline = new Date(Date.parse(new Date()) +  5 * 60 * 1000);
-	initializeClock('clockdiv', deadline);
-}
+					// bottle is clicked
+					esc.setTrigger( 'closed_bottle1',
+						function()
+						{
+							flag['closed_bottle1'] = true;
+							$$('item_closed_bottle').style.display='block';
+							$$('item_closed_bottle').style.visibility = 'inherit';
+							$$('closed_bottle1').style.visibility = 'hidden';
+							esc.message( 'ボトルを拾った',3000 );
 
-function popupImage() {
-  var popup = document.getElementById('js-popup');
-  if(!popup) return;
+						}
+					);
+					
+					//forest
+					esc.setTrigger( 'forest_left_trigger', turnSea );
+					esc.setTrigger( 'forest_right_trigger', turnBeach );
+					esc.setTrigger( 'forest_previous_trigger', turnHouse );
+					esc.setDrag( 'colorbox', 0, [114,208,372,336] );
+					
+					//house
+					esc.setTrigger( 'house_down_trigger', turnForest );
+					esc.setTrigger( 'house_door', turnHouse);
 
-  var blackBg = document.getElementById('js-black-bg');
+					//TableCards
+					esc.setDrag( 'card1', 0, [0,0,512,384] );
+					esc.setDrag( 'card2', 0, [0,0,512,384] );
+					esc.setDrag( 'card3', 0, [0,0,512,384] );
+					esc.setDrag( 'card4', 0, [0,0,512,384] );
+					esc.setDrag( 'card5', 0, [0,0,512,384] );
+					esc.setTrigger( 'table_down_trigger', back );
 
-  var blackBg = document.getElementById('js-black-bg');
-  var closeBtn = document.getElementById('js-close-btn');
-  var showBtn = document.getElementById('js-show-popup');
+					esc.setTrigger( 'rakugaki_down_trigger', back );
 
-  closePopUp(blackBg);
-  closePopUp(closeBtn);
-  closePopUp(showBtn);
-  function closePopUp(elem) {
-    if(!elem) return;
-    elem.addEventListener('click', function() {
-      popup.classList.toggle('is-show');
-    });
-  }
-}
-popupImage();
+					esc.setTrigger( 'box_down_trigger', back );
+					esc.setForm( 'box_form', 'HdHboveYPaSGhX62q3B1BGMg', 'JavaScriptで脱出ゲーム テスト1', 16,
+						function()
+						{
+							if( flag['box_open'] ) return;
+							flag['box_open'] = true;
+							esc.message( '開いた', 3000 );
+							$( 'box' ).style.backgroundPosition = '0px -1884px';
+							$( 'redkey' ).style.visibility = 'inherit';
+						},
+						function()
+						{
+							if( flag['box_open'] ) return;
+							esc.message( '……', 3000 );
+						}
+					);
+					esc.setTrigger( 'redkey',
+						function()
+						{
+							flag['redkey'] = true;
+							$( 'item_redkey' ).style.visibility = 'inherit';
+							$( 'redkey' ).style.visibility = 'hidden';
+							esc.message( '赤い鍵を入手した<br />（※自動的に使用されます）' );
+						}
+					);
+					
+					esc.setTrigger( 'start',
+						function()
+						{
+							esc.changeScene('sea');
+						}
+					);
+					
+					//タイトルへ
+					esc.setTrigger( 'go_title',
+						function()
+						{
+							
+							// 初期化する
+							esc.restartAllDrag();
+							esc.restartAllForm();
+							esc.message( '' );
+							flag = [];
+							esc.changeScene( 'title' );
+						}
+					);
+					
+					esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
+				};
+				
+				if( window.addEventListener )
+				{
+					window.addEventListener( 'load', load, false );
+				}
+				else if( window.attachEvent )
+				{
+					window.attachEvent( 'on'+'load', load );
+				}
 
-//]]></script>
+				load = null; // なんとなく
+			})();
 
-</head>
-<body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="images.js"></script>
-<h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">無人島からの脱出</h1>
+			//TimeOut
+			function timeOut(){
+				function getTimeRemaining(endtime) {
+					var t = Date.parse(endtime) - Date.parse(new Date());
+					var seconds = Math.floor((t / 1000) % 60);
+					var minutes = Math.floor((t / 1000 / 60) % 60);
 
-<div id="timespace">
-<center>
-	<div id="clockdiv">
-  <div>
-    <span class="minutes"></span>
-    <div class="smalltext">分</div>
-  </div>
-  <div>
-    <span class="seconds"></span>
-    <div class="smalltext">秒</div>
-  </div>
-</div>
-</center>
-</div>
+					return {
+						'total': t,
+						'minutes': minutes,
+						'seconds': seconds
+					};
+				}
+				function isTime(){
+					alert("TimeOut");
+					esc.changeScene( 'over' );
+				}
 
-<div id="escapegame_main" unselectable="on" onselectstart="return false">
+				function initializeClock(id, endtime) {
+				var clock = document.getElementById(id);
+				var minutesSpan = clock.querySelector('.minutes');
+				var secondsSpan = clock.querySelector('.seconds');
 
-<div id="nowloading">Now Loading....</div>
-<!--アイテムボックス-->
-<div id="itembox_outer1">
-	<div id="itembox_outer2">
-		<div id="itembox">
-			<div id="item_closed_bottle" class="js-modal-open"></div>
-			<div id="item_open_bottle" class="js-modal-open"></div>
-			<div id="item_letter" class="js-modal-open"></div>
-			<div id="item_alcohol" class="js-modal-open"></div>
-			<div id="item_filled_bottle" class="js-modal-open"></div>
-			<div id="item_alcoholletter" class="js-modal-open"></div>
-			<div id="item_kindled_smokecandle" class="js-modal-open"></div>
+					function updateClock() {
+						var t = getTimeRemaining(endtime);
+
+						minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+						secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+						if (t.total <= 0) {
+						clearInterval(timeinterval);
+						isTime();
+						}
+					}
+
+					updateClock();
+					var timeinterval = setInterval(updateClock, 1000);
+				}
+
+				var deadline = new Date(Date.parse(new Date()) +  5 * 60 * 1000);
+				initializeClock('clockdiv', deadline);
+			}
+
+			function popupImage() {
+			var popup = document.getElementById('js-popup');
+			if(!popup) return;
+
+			var blackBg = document.getElementById('js-black-bg');
+
+			var blackBg = document.getElementById('js-black-bg');
+			var closeBtn = document.getElementById('js-close-btn');
+			var showBtn = document.getElementById('js-show-popup');
+
+			closePopUp(blackBg);
+			closePopUp(closeBtn);
+			closePopUp(showBtn);
+			function closePopUp(elem) {
+				if(!elem) return;
+				elem.addEventListener('click', function() {
+				popup.classList.toggle('is-show');
+				});
+			}
+			}
+			popupImage();//]]>
+		</script>
+
+	</head>
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script type="text/javascript" src="images.js"></script>
+		<h1 style="text-align:center;font-family:aqua_pfont,'あくあＰフォント',aquafont,'あくあフォント';">無人島からの脱出</h1>
+
+		<div id="timespace">
+		<center>
+			<div id="clockdiv">
+		<div>
+			<span class="minutes"></span>
+			<div class="smalltext">分</div>
 		</div>
-	</div>
-</div>
-<!--メッセージボックス-->
-<div id="messagebox_outer1">
-	<div id="messagebox_outer2">
-		<div id="messagebox">JavaScriptを使っています。無効にしている場合は有効にしないと遊べません。</div>
-	</div>
-</div>
+		<div>
+			<span class="seconds"></span>
+			<div class="smalltext">秒</div>
+		</div>
+		</div>
+		</center>
+		</div>
 
-<div id="title" class="scene">
-	<div id="start" onClick="timeOut()"></div>
-</div>
-<!-- Sea -->
-<div id="sea" class="scene">
+		<div id="escapegame_main" unselectable="on" onselectstart="return false">
 
-<div id="sea_left_trigger" class="left_arrow"></div>
-<div id="sea_right_trigger" class="right_arrow"></div>
-<div id="closed_bottle1"></div>
+		<div id="nowloading">Now Loading....</div>
+		<!--アイテムボックス-->
+		<div id="itembox_outer1">
+			<div id="itembox_outer2">
+				<div id="itembox">
+					<div id="item_closed_bottle" class="js-modal-open"></div>
+					<div id="item_open_bottle" class="js-modal-open"></div>
+					<div id="item_letter" class="js-modal-open"></div>
+					<div id="item_alcohol" class="js-modal-open"></div>
+					<div id="item_filled_bottle" class="js-modal-open"></div>
+					<div id="item_alcoholletter" class="js-modal-open"></div>
+					<div id="item_kindled_smokecandle" class="js-modal-open"></div>
+				</div>
+			</div>
+		</div>
+		<!--メッセージボックス-->
+		<div id="messagebox_outer1">
+			<div id="messagebox_outer2">
+				<div id="messagebox">JavaScriptを使っています。無効にしている場合は有効にしないと遊べません。</div>
+			</div>
+		</div>
 
-</div>
-<!-- Beach -->
-<div id="beach" class="scene">
+		<div id="title" class="scene">
+			<div id="start" onClick="timeOut()"></div>
+		</div>
+		<!-- Sea -->
+		<div id="sea" class="scene">
+			<div id="sea_left_trigger" class="left_arrow"></div>
+			<div id="sea_right_trigger" class="right_arrow"></div>
+			<div id="closed_bottle1"></div>
+		</div>
+		<!-- Beach -->
+		<div id="beach" class="scene">
+			<div id="beach_left_trigger" class="left_arrow"></div>
+			<div id="beach_right_trigger" class="right_arrow"></div>
+		</div>
+		<!-- Forest -->
+		<div id="forest" class="scene">
+			<div id="forest_left_trigger" class="left_arrow"></div>
+			<div id="forest_right_trigger" class="right_arrow"></div>
+			<div id="forest_previous_trigger" class="up_arrow"></div>
+			<div id="house_smail"></div>
+			<div id="house_door"></div>
 
-	<div id="beach_left_trigger" class="left_arrow"></div>
-	<div id="beach_right_trigger" class="right_arrow"></div>
-
-</div>
-<!-- Forest -->
-<div id="forest" class="scene">
-	<div id="forest_left_trigger" class="left_arrow"></div>
-	<div id="forest_right_trigger" class="right_arrow"></div>
-	<div id="forest_previous_trigger" class="up_arrow"></div>
-	<div id="house_smail"></div>
-	<div id="house_door"></div>
-
-</div>
-<!-- House's inside -->
-<div id="house" class="scene">
-	<div id="house_down_trigger" class="down_arrow"></div>
-	<div id="table_small"></div>
-</div>
-
-
-<div id="table" class="scene">
-	<div id="card1"></div>
-	<div id="card2"></div>
-	<div id="card3"></div>
-	<div id="card4"></div>
-	<div id="card5"></div>
-	<div id="table_down_trigger" class="down_arrow"></div>
-</div>
-
-
-
-<div id="box" class="scene">
-	<div id="redkey"></div>
-	<form id="box_form">
-		<input class="text" type="text" value="" maxlength="8" unselectable="off" onselectstart="return true" />
-		<br/>
-		<input class="button" type="reset" value="Clear">
-		<input class="button" type="submit" value="Enter">
-	</form>
-	<div id="box_down_trigger" class="down_arrow"></div>
-</div>
+		</div>
+		<!-- House's inside -->
+		<div id="house" class="scene">
+			<div id="house_down_trigger" class="down_arrow"></div>
+			<div id="table_small"></div>
+		</div>
 
 
-<div id="ome" class="scene">
-<div id="restart"></div>
-</div>
+		<div id="table" class="scene">
+			<div id="card1"></div>
+			<div id="card2"></div>
+			<div id="card3"></div>
+			<div id="card4"></div>
+			<div id="card5"></div>
+			<div id="table_down_trigger" class="down_arrow"></div>
+		</div>
 
-<div id="over" class="scene">
-<div id="go_title"></div>
-</div>
-<!--アイテム拡大に使える-->
-	<div id="modal_scene" class="modal js-modal">
-	    <div class="modal__bg js-modal-close"></div>
-	    <div class="modal__content">
-	        <a class="js-modal-close">閉じる</a>
-	    </div><!--modal__inner-->
-	</div><!--modal-->
-</div>
-</body>
+
+
+		<div id="box" class="scene">
+			<div id="redkey"></div>
+			<form id="box_form">
+				<input class="text" type="text" value="" maxlength="8" unselectable="off" onselectstart="return true" />
+				<br/>
+				<input class="button" type="reset" value="Clear">
+				<input class="button" type="submit" value="Enter">
+			</form>
+			<div id="box_down_trigger" class="down_arrow"></div>
+		</div>
+
+
+		<div id="ome" class="scene">
+		<div id="restart"></div>
+		</div>
+
+		<div id="over" class="scene">
+		<div id="go_title"></div>
+		</div>
+		<!--アイテム拡大に使える-->
+			<div id="modal_scene" class="modal js-modal">
+				<div class="modal__bg js-modal-close"></div>
+				<div class="modal__content">
+					<a class="js-modal-close">閉じる</a>
+				</div><!--modal__inner-->
+			</div><!--modal-->
+		</div>
+	</body>
 </html>
