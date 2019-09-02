@@ -322,13 +322,17 @@ p.text {
 	margin-left:36px;
 	margin-top: 12px;
 	width: 102px;
-	height: 156px;
+	height: 106px;
 	z-index: 500;
 	cursor: pointer;
 	display: none;
 	background-size: 100px;
 }
 
+#item_zoom{
+	background: url(images/.png);
+	position: absolute;
+}
 
 /* #content{
     left: 50px;
@@ -367,6 +371,60 @@ p.text {
 }
 #modal_closed_bottle{
 	background: url(images/bottle.png) no-repeat;
+	background-position: 0px 0px;
+	margin-top: 12px;
+	width: 300px;
+	height: 150px;
+	z-index: 500;
+	background-size: 300px;
+}
+#modal_open_bottle{
+	background: url(images/.png) no-repeat;
+	background-position: 0px 0px;
+	margin-top: 12px;
+	width: 300px;
+	height: 150px;
+	z-index: 500;
+	background-size: 300px;
+}
+#modal_letter{
+	background: url(images/.png) no-repeat;
+	background-position: 0px 0px;
+	margin-top: 12px;
+	width: 300px;
+	height: 150px;
+	z-index: 500;
+	background-size: 300px;
+}
+#modal_alcohol{
+	background: url(images/.png) no-repeat;
+	background-position: 0px 0px;
+	margin-top: 12px;
+	width: 300px;
+	height: 150px;
+	z-index: 500;
+	background-size: 300px;
+}
+#modal_filled_bottle{
+	background: url(images/.png) no-repeat;
+	background-position: 0px 0px;
+	margin-top: 12px;
+	width: 300px;
+	height: 150px;
+	z-index: 500;
+	background-size: 300px;
+}
+#modal_alcoholletter{
+	background: url(images/.png) no-repeat;
+	background-position: 0px 0px;
+	margin-top: 12px;
+	width: 300px;
+	height: 150px;
+	z-index: 500;
+	background-size: 300px;
+}
+#modal_dynamaite{
+	background: url(images/.png) no-repeat;
 	background-position: 0px 0px;
 	margin-top: 12px;
 	width: 300px;

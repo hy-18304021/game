@@ -306,10 +306,35 @@
 			}
 			popupImage();
 			
-			function itemModal(m_img){
-				switch(m_img){
+			//モーダルid
+			var m_id=null;
+
+			function setMid(m_img){
+				m_id=m_img;
+			}
+
+			function itemModal(){
+				switch(m_id){
 					case "cbm":
 					$$('modal_closed_bottle').style.visibility = 'inherit';
+					
+					case "opm":
+					$$('modal_open_bottle').style.visibility = 'inherit';
+
+					case "lm":
+					$$('modal_letter').style.visibility = 'inherit';
+
+					case "am":
+					$$('modal_alcohol').style.visibility = 'inherit';
+
+					case "fbm":
+					$$('modal_filled_bottle').style.visibility = 'inherit';
+
+					case "alm":
+					$$('modal_alcoholletter').style.visibility = 'inherit';
+
+					case "dm":
+					$$('modal_dynamaite').style.visibility = 'inherit';
 				}
 			}
 		</script>
@@ -342,13 +367,14 @@
 		<div id="itembox_outer1">
 			<div id="itembox_outer2">
 				<div id="itembox">
-					<div id="item_closed_bottle" class="js-modal-open" onclick="itemModal(cbm)"></div>
-					<div id="item_open_bottle" class="js-modal-open"></div>
-					<div id="item_letter" class="js-modal-open"></div>
-					<div id="item_alcohol" class="js-modal-open"></div>
-					<div id="item_filled_bottle" class="js-modal-open"></div>
-					<div id="item_alcoholletter" class="js-modal-open"></div>
-					<div id="item_kindled_smokecandle" class="js-modal-open"></div>
+					<div id="item_closed_bottle" class="js-modal-open" onclick="setMid(cbm)"></div>
+					<div id="item_open_bottle" class="js-modal-open" onclick="setMid(opm)"></div>
+					<div id="item_letter" class="js-modal-open" onclick="setMid(lm)"></div>
+					<div id="item_alcohol" class="js-modal-open" onclick="setMid(am)"></div>
+					<div id="item_filled_bottle" class="js-modal-open" onclick="setMid(fbm)"></div>
+					<div id="item_alcoholletter" class="js-modal-open" onclick="setMid(alm)"></div>
+					<div id="item_dynamaite" class="js-modal-open" onclick="setMid(dm)"></div>
+					<div id="item_zoom" onclick="itemModal()"></div>
 				</div>
 			</div>
 		</div>
@@ -378,27 +404,15 @@
 			<div id="forest_left_trigger" class="left_arrow"></div>
 			<div id="forest_right_trigger" class="right_arrow"></div>
 			<div id="forest_previous_trigger" class="up_arrow"></div>
-			<div id="house_smail"></div>
 			<div id="house_door"></div>
 
 		</div>
 		<!-- House's inside -->
 		<div id="house" class="scene">
 			<div id="house_down_trigger" class="down_arrow"></div>
-			<div id="table_small"></div>
+			<div id="tips_small"></div>
+			<div id="box_small"></div>
 		</div>
-
-
-		<div id="table" class="scene">
-			<div id="card1"></div>
-			<div id="card2"></div>
-			<div id="card3"></div>
-			<div id="card4"></div>
-			<div id="card5"></div>
-			<div id="table_down_trigger" class="down_arrow"></div>
-		</div>
-
-
 
 		<div id="box" class="scene">
 			<div id="redkey"></div>
@@ -424,6 +438,12 @@
 				<div class="modal__bg js-modal-close"></div>
 				<div class="modal__content">
 					<div id="modal_closed_bottle"></div>
+					<div id="modal_open_bottle"></div>
+					<div id="modal_letter" ></div>
+					<div id="modal_alcohol"></div>
+					<div id="modal_filled_bottle"></div>
+					<div id="modal_alcoholletter"></div>
+					<div id="modal_dynamaite"></div>
 					<a class="js-modal-close">閉じる</a>
 				</div><!--modal__inner-->
 			</div><!--modal-->
