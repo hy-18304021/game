@@ -10,7 +10,7 @@ p.text {
 	top: 36px;
 	width: 36px;
 	height: 504px;
-	/* ↓dataスキーム。IE7では未対応 */
+	/* ↓dataスキー�?�?IE7では未対�? */
 	background: url(data:image/gif;base64,R0lGODlhGAAgAJEDAAAAAH9/f////wD//yH5BAEAAAMALAAAAAAYACAAAAJdnI+pyz3gIpixgSBgTVN4vRmX94UPQJKghKWlhLoqK6crF9fzMuq20vG5bj3hT5QzHovKZat5PEGjomfzJoViq1dLUrdFMGVh8ZfqGL82QXSFWfbuTIdRHHZ/0xsFAA==);
 }
 .right_arrow {
@@ -44,7 +44,7 @@ p.text {
 	-moz-opacity: 0.15;
 	opacity: 0.15;
 }
-/* IE6ではaタグ以外の:hoverは未対応 */
+/* IE6ではaタグ以外�?�:hoverは未対�? */
 .right_arrow:hover, .left_arrow:hover, .up_arrow:hover, .down_arrow:hover {
 	filter: alpha(opacity=80);
 	-moz-opacity: 0.8;
@@ -69,7 +69,7 @@ p.text {
 	height: 576px;
 	font-size: 48px;
 	font-weight: bold;
-	font-family : aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
+	font-family : aqua_pfont, "あくあＰフォン�?", aquafont, "あくあフォン�?";
 	color: #CCCCCC;
 	background-color: #000000;
 	text-align: center;
@@ -93,7 +93,7 @@ p.text {
 	height: 96px;
 	font-size: 36px;
 	line-height: 48px;
-	font-family : aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
+	font-family : aqua_pfont, "あくあＰフォン�?", aquafont, "あくあフォン�?";
 	color: #CCCCCC;
 	text-align:justify;
 }
@@ -179,10 +179,10 @@ p.text {
 #box_form input.button {
 	margin-top: 16px;
 	font-size: 24px;
-	font-family : aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
+	font-family : aqua_pfont, "あくあＰフォン�?", aquafont, "あくあフォン�?";
 } */
 
-/*拡大関係*/
+/*拡大関�?*/
 /* #door1, #door2, #deguchi, #card1, #card2, #card3, #card4, #card5, #redkey, #item_redkey, #box_small, #rakugaki_small, #table_small, #colorbox {
 	position: absolute;
 	background: url(gameover.png) no-repeat;
@@ -327,6 +327,7 @@ p.text {
 	cursor: pointer;
 	display: none;
 	background-size: 100px;
+	border: solid #000000;
 }
 
 #item_zoom{
