@@ -311,30 +311,46 @@
 
 			function setMid(m_img){
 				m_id=m_img;
+				console.log(m_id);
 			}
 
 			function itemModal(){
+				console.log(m_id+'外');
 				switch(m_id){
 					case "cbm":
-					$$('modal_closed_bottle').style.visibility = 'inherit';
+					$$('modal_closed_bottle').style.display = 'inherit';
+					console.log(m_id+'中');
+					break;
 					
 					case "opm":
-					$$('modal_open_bottle').style.visibility = 'inherit';
+					$$('modal_open_bottle').style.display = 'inherit';
+					console.log(m_id+'中');
+					break;
 
 					case "lm":
-					$$('modal_letter').style.visibility = 'inherit';
+					$$('modal_letter').style.display = 'inherit';
+					console.log(m_id+'中');
+					break;
 
 					case "am":
-					$$('modal_alcohol').style.visibility = 'inherit';
+					$$('modal_alcohol').style.display = 'inherit';
+					console.log(m_id+'中');
+					break;
 
 					case "fbm":
-					$$('modal_filled_bottle').style.visibility = 'inherit';
+					$$('modal_filled_bottle').style.display = 'inherit';
+					console.log(m_id+'中');
+					break;
 
 					case "alm":
-					$$('modal_alcoholletter').style.visibility = 'inherit';
+					$$('modal_alcoholletter').style.display = 'inherit';
+					console.log(m_id+'中');
+					break;
 
 					case "dm":
-					$$('modal_dynamaite').style.visibility = 'inherit';
+					$$('modal_dynamaite').style.display = 'inherit';
+					console.log(m_id+'中');
+					break;
 				}
 			}
 		</script>
@@ -367,14 +383,14 @@
 		<div id="itembox_outer1">
 			<div id="itembox_outer2">
 				<div id="itembox">
-					<div id="item_closed_bottle" class="js-modal-open" onclick="setMid(cbm)"></div>
-					<div id="item_open_bottle" class="js-modal-open" onclick="setMid(opm)"></div>
-					<div id="item_letter" class="js-modal-open" onclick="setMid(lm)"></div>
-					<div id="item_alcohol" class="js-modal-open" onclick="setMid(am)"></div>
-					<div id="item_filled_bottle" class="js-modal-open" onclick="setMid(fbm)"></div>
-					<div id="item_alcoholletter" class="js-modal-open" onclick="setMid(alm)"></div>
-					<div id="item_dynamaite" class="js-modal-open" onclick="setMid(dm)"></div>
-					<div id="item_zoom" onclick="itemModal()"></div>
+					<div id="item_closed_bottle"  onclick="setMid('cbm')"></div>
+					<div id="item_open_bottle"  onclick="setMid('opm')"></div>
+					<div id="item_letter"  onclick="setMid('lm')"></div>
+					<div id="item_alcohol"  onclick="setMid('am')"></div>
+					<div id="item_filled_bottle" onclick="setMid('fbm')"></div>
+					<div id="item_alcoholletter" onclick="setMid('alm')"></div>
+					<div id="item_dynamaite"  onclick="setMid('dm')"></div>
+					<div id="item_zoom" class="js-modal-open" onclick="itemModal()"></div>
 				</div>
 			</div>
 		</div>
@@ -439,7 +455,7 @@
 				<div class="modal__content">
 					<div id="modal_closed_bottle"></div>
 					<div id="modal_open_bottle"></div>
-					<div id="modal_letter" ></div>
+					<div id="modal_letter"></div>
 					<div id="modal_alcohol"></div>
 					<div id="modal_filled_bottle"></div>
 					<div id="modal_alcoholletter"></div>
