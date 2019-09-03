@@ -284,6 +284,7 @@
 					$$('modal_closed_bottle').style.display = 'inherit';
 					$$('item_closed_bottle').style.border = 'hidden';
 					$$('item_zoom').style.display = 'none';
+					$$('close_modal').style.display = 'inherit';
 					console.log(m_id+'中');
 					break;
 					
@@ -322,6 +323,7 @@
 			}
 
 			function eraseimg(){
+				$$('close_modal').style.display = 'none';
 				$$('modal_closed_bottle').style.display = 'none';
 				$$('modal_open_bottle').style.display = 'none';
 				$$('modal_letter').style.display = 'none';
@@ -368,6 +370,7 @@
 					<div id="item_alcoholletter" onclick="setMid('alm')"></div>
 					<div id="item_dynamaite"  onclick="setMid('dm')"></div>
 					<div id="item_zoom" class="js-modal-open" onclick="itemModal()"></div>
+					<div id="close_modal" class="js-modal-close" onclick="eraseimg()"></div>
 				</div>
 			</div>
 		</div>
@@ -437,7 +440,6 @@
 					<div id="modal_filled_bottle"></div>
 					<div id="modal_alcoholletter"></div>
 					<div id="modal_dynamaite"></div>
-					<a id="close_modal" class="js-modal-close" onclick="eraseimg()"></a>
 				</div><!--modal__inner-->
 			</div><!--modal-->
 		</div>

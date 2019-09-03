@@ -121,7 +121,7 @@ p.text {
 	top: 0px;
 	width: 768px;
 	height: 576px;
-	background: url(images/gameover.png) no-repeat;
+	background: url(images/gameover1.png) no-repeat;
 	visibility: hidden;
 }
 #sea{ background-position: 0 0px; background-size: 100%;}
@@ -289,10 +289,6 @@ p.text {
 	position: absolute;
 	right: 120px;
 }
-
-#house_door{
-	background: url(images/start.png) no-repeat;
-}
 /*house_door*/
 #house_door{
 	background-position: -213px -936px;
@@ -342,7 +338,18 @@ p.text {
 	bottom: 0;
 	display: none;
 }
-
+#close_modal{
+	background: url(images/close_zoom.png) no-repeat;
+	position: absolute;
+	z-index: 500;
+	width: 70px;
+	height: 70px;
+	margin-left:12px;
+	margin-top: 12px;
+	background-size: 70px;
+	bottom: 0;
+	display: none;
+}
 /* #content{
     left: 50px;
 } */
@@ -371,26 +378,11 @@ p.text {
 	height: 576px;
 }
 .modal__content{
-    background: #fff;
     left: 50%;
-    padding: 30px;
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
 }
-
-#close_modal{
-	background: url(images/close_zoom.png) no-repeat;
-	position: absolute;
-	z-index: 500;
-	width: 50px;
-	height: 50px;
-	margin-left:12px;
-	margin-top: 12px;
-	background-size: 50px;
-	bottom: 0;
-}
-
 #modal_closed_bottle{
 	background: url(images/bottle.png) no-repeat;
 	background-position: 0px 0px;
