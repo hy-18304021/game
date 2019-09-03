@@ -318,28 +318,29 @@ p.text {
 }
 #item_closed_bottle {
 	background: url(images/bottle.png) no-repeat;
-	background-position: 0px 0px;
-	margin-left:36px;
-	margin-top: 12px;
+	background-position: center;
+	margin: 15px auto;
 	width: 102px;
 	height: 50px;
 	z-index: 500;
 	cursor: pointer;
 	display: none;
 	background-size: 100px;
-	border: solid #000000;
+	border: hidden #000000;
+	padding: 5px;
 }
 
 #item_zoom{
 	background: url(images/item_zoom.png) no-repeat;
 	position: absolute;
 	z-index: 500;
-	width: 50px;
-	height: 50px;
+	width: 70px;
+	height: 70px;
 	margin-left:12px;
 	margin-top: 12px;
-	background-size: 50px;
+	background-size: 70px;
 	bottom: 0;
+	display: none;
 }
 
 /* #content{
@@ -372,11 +373,24 @@ p.text {
 .modal__content{
     background: #fff;
     left: 50%;
-    padding: 60px;
+    padding: 30px;
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
 }
+
+#close_modal{
+	background: url(images/close_zoom.png) no-repeat;
+	position: absolute;
+	z-index: 500;
+	width: 50px;
+	height: 50px;
+	margin-left:12px;
+	margin-top: 12px;
+	background-size: 50px;
+	bottom: 0;
+}
+
 #modal_closed_bottle{
 	background: url(images/bottle.png) no-repeat;
 	background-position: 0px 0px;

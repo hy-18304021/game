@@ -235,17 +235,55 @@
 			function setMid(m_img){
 				m_id=m_img;
 				console.log(m_id);
+
+				switch(m_id){
+					case "cbm":
+					$$('item_closed_bottle').style.border = 'solid';
+					$$('item_zoom').style.display = 'inherit';
+					console.log(m_id+'中');
+					break;
+					
+					case "opm":
+					$$('modal_open_bottle').style.border = 'solid';
+					console.log(m_id+'中');
+					break;
+
+					case "lm":
+					$$('modal_letter').style.border = 'solid';
+					console.log(m_id+'中');
+					break;
+
+					case "am":
+					$$('modal_alcohol').style.border = 'solid';
+					console.log(m_id+'中');
+					break;
+
+					case "fbm":
+					$$('modal_filled_bottle').style.border = 'solid';
+					console.log(m_id+'中');
+					break;
+
+					case "alm":
+					$$('modal_alcoholletter').style.border = 'solid';
+					console.log(m_id+'中');
+					break;
+
+					case "dm":
+					$$('modal_dynamaite').style.border = 'solid';
+					console.log(m_id+'中');
+					break;
+				}
 			}
 
 			function itemModal(){
 				console.log(m_id+'外');
 				
-				//ボーダーラインを非表示にする
-				
 
 				switch(m_id){
 					case "cbm":
 					$$('modal_closed_bottle').style.display = 'inherit';
+					$$('item_closed_bottle').style.border = 'hidden';
+					$$('item_zoom').style.display = 'none';
 					console.log(m_id+'中');
 					break;
 					
@@ -280,6 +318,17 @@
 					break;
 				}
 				m_id=null;
+				console.log(m_id+'外');
+			}
+
+			function eraseimg(){
+				$$('modal_closed_bottle').style.display = 'none';
+				$$('modal_open_bottle').style.display = 'none';
+				$$('modal_letter').style.display = 'none';
+				$$('modal_alcohol').style.display = 'none';
+				$$('modal_filled_bottle').style.display = 'none';
+				$$('modal_alcoholletter').style.display = 'none';
+				$$('modal_dynamaite').style.display = 'none';
 			}
 		</script>
 
@@ -379,7 +428,7 @@
 		</div>
 		<!--アイテム拡大に使える-->
 			<div id="modal_scene" class="modal js-modal">
-				<div class="modal__bg js-modal-close"></div>
+				<div class="modal__bg js-modal-close" onclick="eraseimg()"></div>
 				<div class="modal__content">
 					<div id="modal_closed_bottle"></div>
 					<div id="modal_open_bottle"></div>
@@ -388,7 +437,7 @@
 					<div id="modal_filled_bottle"></div>
 					<div id="modal_alcoholletter"></div>
 					<div id="modal_dynamaite"></div>
-					<a class="js-modal-close">閉じる</a>
+					<a id="close_modal" class="js-modal-close" onclick="eraseimg()"></a>
 				</div><!--modal__inner-->
 			</div><!--modal-->
 		</div>
