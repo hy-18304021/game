@@ -97,7 +97,15 @@
 					//house
 					esc.setTrigger( 'house_down_trigger', turnForest );
 					esc.setTrigger( 'house_door', turnHouse);
+					esc.setTrigger( 'dynamite', function()
+						{
+							
+							$$('item_dynamite').style.display='block';
+							$$('item_dynamite').style.visibility = 'inherit';
+							$$('dynamite').style.visibility = 'hidden';
+							esc.message( 'ダイナマイトを拾った',3000 );
 
+						});
 					//TableCards
 					esc.setDrag( 'card1', 0, [0,0,512,384] );
 					esc.setDrag( 'card2', 0, [0,0,512,384] );
@@ -144,6 +152,7 @@
 							flag = [];
 							$$('item_closed_bottle').style.visibility = 'hidden';
 							$$('closed_bottle1').style.visibility = 'inherit';
+							$$('item_dynamite').style.visibility = 'hidden';
 							esc.changeScene( 'title' );
 						}
 					);
@@ -243,37 +252,37 @@
 					break;
 					
 					case "opm":
-					$$('modal_open_bottle').style.border = 'solid';
+					$$('item_open_bottle').style.border = 'solid';
 					$$('item_zoom').style.display = 'inherit';
 					console.log(m_id+'クリック');
 					break;
 
 					case "lm":
-					$$('modal_letter').style.border = 'solid';
+					$$('item_letter').style.border = 'solid';
 					$$('item_zoom').style.display = 'inherit';
 					console.log(m_id+'クリック');
 					break;
 
 					case "am":
-					$$('modal_alcohol').style.border = 'solid';
+					$$('item_alcohol').style.border = 'solid';
 					$$('item_zoom').style.display = 'inherit';
 					console.log(m_id+'クリック');
 					break;
 
 					case "fbm":
-					$$('modal_filled_bottle').style.border = 'solid';
+					$$('item_filled_bottle').style.border = 'solid';
 					$$('item_zoom').style.display = 'inherit';
 					console.log(m_id+'クリック');
 					break;
 
 					case "alm":
-					$$('modal_alcohol_letter').style.border = 'solid';
+					$$('item_alcohol_letter').style.border = 'solid';
 					$$('item_zoom').style.display = 'inherit';
 					console.log(m_id+'クリック');
 					break;
 
 					case "dm":
-					$$('modal_dynamaite').style.border = 'solid';
+					$$('item_dynamite').style.border = 'solid';
 					$$('item_zoom').style.display = 'inherit';
 					console.log(m_id+'クリック');
 					break;
@@ -334,8 +343,8 @@
 					break;
 
 					case "dm":
-					$$('modal_dynamaite').style.display = 'inherit';
-					$$('item_dynamaite').style.border = 'hidden';
+					$$('modal_dynamite').style.display = 'inherit';
+					$$('item_dynamite').style.border = 'hidden';
 					$$('item_zoom').style.display = 'none';
 					$$('close_modal').style.display = 'inherit';
 					console.log(m_id+'中');
@@ -353,7 +362,7 @@
 				$$('modal_alcohol').style.display = 'none';
 				$$('modal_filled_bottle').style.display = 'none';
 				$$('modal_alcohol_letter').style.display = 'none';
-				$$('modal_dynamaite').style.display = 'none';
+				$$('modal_dynamite').style.display = 'none';
 			}
 		</script>
 
@@ -391,7 +400,7 @@
 					<div id="item_alcohol"  onclick="setMid('am')"></div>
 					<div id="item_filled_bottle" onclick="setMid('fbm')"></div>
 					<div id="item_alcohol_letter" onclick="setMid('alm')"></div>
-					<div id="item_dynamaite"  onclick="setMid('dm')"></div>
+					<div id="item_dynamite"  onclick="setMid('dm')"></div>
 					<div id="item_zoom" class="js-modal-open" onclick="itemModal()"></div>
 					<div id="close_modal" class="js-modal-close" onclick="eraseimg()"></div>
 				</div>
@@ -431,6 +440,7 @@
 			<div id="house_down_trigger" class="down_arrow"></div>
 			<div id="tips_small"></div>
 			<div id="box_small"></div>
+			<div id="dynamite"></div>
 		</div>
 
 		<div id="box" class="scene">
@@ -462,7 +472,7 @@
 					<div id="modal_alcohol"></div>
 					<div id="modal_filled_bottle"></div>
 					<div id="modal_alcohol_letter"></div>
-					<div id="modal_dynamaite"></div>
+					<div id="modal_dynamite"></div>
 				</div><!--modal__inner-->
 			</div><!--modal-->
 		</div>
