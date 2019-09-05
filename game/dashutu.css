@@ -326,6 +326,33 @@ p.text {
 	padding: 5px;
 }
 
+/*gameover1*/
+#dynamite {
+	background: url(images/gameover1.png) no-repeat;
+	background-position: -340px -1310px;	/*ペイントで選択して大きさ見る*/
+	background-size: 100%;					/*指定しないと元の画像サイズになってしまう*/
+	margin-left:510px;						/*340*1.5*/
+	margin-top: 237px;						/*#forestのbackgroundpositionの1152を1310から引いて*1.5*/
+	width: 91.5px;							/*ペイントで選択して大きさ見る*/
+	height: 51px;							/*ペイントで選択して大きさ見る*/
+	z-index: 500;
+	cursor: pointer;
+}
+
+#item_dynamite {
+	background: url(images/dynamite.png) no-repeat;
+	background-position: center;
+	margin: 15px auto;
+	width: 148px;
+	height: 94px;
+	z-index: 500;
+	cursor: pointer;
+	display: none;
+	background-size: 100px;
+	border: hidden #000000;
+	padding: 5px;
+}
+
 #item_zoom{
 	background: url(images/item_zoom.png) no-repeat;
 	position: absolute;
@@ -443,13 +470,13 @@ p.text {
 	background-size: 300px;
 	display: none;
 }
-#modal_dynamaite{
-	background: url(images/bottle.png) no-repeat;
+#modal_dynamite{
+	background: url(images/dynamite.png) no-repeat;
 	background-position: 0px 0px;
 	margin-top: 12px;
 	width: 300px;
-	height: 150px;
+	height: 200px;
 	z-index: 500;
-	background-size: 300px;
+	background-size: 100%;
 	display: none;
 }
