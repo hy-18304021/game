@@ -233,9 +233,21 @@
 			//モーダルid
 			var m_id=null;
 
+			function bordernune(){
+				$$('item_closed_bottle').style.border = 'none';
+				$$('item_open_bottle').style.border = 'none';
+				$$('item_letter').style.border = 'none';
+				$$('item_alcohol').style.border = 'none';
+				$$('item_filled_bottle').style.border = 'none';
+				$$('item_alcohol_letter').style.border = 'none';
+				$$('item_dynamite').style.border = 'none';
+			}
+
 			function setMid(m_img){
 				m_id=m_img;
 				console.log(m_id);
+
+				bordernune()
 
 				switch(m_id){
 					case "cbm":
@@ -462,11 +474,6 @@
 				<input class="button" type="submit" value="Enter">
 			</form>
 			<div id="box_down_trigger" class="down_arrow"></div>
-		</div>
-
-
-		<div id="ome" class="scene">
-		<div id="restart"></div>
 		</div>
 
 		<div id="over" class="scene">

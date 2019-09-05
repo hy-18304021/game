@@ -142,15 +142,6 @@ p.text {
 	height: 133.5px;
 	cursor: pointer;
 }
-#restart {
-	position: absolute;
-	left: 427.5px;
-	top: 408px;
-	width: 315px;
-	height: 97.5px;
-	cursor: pointer;
-	z-index: 1;
-}
 #go_title{
 	position: absolute;
 	left: 106.5px;
