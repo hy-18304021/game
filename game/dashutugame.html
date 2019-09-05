@@ -2,7 +2,6 @@
 <html lang="ja">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<meta name="viewport" content="width=640px">
 		<meta name="referrer" content="origin-when-crossorigin">
 		<meta name="referrer" content="origin-when-cross-origin">
 		<link rel="stylesheet" type="text/css" href="dashutu.css">
@@ -15,7 +14,7 @@
 		<script type="text/javascript" src="escapegame.js"></script>
 		<script type="text/javascript">
 			var esc = new EscapeGame();
-			esc.addPreLoadImages( ['images/gameover.png'] );
+			esc.addPreLoadImages( ['images/gameover1.png'] );
 			var flag = [];
 			var $$ = function( id ){ return document.getElementById( id ); };
 			esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
@@ -240,37 +239,43 @@
 					case "cbm":
 					$$('item_closed_bottle').style.border = 'solid';
 					$$('item_zoom').style.display = 'inherit';
-					console.log(m_id+'中');
+					console.log(m_id+'クリック');
 					break;
 					
 					case "opm":
 					$$('modal_open_bottle').style.border = 'solid';
-					console.log(m_id+'中');
+					$$('item_zoom').style.display = 'inherit';
+					console.log(m_id+'クリック');
 					break;
 
 					case "lm":
 					$$('modal_letter').style.border = 'solid';
-					console.log(m_id+'中');
+					$$('item_zoom').style.display = 'inherit';
+					console.log(m_id+'クリック');
 					break;
 
 					case "am":
 					$$('modal_alcohol').style.border = 'solid';
-					console.log(m_id+'中');
+					$$('item_zoom').style.display = 'inherit';
+					console.log(m_id+'クリック');
 					break;
 
 					case "fbm":
 					$$('modal_filled_bottle').style.border = 'solid';
-					console.log(m_id+'中');
+					$$('item_zoom').style.display = 'inherit';
+					console.log(m_id+'クリック');
 					break;
 
 					case "alm":
-					$$('modal_alcoholletter').style.border = 'solid';
-					console.log(m_id+'中');
+					$$('modal_alcohol_letter').style.border = 'solid';
+					$$('item_zoom').style.display = 'inherit';
+					console.log(m_id+'クリック');
 					break;
 
 					case "dm":
 					$$('modal_dynamaite').style.border = 'solid';
-					console.log(m_id+'中');
+					$$('item_zoom').style.display = 'inherit';
+					console.log(m_id+'クリック');
 					break;
 				}
 			}
@@ -290,31 +295,49 @@
 					
 					case "opm":
 					$$('modal_open_bottle').style.display = 'inherit';
+					$$('item_open_bottle').style.border = 'hidden';
+					$$('item_zoom').style.display = 'none';
+					$$('close_modal').style.display = 'inherit';
 					console.log(m_id+'中');
 					break;
 
 					case "lm":
 					$$('modal_letter').style.display = 'inherit';
+					$$('item_letter').style.border = 'hidden';
+					$$('item_zoom').style.display = 'none';
+					$$('close_modal').style.display = 'inherit';
 					console.log(m_id+'中');
 					break;
 
 					case "am":
 					$$('modal_alcohol').style.display = 'inherit';
+					$$('item_alcohol').style.border = 'hidden';
+					$$('item_zoom').style.display = 'none';
+					$$('close_modal').style.display = 'inherit';
 					console.log(m_id+'中');
 					break;
 
 					case "fbm":
 					$$('modal_filled_bottle').style.display = 'inherit';
+					$$('item_filled_bottle').style.border = 'hidden';
+					$$('item_zoom').style.display = 'none';
+					$$('close_modal').style.display = 'inherit';
 					console.log(m_id+'中');
 					break;
 
 					case "alm":
-					$$('modal_alcoholletter').style.display = 'inherit';
+					$$('modal_alcohol_letter').style.display = 'inherit';
+					$$('item_alcohol_letter').style.border = 'hidden';
+					$$('item_zoom').style.display = 'none';
+					$$('close_modal').style.display = 'inherit';
 					console.log(m_id+'中');
 					break;
 
 					case "dm":
 					$$('modal_dynamaite').style.display = 'inherit';
+					$$('item_dynamaite').style.border = 'hidden';
+					$$('item_zoom').style.display = 'none';
+					$$('close_modal').style.display = 'inherit';
 					console.log(m_id+'中');
 					break;
 				}
@@ -329,7 +352,7 @@
 				$$('modal_letter').style.display = 'none';
 				$$('modal_alcohol').style.display = 'none';
 				$$('modal_filled_bottle').style.display = 'none';
-				$$('modal_alcoholletter').style.display = 'none';
+				$$('modal_alcohol_letter').style.display = 'none';
 				$$('modal_dynamaite').style.display = 'none';
 			}
 		</script>
@@ -367,7 +390,7 @@
 					<div id="item_letter"  onclick="setMid('lm')"></div>
 					<div id="item_alcohol"  onclick="setMid('am')"></div>
 					<div id="item_filled_bottle" onclick="setMid('fbm')"></div>
-					<div id="item_alcoholletter" onclick="setMid('alm')"></div>
+					<div id="item_alcohol_letter" onclick="setMid('alm')"></div>
 					<div id="item_dynamaite"  onclick="setMid('dm')"></div>
 					<div id="item_zoom" class="js-modal-open" onclick="itemModal()"></div>
 					<div id="close_modal" class="js-modal-close" onclick="eraseimg()"></div>
@@ -431,14 +454,14 @@
 		</div>
 		<!--アイテム拡大に使える-->
 			<div id="modal_scene" class="modal js-modal">
-				<div class="modal__bg js-modal-close" onclick="eraseimg()"></div>
+				<div class="modal__bg"></div>
 				<div class="modal__content">
 					<div id="modal_closed_bottle"></div>
 					<div id="modal_open_bottle"></div>
 					<div id="modal_letter"></div>
 					<div id="modal_alcohol"></div>
 					<div id="modal_filled_bottle"></div>
-					<div id="modal_alcoholletter"></div>
+					<div id="modal_alcohol_letter"></div>
 					<div id="modal_dynamaite"></div>
 				</div><!--modal__inner-->
 			</div><!--modal-->
