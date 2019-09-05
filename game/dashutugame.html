@@ -72,7 +72,6 @@
 					//beach
 					esc.setTrigger( 'beach_left_trigger', turnForest );
 					esc.setTrigger( 'beach_right_trigger', turnSea );
-					esc.setTrigger( 'box_small', function(){esc.changeScene('box');} );
 
 
 					// bottle is clicked
@@ -92,18 +91,12 @@
 					esc.setTrigger( 'forest_left_trigger', turnSea );
 					esc.setTrigger( 'forest_right_trigger', turnBeach );
 					esc.setTrigger( 'forest_previous_trigger', turnHouse );
-					esc.setDrag( 'colorbox', 0, [114,208,372,336] );
 					
 					//house
 					esc.setTrigger( 'house_down_trigger', turnForest );
 					esc.setTrigger( 'house_door', turnHouse);
 
 					//TableCards
-					esc.setDrag( 'card1', 0, [0,0,512,384] );
-					esc.setDrag( 'card2', 0, [0,0,512,384] );
-					esc.setDrag( 'card3', 0, [0,0,512,384] );
-					esc.setDrag( 'card4', 0, [0,0,512,384] );
-					esc.setDrag( 'card5', 0, [0,0,512,384] );
 					esc.setTrigger( 'table_down_trigger', back );
 
 					esc.setTrigger( 'rakugaki_down_trigger', back );
@@ -354,6 +347,23 @@
 				$$('modal_filled_bottle').style.display = 'none';
 				$$('modal_alcohol_letter').style.display = 'none';
 				$$('modal_dynamaite').style.display = 'none';
+			}
+
+			//アイテム変化用
+			//一つから他へ変化
+			function ItemChange(){
+				//closed_bottleからの変化
+				if(m_id=="modal_closed_bottle"){
+					$$('modal_closed_bottle').style.display = 'none';
+					$$('item_closed_bottle').style.display = 'hidden';
+					$$('item_open_bottle').style.display = 'inherit';
+					$$('item_letter').style.display = 'inherit';
+				}
+			}
+
+			//二つを一つに変化
+			function ItemChange(item_id){
+				if(m_id==""&&item_id==""){}
 			}
 		</script>
 
