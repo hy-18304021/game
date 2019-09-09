@@ -347,6 +347,14 @@
 					console.log(m_id+'中');
 					break;
 
+					case "alm":
+					$$('modal_kindred_letter').style.display = 'inherit';
+					$$('item_kindred_letter').style.border = 'hidden';
+					$$('item_zoom').style.display = 'none';
+					$$('close_modal').style.display = 'inherit';
+					console.log(m_id+'中');
+					break;
+
 					case "dm":
 					$$('modal_dynamite').style.display = 'inherit';
 					$$('item_dynamite').style.border = 'hidden';
@@ -384,7 +392,28 @@
 
 			//二つを一つに変化
 			function ItemChange(item_id){
-				if(m_id==""&&item_id==""){}
+				//item_alcohol_letterにする
+				if(m_id=="item_letter"&&item_id=="item_alcohol"){
+					$$('modal_letter').style.display = 'none';
+					$$('item_letter').style.display = 'hidden';
+					$$('item_alcohol').style.display = 'hidden';
+					$$('item_alcohol_letter').style.display = 'inherit';
+				}
+				//item_kindred_letterにする
+				if(m_id=="item_alcohol_letter"&&item_id=="item_filled_bottle"){
+					$$('modal_alcohol_letter').style.display = 'none';
+					$$('item_alcohol_letter').style.display = 'hidden';
+					$$('item_filled_bottle').style.display = 'hidden';
+					$$('item_kindred_letter').style.display = 'inherit';
+				}
+				//dynamiteを爆発させる
+				if(m_id=="item_dynamite"&&item_id=="item_kindred_letter"){
+					$$('modal_dynamite').style.display = 'none';
+					$$('item_dynamite').style.display = 'hidden';
+					$$('item_kindred_letter').style.display = 'hidden';
+					esc.changeScene( 'sea' );
+					//クリア処理に飛ばす
+				}
 			}
 		</script>
 
@@ -422,6 +451,7 @@
 					<div id="item_alcohol"  onclick="setMid('am')"></div>
 					<div id="item_filled_bottle" onclick="setMid('fbm')"></div>
 					<div id="item_alcohol_letter" onclick="setMid('alm')"></div>
+					<div id="item_kindred_letter" onclick="setMid('klm')"></div>
 					<div id="item_dynamite"  onclick="setMid('dm')"></div>
 					<div id="item_zoom" class="js-modal-open" onclick="itemModal()"></div>
 					<div id="close_modal" class="js-modal-close" onclick="eraseimg()"></div>
@@ -489,6 +519,7 @@
 					<div id="modal_alcohol"></div>
 					<div id="modal_filled_bottle"></div>
 					<div id="modal_alcohol_letter"></div>
+					<div id="modal_kindred_letter"></div>
 					<div id="modal_dynamite"></div>
 				</div><!--modal__inner-->
 			</div><!--modal-->
