@@ -1,0 +1,16 @@
+game
+closed_bottle1
+
+item
+closed_bottle
+open_bottle
+filled_bottle
+
+modal
+closed_bottle
+open_bottle
+filled_bottle
+letter
+alcohol
+alcohol_letter
+kindred_letter
