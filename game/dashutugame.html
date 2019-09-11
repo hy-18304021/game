@@ -18,7 +18,7 @@
 			esc.addPreLoadImages( ['images/gameover.png'] );
 			var flag = [];
 			var $$ = function( id ){ return document.getElementById( id ); };
-			esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter','smokecandle','kindled_smokecandle', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
+			esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
 			
 			(function()
 			{
@@ -93,45 +93,14 @@
 					esc.setTrigger( 'forest_left_trigger', turnSea );
 					esc.setTrigger( 'forest_right_trigger', turnBeach );
 					esc.setTrigger( 'forest_previous_trigger', turnHouse );
-					esc.setDrag( 'colorbox', 0, [114,208,372,336] );
+					
 					
 					//house
 					esc.setTrigger( 'house_down_trigger', turnForest );
 					esc.setTrigger( 'house_door', turnHouse);
-
-					//TableCards
-					esc.setDrag( 'card1', 0, [0,0,512,384] );
-					esc.setDrag( 'card2', 0, [0,0,512,384] );
-					esc.setDrag( 'card3', 0, [0,0,512,384] );
-					esc.setDrag( 'card4', 0, [0,0,512,384] );
-					esc.setDrag( 'card5', 0, [0,0,512,384] );
-					esc.setTrigger( 'table_down_trigger', back );
-
-					esc.setTrigger( 'rakugaki_down_trigger', back );
-
-					esc.setTrigger( 'box_down_trigger', back );
-					esc.setForm( 'box_form', 'HdHboveYPaSGhX62q3B1BGMg', 'JavaScriptで脱出ゲーム テスト1', 16,
-						function()
-						{
-							if( flag['box_open'] ) return;
-							flag['box_open'] = true;
-							esc.message( '開いた', 3000 );
-							$( 'box' ).style.backgroundPosition = '0px -1884px';
-							$( 'redkey' ).style.visibility = 'inherit';
-						},
-						function()
-						{
-							if( flag['box_open'] ) return;
-							esc.message( '……', 3000 );
-						}
-					);
 					
-					esc.setTrigger( 'start',
-						function()
-						{
-							esc.changeScene('sea');
-						}
-					);
+					//初期スポーン地点
+					esc.setTrigger( 'start',turnSea);
 					
 					//タイトルへ
 					esc.setTrigger( 'go_title',
@@ -237,6 +206,7 @@
 				console.log(m_id);
 			}
 
+			//拡大用
 			function itemModal(){
 				console.log(m_id+'外');
 				
