@@ -1,0 +1,27 @@
+(escはEscapeGameのインスタンス)
+
+//クリック時関数実行
+	esc.setTrigger('id',関数)
+
+
+//メッセージ表示
+	esc.message('文字列',表示ミリ秒)
+
+
+//アイテム獲得（元のアイテム非表示にして、アイテム欄のアイテム表示）
+
+	$$('id').style.visibility='inherit'//表示
+	$$('id').style.visibility='hidden'//非表示
+
+（$$('id').style.の後にcssのプロパティ書くと上書きできる）
+
+//アイテム選択中関数実行
+	if(m_id='htmlのitembox内onclick=setMid()の引数'){関数}
+
+
+//シーンに登録(すでにあるaddSceansの配列にid追加)
+	esc.addSceans('id')
+
+//シーンを変更
+	esc.changeScene( 'シーンに登録されたid' );
+
