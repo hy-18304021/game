@@ -224,7 +224,12 @@ switch(m_id){
         $$('item_dynamite').style.border = 'solid';
         console.log(m_id+'クリック');
         break;
-    }
+	
+	case "bkm":
+		$$('item_boxkey').style.border = 'solid';
+		console.log(m_id+'クリック');
+		break;
+	}
 
     if(m_id!=null){
         $$('item_zoom').style.display = 'inherit';
@@ -242,49 +247,56 @@ switch(m_id){
 		$$('modal_closed_bottle').style.display = 'inherit';
 		$$('item_closed_bottle').style.border = 'hidden';
 		console.log(m_id+'中');
-	break;
+		break;
 				
 	case "opm":
 		$$('modal_open_bottle').style.display = 'inherit';
 		$$('item_open_bottle').style.border = 'hidden';
 		console.log(m_id+'中');
-    break;
+    	break;
         
     case "lm":
 		$$('modal_letter').style.display = 'inherit';
 		$$('item_letter').style.border = 'hidden';
 		console.log(m_id+'中');
-    break;
+    	break;
     
 	case "am":
 		$$('modal_alcohol').style.display = 'inherit';
 		$$('item_alcohol').style.border = 'hidden';
 		console.log(m_id+'中');
-    break;
+    	break;
     
 	case "fbm":
 		$$('modal_filled_bottle').style.display = 'inherit';
 		$$('item_filled_bottle').style.border = 'hidden';
 		console.log(m_id+'中');
-    break;
+ 		break;
     
     case "alm":
 		$$('modal_alcohol_letter').style.display = 'inherit';
         $$('item_alcohol_letter').style.border = 'hidden';
        	console.log(m_id+'中');
-    break;
+    	break;
        
-     case "alm":
+    case "alm":
     	$$('modal_kindred_letter').style.display = 'inherit';
     	$$('item_kindred_letter').style.border = 'hidden';
    		console.log(m_id+'中');
-    break;
+    	break;
 
-		case "dm":
+	case "dm":
 	    $$('modal_dynamite').style.display = 'inherit';
 	    $$('item_dynamite').style.border = 'hidden';
 	    console.log(m_id+'中');
-    break;
+		break;
+
+	case "bkm":
+	    $$('modal_boxkey').style.display = 'inherit';
+		$$('item_boxkey').style.border = 'hidden';
+	    console.log(m_id+'中');
+		break;
+	
 }
 m_id=null;
 console.log(m_id+'外');
