@@ -3,12 +3,9 @@ sea
 beach
 forest
 house
-start
-black
-open_box
-closed_box
-newspaper
-zoom_**
+ome
+title
+over
 
 //アイテム　アイテムリストの表示はitem_** 
 手紙の瓶開 open_bottle
