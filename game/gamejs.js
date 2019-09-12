@@ -74,17 +74,15 @@ esc.setTrigger( 'closed_bottle',
 esc.setTrigger( 'start',turnSea);
 					
 //タイトルへ
-esc.setTrigger( 'go_title',
+esc.setTrigger('go_title',
 		function()
 		{
-						
 		// 初期化する
-		esc.restartAllDrag();
 		esc.restartAllForm();
 		esc.message( '' );
 		flag = [];
 		resetgame();
-		esc.changeScene( 'title' );
+		esc.changeScene('title');
 	}
 );
 	
@@ -229,9 +227,8 @@ switch(m_id){
 		break;
 	}
 
-    if(m_id!=null){
-        $$('item_zoom').style.display = 'inherit';
-    }
+    $$('item_zoom').style.display = 'inherit';
+    
 }
 
 //拡大用
@@ -311,6 +308,7 @@ function imgnone(){
 	$$('modal_filled_bottle').style.display = 'none';
 	$$('modal_alcohol_letter').style.display = 'none';
 	$$('modal_dynamite').style.display = 'none';
+	$$('modal_boxkey').style.display = 'none';
 }
 
 function eraseimg(){
@@ -322,6 +320,7 @@ function eraseimg(){
 	$$('modal_filled_bottle').style.display = 'none';
 	$$('modal_alcohol_letter').style.display = 'none';
 	$$('modal_dynamite').style.display = 'none';
+	$$('modal_boxkey').style.display = 'none';
 }
 //アイテム変化用
 //一つから他へ変化
@@ -329,9 +328,8 @@ function bottleChange(){
     $$('modal_closed_bottle').style.display = 'none';
 	$$('item_closed_bottle').style.display = 'none';
 	$$('item_open_bottle').style.display = 'inherit';
-    $$('item_letter').style.display = 'inherit';
-    setMid("opm");
-    itemModal();
+	$$('item_letter').style.display = 'inherit';
+	$$('close_modal').style.display = 'none';	
 }
 
 //二つを一つに変化
@@ -364,15 +362,15 @@ function ItemChange(item_id){
 function resetgame(){
 	$$('closed_bottle').style.visibility = 'inherit';
 	$$('dynamite').style.visibility = 'inherit';
-	$$('item_closed_bottle').style.visibility = 'hidden';
-	$$('item_open_bottle').style.visibility = 'hidden';
-	$$('item_filled_bottle').style.visibility = 'hidden';
-	$$('item_alcohol').style.visibility = 'hidden';
-	$$('item_letter').style.visibility = 'hidden';
-	$$('item_alcohol_letter').style.visibility = 'hidden';
-	$$('item_kindred_letter').style.visibility = 'hidden';
-	$$('item_dynamite').style.visibility = 'hidden';
-	$$('item_boxkey').style.visibility = 'hidden';
-	$$('item_zoom').style.visibility = 'hidden';
-	$$('close_modal').style.visibility = 'hidden';
+	$$('item_closed_bottle').style.display = 'none';
+	$$('item_open_bottle').style.display = 'none';
+	$$('item_filled_bottle').style.display = 'none';
+	$$('item_alcohol').style.display = 'none';
+	$$('item_letter').style.display = 'none';
+	$$('item_alcohol_letter').style.display = 'none';
+	$$('item_kindred_letter').style.display = 'none';
+	$$('item_dynamite').style.display = 'none';
+	$$('item_boxkey').style.display = 'none';
+	$$('item_zoom').style.display = 'none';
+	$$('close_modal').style.display = 'none';
 }
