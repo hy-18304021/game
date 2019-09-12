@@ -83,9 +83,7 @@ esc.setTrigger( 'go_title',
 		esc.restartAllForm();
 		esc.message( '' );
 		flag = [];
-		$$('item_closed_bottle').style.visibility = 'hidden';
-		$$('closed_bottle1').style.visibility = 'inherit';
-		$$('item_dynamite').style.visibility = 'hidden';
+		resetgame();
 		esc.changeScene( 'title' );
 	}
 );
@@ -361,4 +359,20 @@ function ItemChange(item_id){
 		//クリア処理に飛ばす
     }
     eraseimg();
+}
+
+function resetgame(){
+	$$('closed_bottle').style.visibility = 'inherit';
+	$$('dynamite').style.visibility = 'inherit';
+	$$('item_closed_bottle').style.visibility = 'hidden';
+	$$('item_open_bottle').style.visibility = 'hidden';
+	$$('item_filled_bottle').style.visibility = 'hidden';
+	$$('item_alcohol').style.visibility = 'hidden';
+	$$('item_letter').style.visibility = 'hidden';
+	$$('item_alcohol_letter').style.visibility = 'hidden';
+	$$('item_kindred_letter').style.visibility = 'hidden';
+	$$('item_dynamite').style.visibility = 'hidden';
+	$$('item_boxkey').style.visibility = 'hidden';
+	$$('item_zoom').style.visibility = 'hidden';
+	$$('close_modal').style.visibility = 'hidden';
 }
