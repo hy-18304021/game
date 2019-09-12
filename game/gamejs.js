@@ -2,7 +2,7 @@ var esc = new EscapeGame();
 esc.addPreLoadImages( ['images/gameover1.png'] );
 var flag = [];
 var $$ = function( id ){ return document.getElementById( id ); };
-esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest',  'house','open_bottle','closed_bottle','filled_bottle', 'letter', 'alcoholletter', 'alcohol','open_firstaidkit','closed_firstaidkit', 'ome','over'] );
+esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest','house', 'ome','over'] );
 		
 (function()
 {
@@ -30,18 +30,6 @@ var turnHouse = function()
 	esc.changeScene( 'house' );
 	esc.message( '小屋の中にいる。', 1000 );
 };
-				
-var turnOpen_firstaidkit = function()
-{
-	esc.changeScene( 'open_firstaidkit' );
-	esc.message( '救急箱だ。', 1000 );
-};
-				
-var turnClosed_firstaidkit = function()
-{
-	esc.changeScene( 'closed_firstaidkit' );
-	esc.message( '救急箱だ。', 1000 );
-};
 		
 var back = function()
 {
@@ -52,20 +40,19 @@ var back = function()
 //sea
 esc.setTrigger( 'sea_left_trigger', turnBeach );
 esc.setTrigger( 'sea_right_trigger', turnForest );
-esc.setTrigger( 'deguchi', function(){esc.changeScene('ome');} );//クリア
 				
 //beach
 esc.setTrigger( 'beach_left_trigger', turnForest );
 esc.setTrigger( 'beach_right_trigger', turnSea );
 
 // bottle is clicked
-esc.setTrigger( 'closed_bottle1',
+esc.setTrigger( 'closed_bottle',
 	function()
 	{
-		flag['closed_bottle1'] = true;
+		flag['closed_bottle'] = true;
 		$$('item_closed_bottle').style.display='block';
 		$$('item_closed_bottle').style.visibility = 'inherit';
-		$$('closed_bottle1').style.visibility = 'hidden';
+		$$('closed_bottle').style.visibility = 'hidden';
 		esc.message( 'ボトルを拾った',3000 );
 		}
 );
@@ -81,7 +68,7 @@ esc.setTrigger( 'closed_bottle1',
 	    $$('item_dynamite').style.display='block';
    		$$('item_dynamite').style.visibility = 'inherit';
    		$$('dynamite').style.visibility = 'hidden';
-           esc.message( 'ダイナマイトを拾った',3000 );
+        esc.message( 'ダイナマイトを拾った',3000 );
    });
 //初期スポーン地点
 esc.setTrigger( 'start',turnSea);

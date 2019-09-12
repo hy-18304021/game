@@ -174,7 +174,7 @@ p.text {
 }
 
 #ome {
-    background-position: 0 -3402px;
+    background-position: 0 -3456px;
     background-size: 100%;
 }
 
@@ -352,7 +352,7 @@ p.text {
 }
 
 /*Bottle*/
-#closed_bottle1 {
+#closed_bottle {
     background: url(images/closed_bottle.png) no-repeat;
     background-position: 0px 0px;
     margin-left: 637.5px;
@@ -405,8 +405,10 @@ p.text {
     border: hidden #000000;
     padding: 5px;
 }
-
-/*gameover1*/
+/*letter*/
+/*alcohol*/
+/*key*/
+/*dynamite*/
 #dynamite {
     background: url(images/gameover1.png) no-repeat;
     background-position: -340px -1310px;
