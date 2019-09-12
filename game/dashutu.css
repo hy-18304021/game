@@ -182,27 +182,6 @@ p.text {
     background-size: 100%;
 }
 /* sceansここまで */
-/* スタートとかタイトルとかのボタン */
-
-#start {
-    position: absolute;
-    left: 153px;
-    top: 402px;
-    width: 411px;
-    height: 133.5px;
-    cursor: pointer;
-}
-
-#go_title {
-    position: absolute;
-    left: 106.5px;
-    top: 408px;
-    width: 285px;
-    height: 97.5px;
-    cursor: pointer;
-    z-index: 1;
-}
-/* ボタンここまで */
 
 /* #box_form {
 	position: absolute;
@@ -361,15 +340,92 @@ p.text {
     z-index: 5;
     cursor: pointer;
 }
+#boxkey {
+    background: url(images/boxkey.png) no-repeat;
+    background-position: 0px 0px;
+    
+    width: 60px;
+    height: 24px;
+    z-index: 500;
+    cursor: pointer;
+    background-size: 100%;
+}
 /* forestに配置されてるものここまで */
 /* houseに配置されてるもの */
+/*dynamite*/
+#dynamite {
+    background: url(images/gameover1.png) no-repeat;
+    background-position: -340px -1310px;
+    /*ペイントで選択して大きさ見る*/
+    background-size: 100%;
+    /*指定しないと元の画像サイズになってしまう*/
+    margin-left: 510px;
+    /*340*1.5*/
+    margin-top: 237px;
+    /*#forestのbackgroundpositionの1152を1310から引いて*1.5*/
+    width: 91.5px;
+    /*ペイントで選択して大きさ見る*/
+    height: 51px;
+    /*ペイントで選択して大きさ見る*/
+    z-index: 500;
+    cursor: pointer;
+}
+#alcohol {
+    background: url(images/alcohol.png) no-repeat;
+    background-position: 0px 0px;
+    
+    width: 60px;
+    height: 24px;
+    z-index: 500;
+    cursor: pointer;
+    background-size: 100%;
+}
+#closed_box{
+    background: url(images/closed_box.png) no-repeat;
+    background-position: 0px 0px;
+    
+    width: 60px;
+    height: 24px;
+    z-index: 500;
+    cursor: pointer;
+    background-size: 100%;
+}
+#newspaper{
+    background: url(images/newspaper.png) no-repeat;
+    background-position: 0px 0px;
+    
+    width: 60px;
+    height: 24px;
+    z-index: 500;
+    cursor: pointer;
+    background-size: 100%;
+}
+
 /* houseに配置されてるものここまで */
 /* omeに配置されてるもの */
 /* omeに配置されてるものここまで */
 /* titleに配置されてるもの */
+#start {
+    position: absolute;
+    left: 153px;
+    top: 402px;
+    width: 411px;
+    height: 133.5px;
+    cursor: pointer;
+}
 /* titleに配置されてるものここまで */
 /* overに配置されてるもの */
+#go_title {
+    position: absolute;
+    left: 106.5px;
+    top: 408px;
+    width: 285px;
+    height: 97.5px;
+    cursor: pointer;
+    z-index: 1;
+}
 /* overに配置されてるものここまで */
+/* itemboxに配置されてるもの */
 #item_closed_bottle {
     background: url(images/closed_bottle.png) no-repeat;
     background-position: center;
@@ -479,24 +535,7 @@ p.text {
     border: hidden #000000;
     padding: 5px;
 }
-/*dynamite*/
-#dynamite {
-    background: url(images/gameover1.png) no-repeat;
-    background-position: -340px -1310px;
-    /*ペイントで選択して大きさ見る*/
-    background-size: 100%;
-    /*指定しないと元の画像サイズになってしまう*/
-    margin-left: 510px;
-    /*340*1.5*/
-    margin-top: 237px;
-    /*#forestのbackgroundpositionの1152を1310から引いて*1.5*/
-    width: 91.5px;
-    /*ペイントで選択して大きさ見る*/
-    height: 51px;
-    /*ペイントで選択して大きさ見る*/
-    z-index: 500;
-    cursor: pointer;
-}
+
 
 #item_dynamite {
     background: url(images/dynamite.png) no-repeat;
@@ -524,7 +563,6 @@ p.text {
     bottom: 0;
     display: none;
 }
-
 #close_modal {
     background: url(images/close_zoom.png) no-repeat;
     position: absolute;
@@ -537,11 +575,13 @@ p.text {
     bottom: 0;
     display: none;
 }
+/* itemboxに配置されてるものここまで */
 
 /* #content{
     left: 50px;
 } */
-/* modal window */
+
+/* modal windowに配置されてるもの */
 #modal_scene {
     left: 0px;
     top: 0px;
@@ -672,3 +712,4 @@ p.text {
     background-size: 100%;
     display: none;
 }
+/* modal windowに配置されてるものここまで */
