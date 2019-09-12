@@ -40,11 +40,6 @@ var back = function()
 //sea
 esc.setTrigger( 'sea_left_trigger', turnBeach );
 esc.setTrigger( 'sea_right_trigger', turnForest );
-				
-//beach
-esc.setTrigger( 'beach_left_trigger', turnForest );
-esc.setTrigger( 'beach_right_trigger', turnSea );
-
 // bottle is clicked
 esc.setTrigger( 'closed_bottle',
 	function()
@@ -56,20 +51,41 @@ esc.setTrigger( 'closed_bottle',
 		esc.message( 'ボトルを拾った',3000 );
 		}
 );
+//beach
+esc.setTrigger( 'beach_left_trigger', turnForest );
+esc.setTrigger( 'beach_right_trigger', turnSea );
 				
-	//forest
-	esc.setTrigger( 'forest_left_trigger', turnSea );
-	esc.setTrigger( 'forest_right_trigger', turnBeach );
-	esc.setTrigger( 'forest_previous_trigger', turnHouse );
-	//house
-	esc.setTrigger( 'house_down_trigger', turnForest );
-	esc.setTrigger( 'house_door', turnHouse);
-	esc.setTrigger( 'dynamite', function(){						
-	    $$('item_dynamite').style.display='block';
-   		$$('item_dynamite').style.visibility = 'inherit';
-   		$$('dynamite').style.visibility = 'hidden';
-        esc.message( 'ダイナマイトを拾った',3000 );
-   });
+//forest
+esc.setTrigger( 'forest_left_trigger', turnSea );
+esc.setTrigger( 'forest_right_trigger', turnBeach );
+esc.setTrigger( 'forest_previous_trigger', turnHouse );
+esc.setTrigger( 'boxkey',
+	function()
+	{
+		$$('item_boxkey').style.display='block';
+		$$('item_boxkey').style.visibility = 'inherit';
+		$$('boxkey').style.visibility = 'hidden';
+		esc.message( '鍵を拾った',3000 );
+	}
+);
+//house
+esc.setTrigger( 'house_down_trigger', turnForest );
+esc.setTrigger( 'house_door', turnHouse);
+esc.setTrigger( 'dynamite', function(){						
+	$$('item_dynamite').style.display='block';
+	$$('item_dynamite').style.visibility = 'inherit';
+	$$('dynamite').style.visibility = 'hidden';
+	esc.message( 'ダイナマイトを拾った',3000 );
+});
+esc.setTrigger( 'alcohol',
+	function()
+	{
+		$$('item_alcohol').style.display='block';
+		$$('item_alcohol').style.visibility = 'inherit';
+		$$('alcohol').style.visibility = 'hidden';
+		esc.message( '消毒用アルコールを拾った',3000 );
+	}
+);
 //初期スポーン地点
 esc.setTrigger( 'start',turnSea);
 					
