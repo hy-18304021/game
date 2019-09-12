@@ -1,0 +1,22 @@
+
+//scene内に追加（seaの場合）sceneが非表示になれば一緒に隠れる
+<div id="sea" class="scene">
+  <div id="id"></div>
+</div>
+
+//アイテムボックスに追加
+<div id="itembox">
+  <div id="id"></div>
+</div>
+
+//モーダルウィンドウに追加
+<div id="modal_scene">
+  <div class="modal__content">
+    <div id="id"></div>
+  </div>
+</div>
+
+CSSはHTMLに対応する感じに追加場所分けたのでそこに追加
+背景画像切り取って使いたい時は#dynamiteのCSS参考にする
+細めのアイテムは#closed_bottleのCSS
+広めのアイテムは#closed_bottleのCSSのwidth２倍
