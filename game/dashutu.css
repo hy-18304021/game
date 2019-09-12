@@ -147,7 +147,7 @@ p.text {
     background: url(images/gameover1.png) no-repeat;
     visibility: hidden;
 }
-
+/* sceans */
 #sea {
     background-position: 0 0px;
     background-size: 100%;
@@ -167,12 +167,6 @@ p.text {
     background-position: 0 -1728px;
     background-size: 100%;
 }
-
-#box {
-    background-position: 0 -2250px;
-    background-size: 100%;
-}
-
 #ome {
     background-position: 0 -3456px;
     background-size: 100%;
@@ -187,8 +181,8 @@ p.text {
     background-position: 0 -2880px;
     background-size: 100%;
 }
-
-
+/* sceansここまで */
+/* スタートとかタイトルとかのボタン */
 #start {
     position: absolute;
     left: 153px;
@@ -207,8 +201,8 @@ p.text {
     cursor: pointer;
     z-index: 1;
 }
+/* ボタンここまで */
 
-/* ここまで変更した */
 /* #box_form {
 	position: absolute;
 	left: 160px;
@@ -338,19 +332,7 @@ p.text {
     position: absolute;
     right: 120px;
 }
-
-/*house_door*/
-#house_door {
-    background-position: -213px -936px;
-    background-size: 100%;
-    width: 150px;
-    height: 225px;
-    margin-left: 319.5px;
-    margin-top: 252px;
-    z-index: 5;
-    cursor: pointer;
-}
-
+/* seaに配置されてるもの */
 /*Bottle*/
 #closed_bottle {
     background: url(images/closed_bottle.png) no-repeat;
@@ -363,7 +345,30 @@ p.text {
     cursor: pointer;
     background-size: 100%;
 }
-
+/* seaに配置されてるものここまで */
+/* beachに配置されてるもの */
+/* beachに配置されてるものここまで */
+/* forestに配置されてるもの */
+/*house_door*/
+#house_door {
+    background-position: -213px -936px;
+    background-size: 100%;
+    width: 150px;
+    height: 225px;
+    margin-left: 319.5px;
+    margin-top: 252px;
+    z-index: 5;
+    cursor: pointer;
+}
+/* forestに配置されてるものここまで */
+/* houseに配置されてるもの */
+/* houseに配置されてるものここまで */
+/* omeに配置されてるもの */
+/* omeに配置されてるものここまで */
+/* titleに配置されてるもの */
+/* titleに配置されてるものここまで */
+/* overに配置されてるもの */
+/* overに配置されてるものここまで */
 #item_closed_bottle {
     background: url(images/closed_bottle.png) no-repeat;
     background-position: center;
