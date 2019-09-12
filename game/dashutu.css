@@ -188,7 +188,6 @@ p.text {
     background-size: 100%;
 }
 
-
 #start {
     position: absolute;
     left: 153px;
@@ -406,8 +405,73 @@ p.text {
     padding: 5px;
 }
 /*letter*/
+#item_letter{
+    background: url(images/letter.png) no-repeat;
+    background-position: center;
+    margin: 15px auto;
+    width: 102px;
+    height: 70px;
+    z-index: 500;
+    cursor: pointer;
+    display: none;
+    background-size: 45%;
+    border: hidden #000000;
+    padding: 5px;
+}
+#item_alcohol_letter{
+    background: url(images/alcoholletter.png) no-repeat;
+    background-position: center;
+    margin: 15px auto;
+    width: 102px;
+    height: 70px;
+    z-index: 500;
+    cursor: pointer;
+    display: none;
+    background-size: 45%;
+    border: hidden #000000;
+    padding: 5px;
+}
+#item_kindled_letter{
+    background: url(images/kindled_letter.png) no-repeat;
+    background-position: center;
+    margin: 15px auto;
+    width: 102px;
+    height: 70px;
+    z-index: 500;
+    cursor: pointer;
+    display: none;
+    background-size: 45%;
+    border: hidden #000000;
+    padding: 5px;
+}
 /*alcohol*/
+#item_alcohol{
+    background: url(images/alcohol.png) no-repeat;
+    background-position: center;
+    margin: 15px auto;
+    width: 102px;
+    height: 50px;
+    z-index: 500;
+    cursor: pointer;
+    display: none;
+    background-size: 45%;
+    border: hidden #000000;
+    padding: 5px;
+}
 /*key*/
+#item_boxkey{
+    background: url(images/boxkey.png) no-repeat;
+    background-position: center;
+    margin: 15px auto;
+    width: 102px;
+    height: 50px;
+    z-index: 500;
+    cursor: pointer;
+    display: none;
+    background-size: 45%;
+    border: hidden #000000;
+    padding: 5px;
+}
 /*dynamite*/
 #dynamite {
     background: url(images/gameover1.png) no-repeat;
@@ -530,7 +594,7 @@ p.text {
     background-position: 0px 0px;
     margin-top: 12px;
     width: 300px;
-    height: 150px;
+    height: 170px;
     z-index: 500;
     background-size: 300px;
     display: none;
@@ -563,7 +627,7 @@ p.text {
     background-position: 0px 0px;
     margin-top: 12px;
     width: 300px;
-    height: 150px;
+    height: 170px;
     z-index: 500;
     background-size: 300px;
     display: none;
@@ -574,7 +638,7 @@ p.text {
     background-position: 0px 0px;
     margin-top: 12px;
     width: 300px;
-    height: 150px;
+    height: 170px;
     z-index: 500;
     background-size: 300px;
     display: none;
@@ -582,6 +646,17 @@ p.text {
 
 #modal_dynamite {
     background: url(images/dynamite.png) no-repeat;
+    background-position: 0px 0px;
+    margin-top: 12px;
+    width: 300px;
+    height: 200px;
+    z-index: 500;
+    background-size: 100%;
+    display: none;
+}
+
+#modal_boxkey {
+    background: url(images/boxkey.png) no-repeat;
     background-position: 0px 0px;
     margin-top: 12px;
     width: 300px;
