@@ -182,8 +182,10 @@ function popupImage() {
 
 popupImage();
 			
+//アイテムid
+var atem_id=null;
 //モーダルid
-var m_id=null;
+var modal_id=null;
 
 function bordernune(){
 	$$('item_closed_bottle').style.border = 'none';
@@ -196,50 +198,50 @@ function bordernune(){
 }
 
 function setMid(m_img){
-m_id=m_img;
-console.log(m_id);
+atem_id=m_img;
+console.log(atem_id);
 
 bordernune();
 
-switch(m_id){
+switch(atem_id){
     case "cbm":
         $$('item_closed_bottle').style.border = 'solid';
-        console.log(m_id+'クリック');
+        console.log(atem_id+'クリック');
         break;
                         
     case "opm":
         $$('item_open_bottle').style.border = 'solid';
-        console.log(m_id+'クリック');
+        console.log(atem_id+'クリック');
         break;
 
     case "lm":
         $$('item_letter').style.border = 'solid';
-        console.log(m_id+'クリック');
+        console.log(atem_id+'クリック');
         break;
 
     case "am":
         $$('item_alcohol').style.border = 'solid';
-        console.log(m_id+'クリック');
+        console.log(atem_id+'クリック');
         break;
 
     case "fbm":
         $$('item_filled_bottle').style.border = 'solid';
-        console.log(m_id+'クリック');
+        console.log(atem_id+'クリック');
         break;
 
     case "alm":
         $$('item_alcohol_letter').style.border = 'solid';
-        console.log(m_id+'クリック');
+        console.log(atem_id+'クリック');
         break;
 
     case "dm":
         $$('item_dynamite').style.border = 'solid';
-        console.log(m_id+'クリック');
+        console.log(atem_id+'クリック');
         break;
 	
 	case "bkm":
 		$$('item_boxkey').style.border = 'solid';
-		console.log(m_id+'クリック');
+		console.log(atem_id+'クリック');
 		break;
 	}
 
@@ -249,68 +251,69 @@ switch(m_id){
 
 //拡大用
 function itemModal(){
-console.log(m_id+'外');
+console.log(atem_id+'外');
+
 
 imgnone();
 
-switch(m_id){
+switch(atem_id){
 	case "cbm":
 		$$('modal_closed_bottle').style.display = 'inherit';
 		$$('item_closed_bottle').style.border = 'hidden';
-		console.log(m_id+'中');
+		console.log(atem_id+'中');
 		break;
 				
 	case "opm":
 		$$('modal_open_bottle').style.display = 'inherit';
 		$$('item_open_bottle').style.border = 'hidden';
-		console.log(m_id+'中');
+		console.log(atem_id+'中');
     	break;
         
     case "lm":
 		$$('modal_letter').style.display = 'inherit';
 		$$('item_letter').style.border = 'hidden';
-		console.log(m_id+'中');
+		console.log(atem_id+'中');
     	break;
     
 	case "am":
 		$$('modal_alcohol').style.display = 'inherit';
 		$$('item_alcohol').style.border = 'hidden';
-		console.log(m_id+'中');
+		console.log(atem_id+'中');
     	break;
     
 	case "fbm":
 		$$('modal_filled_bottle').style.display = 'inherit';
 		$$('item_filled_bottle').style.border = 'hidden';
-		console.log(m_id+'中');
+		console.log(atem_id+'中');
  		break;
     
     case "alm":
 		$$('modal_alcohol_letter').style.display = 'inherit';
         $$('item_alcohol_letter').style.border = 'hidden';
-       	console.log(m_id+'中');
+       	console.log(atem_id+'中');
     	break;
        
     case "alm":
     	$$('modal_kindred_letter').style.display = 'inherit';
     	$$('item_kindred_letter').style.border = 'hidden';
-   		console.log(m_id+'中');
+   		console.log(atem_id+'中');
     	break;
 
 	case "dm":
 	    $$('modal_dynamite').style.display = 'inherit';
 	    $$('item_dynamite').style.border = 'hidden';
-	    console.log(m_id+'中');
+	    console.log(atem_id+'中');
 		break;
 
 	case "bkm":
 	    $$('modal_boxkey').style.display = 'inherit';
 		$$('item_boxkey').style.border = 'hidden';
-	    console.log(m_id+'中');
+	    console.log(atem_id+'中');
 		break;
 	
 }
-m_id=null;
-console.log(m_id+'外');
+atem_id=null;
+console.log(atem_id+'外');
 
 $$('item_zoom').style.display = 'none';
 $$('close_modal').style.display = 'inherit';
@@ -348,24 +351,28 @@ function bottleChange(){
 	$$('close_modal').style.display = 'none';	
 }
 
+//item_alcohol_letterにする
+esc.setTrigger("modal_letter",function(){
+	console.log(atem_id);
+	if(atem_id=="am"){
+	$$('modal_letter').style.display = 'none';
+	$$('item_letter').style.display = 'hidden';
+	$$('item_alcohol').style.display = 'hidden';
+	$$('item_alcohol_letter').style.display = 'inherit';
+	$$('close_modal').style.display = 'none';
+	}	
+});
 //二つを一つに変化
-function ItemChange(item_id){
-	//item_alcohol_letterにする
-	if(m_id=="item_letter"&&item_id=="item_alcohol"){
-		$$('modal_letter').style.display = 'none';
-		$$('item_letter').style.display = 'hidden';
-		$$('item_alcohol').style.display = 'hidden';
-		$$('item_alcohol_letter').style.display = 'inherit';
-	}
+function ItemChange(){
 	//item_kindred_letterにする
-	if(m_id=="item_alcohol_letter"&&item_id=="item_filled_bottle"){
+	if(atem_id=="item_alcohol_letter"&&modal_id=="item_filled_bottle"){
 		$$('modal_alcohol_letter').style.display = 'none';
 		$$('item_alcohol_letter').style.display = 'hidden';
 		$$('item_filled_bottle').style.display = 'hidden';
 		$$('item_kindred_letter').style.display = 'inherit';
 	}
 	//dynamiteを爆発させる
-	if(m_id=="item_dynamite"&&item_id=="item_kindred_letter"){
+	if(atem_id=="item_dynamite"&&modal_id=="item_kindred_letter"){
 		$$('modal_dynamite').style.display = 'none';
 		$$('item_dynamite').style.display = 'hidden';
 		$$('item_kindred_letter').style.display = 'hidden';
