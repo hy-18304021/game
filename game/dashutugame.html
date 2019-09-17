@@ -42,15 +42,15 @@
 		<div id="itembox_outer1">
 			<div id="itembox_outer2">
 				<div id="itembox">
-					<div id="item_closed_bottle"  onclick="setMid('cbm')"></div>
-					<div id="item_open_bottle"  onclick="setMid('opm')"></div>
-					<div id="item_filled_bottle" onclick="setMid('fbm')"></div>
-					<div id="item_alcohol"  onclick="setMid('am')"></div>
-					<div id="item_letter"  onclick="setMid('lm')"></div>
-					<div id="item_alcohol_letter" onclick="setMid('alm')"></div>
-					<div id="item_kindred_letter" onclick="setMid('klm')"></div>
-					<div id="item_dynamite"  onclick="setMid('dm')"></div>
-					<div id="item_boxkey"  onclick="setMid('bkm')"></div>
+					<div id="item_closed_bottle"></div>
+					<div id="item_open_bottle"></div>
+					<div id="item_filled_bottle"></div>
+					<div id="item_alcohol"></div>
+					<div id="item_letter"></div>
+					<div id="item_alcohol_letter"></div>
+					<div id="item_kindled_letter"></div>
+					<div id="item_dynamite"></div>
+					<div id="item_boxkey"></div>
 					<div id="item_zoom" class="js-modal-open" onclick="itemModal()"></div>
 					<div id="close_modal" class="js-modal-close" onclick="eraseimg()"></div>
 				</div>
@@ -70,7 +70,7 @@
 		<div id="sea" class="scene">
 			<div id="sea_left_trigger" class="left_arrow"></div>
 			<div id="sea_right_trigger" class="right_arrow"></div>
-			<div id="sea_in_bottle"></div><!-- みずくみ用 -->
+			<div id="water"></div><!-- みずくみ用 -->
 			<div id="closed_bottle"></div>
 			<div id="ship_side"></div>
 			<div id="ship_front"></div>
@@ -121,15 +121,15 @@
 		</div>
 		<!--アイテム拡大に使える-->
 			<div id="modal_scene" class="modal js-modal">
-				<div class="modal__bg"></div>
-				<div class="modal__content">
-					<div id="modal_closed_bottle" class="js-modal-close" onClick="bottleChange()"></div>
+				<div class="modal__bg" ></div>
+				<div class="modal__content" >
+					<div id="modal_closed_bottle" class="js-modal-close"></div>
 					<div id="modal_open_bottle"></div>
 					<div id="modal_filled_bottle"></div>
 					<div id="modal_alcohol"></div>
 					<div id="modal_letter"></div>
 					<div id="modal_alcohol_letter"></div>
-					<div id="modal_kindred_letter"></div>
+					<div id="modal_kindled_letter"></div>
 					<div id="modal_dynamite"></div>
 					<div id="modal_boxkey"></div>
 				</div><!--modal__inner-->

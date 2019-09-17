@@ -325,7 +325,7 @@ p.text {
     cursor: pointer;
     background-size: 100%;
 }
-#sea_in_bottle {
+#water {
     background: url(images/gameover1.png) no-repeat;
     background-position: 0px 170px;
     /*ペイントで選択して大きさ見る*/
@@ -725,7 +725,7 @@ p.text {
     display: none;
 }
 
-#modal_kindred_letter {
+#modal_kindled_letter {
     background: url(images/kindled_letter.png) no-repeat;
     background-position: 0px 0px;
     margin-top: 12px;

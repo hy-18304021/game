@@ -44,7 +44,6 @@ esc.setTrigger( 'sea_right_trigger', turnForest );
 esc.setTrigger( 'closed_bottle',
 	function()
 	{
-		flag['closed_bottle'] = true;
 		$$('item_closed_bottle').style.display='block';
 		$$('item_closed_bottle').style.visibility = 'inherit';
 		$$('closed_bottle').style.visibility = 'hidden';
@@ -102,6 +101,58 @@ esc.setTrigger('go_title',
 	}
 );
 	
+//アイテム拡大
+esc.setTrigger('item_closed_bottle',function(){setMid('cbm')});
+esc.setTrigger('item_open_bottle',function(){setMid('opm')});
+esc.setTrigger('item_letter',function(){setMid('lm')});
+esc.setTrigger('item_alcohol_letter',function(){setMid('alm')});
+esc.setTrigger('item_kindled_letter',function(){setMid('klm')});
+esc.setTrigger('item_dynamite',function(){setMid('dm')});
+esc.setTrigger('item_boxkey',function(){setMid('bkm')});
+//アイテム変換
+//item_closed_bottleからアイテム変換
+esc.setTrigger('modal_closed_bottle',function(){
+    $$('modal_closed_bottle').style.display = 'none';
+	$$('item_closed_bottle').style.display = 'none';
+	$$('item_open_bottle').style.display = 'inherit';
+	$$('item_letter').style.display = 'inherit';
+	$$('close_modal').style.display = 'none';	
+});
+
+//item_open_bottleをitem_filled_bottleに変換
+esc.setTrigger('water',function(){
+	if(atem_id=='opm'){
+		$$('item_open_bottle').style.display = 'none';
+		$$('item_filled_bottle').style.display = 'inherit';
+		$$('item_zoom').style.display = 'none';
+	}
+});
+
+//item_alcohol_letterにする+アイテム拡大セット
+esc.setTrigger( 'item_alcohol', function(){						
+	if(atem_id=='lm'){
+	$$('modal_letter').style.display = 'none';
+	$$('item_letter').style.display = 'none';
+	$$('item_alcohol').style.display = 'none';
+	$$('item_alcohol_letter').style.display = 'inherit';
+	$$('close_modal').style.display = 'none';
+	$('.js-modal').fadeOut();
+	}else{setMid('am');}
+});
+
+//item_kindled_letterに変換
+esc.setTrigger( 'item_filled_bottle', function(){	
+	if(atem_id=="alm"){
+		$$('modal_alcohol_letter').style.display = 'none';
+		$$('item_alcohol_letter').style.display = 'none';
+		$$('item_filled_bottle').style.display = 'none';
+		$$('item_kindled_letter').style.display = 'inherit';
+		$$('close_modal').style.display = 'none';
+		$('.js-modal').fadeOut();
+	}else{setMid('fbm');}
+});
+
+
 esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
 };
 				
@@ -184,10 +235,8 @@ popupImage();
 			
 //アイテムid
 var atem_id=null;
-//モーダルid
-var modal_id=null;
 
-function bordernune(){
+function bordernone(){
 	$$('item_closed_bottle').style.border = 'none';
 	$$('item_open_bottle').style.border = 'none';
 	$$('item_letter').style.border = 'none';
@@ -201,7 +250,7 @@ function setMid(m_img){
 atem_id=m_img;
 console.log(atem_id);
 
-bordernune();
+bordernone();
 
 switch(atem_id){
     case "cbm":
@@ -232,7 +281,12 @@ switch(atem_id){
     case "alm":
         $$('item_alcohol_letter').style.border = 'solid';
         console.log(atem_id+'クリック');
-        break;
+		break;
+	
+	case "klm":
+		$$('item_kindled_letter').style.border = 'solid';
+        console.log(atem_id+'クリック');
+		break;
 
     case "dm":
         $$('item_dynamite').style.border = 'solid';
@@ -293,9 +347,9 @@ switch(atem_id){
        	console.log(atem_id+'中');
     	break;
        
-    case "alm":
-    	$$('modal_kindred_letter').style.display = 'inherit';
-    	$$('item_kindred_letter').style.border = 'hidden';
+    case "klm":
+    	$$('modal_kindled_letter').style.display = 'inherit';
+    	$$('item_kindled_letter').style.border = 'hidden';
    		console.log(atem_id+'中');
     	break;
 
@@ -312,7 +366,6 @@ switch(atem_id){
 		break;
 	
 }
-atem_id=null;
 console.log(atem_id+'外');
 
 $$('item_zoom').style.display = 'none';
@@ -341,36 +394,9 @@ function eraseimg(){
 	$$('modal_dynamite').style.display = 'none';
 	$$('modal_boxkey').style.display = 'none';
 }
-//アイテム変化用
-//一つから他へ変化
-function bottleChange(){
-    $$('modal_closed_bottle').style.display = 'none';
-	$$('item_closed_bottle').style.display = 'none';
-	$$('item_open_bottle').style.display = 'inherit';
-	$$('item_letter').style.display = 'inherit';
-	$$('close_modal').style.display = 'none';	
-}
-
-//item_alcohol_letterにする
-esc.setTrigger("modal_letter",function(){
-	console.log(atem_id);
-	if(atem_id=="am"){
-	$$('modal_letter').style.display = 'none';
-	$$('item_letter').style.display = 'hidden';
-	$$('item_alcohol').style.display = 'hidden';
-	$$('item_alcohol_letter').style.display = 'inherit';
-	$$('close_modal').style.display = 'none';
-	}	
-});
 //二つを一つに変化
 function ItemChange(){
-	//item_kindred_letterにする
-	if(atem_id=="item_alcohol_letter"&&modal_id=="item_filled_bottle"){
-		$$('modal_alcohol_letter').style.display = 'none';
-		$$('item_alcohol_letter').style.display = 'hidden';
-		$$('item_filled_bottle').style.display = 'hidden';
-		$$('item_kindred_letter').style.display = 'inherit';
-	}
+
 	//dynamiteを爆発させる
 	if(atem_id=="item_dynamite"&&modal_id=="item_kindred_letter"){
 		$$('modal_dynamite').style.display = 'none';
