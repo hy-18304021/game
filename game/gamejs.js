@@ -3,7 +3,10 @@ esc.addPreLoadImages( ['images/gameover1.png'] );
 var flag = [];
 var $$ = function( id ){ return document.getElementById( id ); };
 esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest','house', 'ome','over'] );
-		
+//アイテムid
+var atem_id=null;
+//ズームid
+var zoom_id=0;
 (function()
 {
 var load = function()
@@ -35,6 +38,15 @@ var back = function()
 {
 	esc.backScene();
 };
+
+//初期化用
+var reset=function(){
+	esc.restartAllForm();
+	esc.message( '' );
+	flag = [];
+	resetgame();
+	esc.changeScene('title');
+}
 				
 				
 //sea
@@ -88,22 +100,16 @@ esc.setTrigger( 'alcohol',
 //初期スポーン地点
 esc.setTrigger( 'start',turnSea);
 					
-//タイトルへ
-esc.setTrigger('go_title',
-		function()
-		{
-		// 初期化する
-		esc.restartAllForm();
-		esc.message( '' );
-		flag = [];
-		resetgame();
-		esc.changeScene('title');
-	}
-);
-	
+//ゲームオーバーからタイトルへ
+esc.setTrigger('over_title',reset);
+
+//クリアからタイトルへ
+esc.setTrigger('ome_title',reset);
 //アイテム拡大
 esc.setTrigger('item_closed_bottle',function(){setMid('cbm')});
 esc.setTrigger('item_open_bottle',function(){setMid('opm')});
+esc.setTrigger('item_filled_bottle',function(){setMid('fbm')});
+esc.setTrigger('item_alcohol',function(){setMid('am')});
 esc.setTrigger('item_letter',function(){setMid('lm')});
 esc.setTrigger('item_alcohol_letter',function(){setMid('alm')});
 esc.setTrigger('item_kindled_letter',function(){setMid('klm')});
@@ -116,7 +122,8 @@ esc.setTrigger('modal_closed_bottle',function(){
 	$$('item_closed_bottle').style.display = 'none';
 	$$('item_open_bottle').style.display = 'inherit';
 	$$('item_letter').style.display = 'inherit';
-	$$('close_modal').style.display = 'none';	
+	$$('close_modal').style.display = 'none';
+	zoom_id=0;
 });
 
 //item_open_bottleをitem_filled_bottleに変換
@@ -125,33 +132,48 @@ esc.setTrigger('water',function(){
 		$$('item_open_bottle').style.display = 'none';
 		$$('item_filled_bottle').style.display = 'inherit';
 		$$('item_zoom').style.display = 'none';
+		zoom_id=0;
 	}
 });
 
-//item_alcohol_letterにする+アイテム拡大セット
-esc.setTrigger( 'item_alcohol', function(){						
-	if(atem_id=='lm'){
-	$$('modal_letter').style.display = 'none';
-	$$('item_letter').style.display = 'none';
-	$$('item_alcohol').style.display = 'none';
-	$$('item_alcohol_letter').style.display = 'inherit';
-	$$('close_modal').style.display = 'none';
-	$('.js-modal').fadeOut();
-	}else{setMid('am');}
+//item_alcohol_letterにする
+esc.setTrigger( 'modal_letter', function(){						
+	if(atem_id=='am'){
+		$$('modal_letter').style.display = 'none';
+		$$('item_letter').style.display = 'none';
+		$$('item_alcohol').style.display = 'none';
+		$$('item_alcohol_letter').style.display = 'inherit';
+		$$('close_modal').style.display = 'none';
+		$('.js-modal').fadeOut();
+		zoom_id=0;
+	}
 });
 
 //item_kindled_letterに変換
-esc.setTrigger( 'item_filled_bottle', function(){	
-	if(atem_id=="alm"){
+esc.setTrigger( 'modal_alcohol_letter', function(){	
+	if(atem_id=="fbm"){
 		$$('modal_alcohol_letter').style.display = 'none';
 		$$('item_alcohol_letter').style.display = 'none';
 		$$('item_filled_bottle').style.display = 'none';
 		$$('item_kindled_letter').style.display = 'inherit';
 		$$('close_modal').style.display = 'none';
 		$('.js-modal').fadeOut();
-	}else{setMid('fbm');}
+		zoom_id=0;
+	}
 });
 
+//クリアまで
+esc.setTrigger( 'modal_dynamite', function(){	
+	if(atem_id=="klm"){
+		$$('modal_dynamite').style.display = 'none';
+		$$('item_dynamite').style.display = 'none';
+		$$('item_kindled_letter').style.display = 'none';
+		$$('close_modal').style.display = 'none';
+		$('.js-modal').fadeOut();
+		esc.changeScene('ome');
+		//クリア処理に飛ばす
+    }
+});
 
 esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
 };
@@ -232,19 +254,6 @@ function popupImage() {
 }
 
 popupImage();
-			
-//アイテムid
-var atem_id=null;
-
-function bordernone(){
-	$$('item_closed_bottle').style.border = 'none';
-	$$('item_open_bottle').style.border = 'none';
-	$$('item_letter').style.border = 'none';
-	$$('item_alcohol').style.border = 'none';
-	$$('item_filled_bottle').style.border = 'none';
-	$$('item_alcohol_letter').style.border = 'none';
-	$$('item_dynamite').style.border = 'none';
-}
 
 function setMid(m_img){
 atem_id=m_img;
@@ -299,15 +308,15 @@ switch(atem_id){
 		break;
 	}
 
-    $$('item_zoom').style.display = 'inherit';
-    
+	if(zoom_id==0){
+    	$$('item_zoom').style.display = 'inherit';
+	}
 }
 
 //拡大用
 function itemModal(){
 console.log(atem_id+'外');
-
-
+zoom_id=1;
 imgnone();
 
 switch(atem_id){
@@ -383,43 +392,42 @@ function imgnone(){
 	$$('modal_boxkey').style.display = 'none';
 }
 
+//モーダルを消す
 function eraseimg(){
 	$$('close_modal').style.display = 'none';
-	$$('modal_closed_bottle').style.display = 'none';
-	$$('modal_open_bottle').style.display = 'none';
-	$$('modal_letter').style.display = 'none';
-	$$('modal_alcohol').style.display = 'none';
-	$$('modal_filled_bottle').style.display = 'none';
-	$$('modal_alcohol_letter').style.display = 'none';
-	$$('modal_dynamite').style.display = 'none';
-	$$('modal_boxkey').style.display = 'none';
-}
-//二つを一つに変化
-function ItemChange(){
-
-	//dynamiteを爆発させる
-	if(atem_id=="item_dynamite"&&modal_id=="item_kindred_letter"){
-		$$('modal_dynamite').style.display = 'none';
-		$$('item_dynamite').style.display = 'hidden';
-		$$('item_kindred_letter').style.display = 'hidden';
-		esc.changeScene( 'sea' );
-		//クリア処理に飛ばす
-    }
-    eraseimg();
+	imgnone();
+	bordernone();
+	zoom_id=0;
 }
 
+//リセット
 function resetgame(){
 	$$('closed_bottle').style.visibility = 'inherit';
 	$$('dynamite').style.visibility = 'inherit';
+	$$('alcohol').style.visibility = 'inherit';
 	$$('item_closed_bottle').style.display = 'none';
 	$$('item_open_bottle').style.display = 'none';
 	$$('item_filled_bottle').style.display = 'none';
 	$$('item_alcohol').style.display = 'none';
 	$$('item_letter').style.display = 'none';
 	$$('item_alcohol_letter').style.display = 'none';
-	$$('item_kindred_letter').style.display = 'none';
+	$$('item_kindled_letter').style.display = 'none';
 	$$('item_dynamite').style.display = 'none';
 	$$('item_boxkey').style.display = 'none';
 	$$('item_zoom').style.display = 'none';
 	$$('close_modal').style.display = 'none';
+	zoom_id=0;
+}
+
+//borderを無くす
+function bordernone(){
+	$$('item_closed_bottle').style.border = 'none';
+	$$('item_open_bottle').style.border = 'none';
+	$$('item_letter').style.border = 'none';
+	$$('item_alcohol').style.border = 'none';
+	$$('item_filled_bottle').style.border = 'none';
+	$$('item_kindled_letter').style.border = 'none';
+	$$('item_alcohol_letter').style.border = 'none';
+	$$('item_dynamite').style.border = 'none';
+	$$('item_boxkey').style.border = 'none';
 }

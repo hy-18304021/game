@@ -460,16 +460,27 @@ p.text {
 }
 /* titleに配置されてるものここまで */
 /* overに配置されてるもの */
-#go_title {
+#over_title {
     position: absolute;
     left: 106.5px;
     top: 408px;
     width: 285px;
     height: 97.5px;
     cursor: pointer;
-    z-index: 1;
+    z-index: 10000;
 }
 /* overに配置されてるものここまで */
+/* omeに配置されてるもの */
+#ome_title {
+    position: absolute;
+    left: 106.5px;
+    top: 408px;
+    width: 285px;
+    height: 97.5px;
+    cursor: pointer;
+    z-index: 10000;
+}
+/* omeに配置されてるものここまで */
 /* itemboxに配置されてるもの */
 #item_closed_bottle {
     background: url(images/closed_bottle.png) no-repeat;
