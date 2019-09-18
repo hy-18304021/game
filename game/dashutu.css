@@ -757,10 +757,10 @@ p.text {
     background: url(images/filled_bottle.png) no-repeat;
     background-position: 0px 0px;
     margin-top: 12px;
-    width: 300px;
-    height: 150px;
+    width: 150px;
+    height: 200px;
     z-index: 500;
-    background-size: 300px;
+    background-size: 100%;
     display: none;
 }
 
