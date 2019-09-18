@@ -324,6 +324,7 @@ p.text {
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
+    position: absolute;
 }
 #water {
     background: url(images/gameover1.png) no-repeat;
@@ -339,6 +340,7 @@ p.text {
     /*ペイントで選択して大きさ見る*/
     z-index: 501;
     cursor: pointer;
+    position: absolute;
 }
 #ship_side {
     background: url(images/ship_side.png) no-repeat;
@@ -349,6 +351,7 @@ p.text {
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
+    position: absolute;
 }
 #ship_front {
     background: url(images/ship_front.png) no-repeat;
@@ -359,6 +362,7 @@ p.text {
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
+    position: absolute;
 }
 /* seaに配置されてるものここまで */
 /* beachに配置されてるもの */
@@ -374,6 +378,7 @@ p.text {
     margin-top: 252px;
     z-index: 5;
     cursor: pointer;
+    position: absolute;
 }
 #boxkey {
     background: url(images/boxkey.png) no-repeat;
@@ -384,6 +389,7 @@ p.text {
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
+    position: absolute;
 }
 /* forestに配置されてるものここまで */
 /* houseに配置されてるもの */
@@ -394,9 +400,9 @@ p.text {
     /*ペイントで選択して大きさ見る*/
     background-size: 100%;
     /*指定しないと元の画像サイズになってしまう*/
-    /* margin-left: 510px; */
+    margin-left: 510px;
     /*340*1.5*/
-    /* margin-top: 237px; */
+    margin-top: 237px;
     /*#forestのbackgroundpositionの1152を1310から引いて*1.5*/
     width: 91.5px;
     /*ペイントで選択して大きさ見る*/
@@ -404,6 +410,7 @@ p.text {
     /*ペイントで選択して大きさ見る*/
     z-index: 500;
     cursor: pointer;
+    position: absolute;
 }
 #alcohol {
     background: url(images/alcohol.png) no-repeat;
@@ -414,6 +421,7 @@ p.text {
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
+    position: absolute;
 }
 #closed_box{
     background: url(images/closed_box.png) no-repeat;
@@ -424,6 +432,7 @@ p.text {
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
+    position: absolute;
 }
 #open_box{
     background: url(images/open_box.png) no-repeat;
@@ -434,6 +443,7 @@ p.text {
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
+    position: absolute;
 }
 #newspaper{
     background: url(images/newspaper.png) no-repeat;
@@ -444,6 +454,7 @@ p.text {
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
+    position: absolute;
 }
 
 /* houseに配置されてるものここまで */
