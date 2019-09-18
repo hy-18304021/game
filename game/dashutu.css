@@ -470,7 +470,7 @@ p.text {
 #newspaper {
     background: url(images/newspaper.png) no-repeat;
     background-position: 0px 0px;
-    
+
     width: 148px;
     height: 188px;
     margin-left: 200px;
@@ -752,10 +752,10 @@ p.text {
     background: url(images/alcohol.png) no-repeat;
     background-position: 0px 0px;
     margin-top: 12px;
-    width: 300px;
-    height: 150px;
+    width: 150px;
+    height: 200px;
     z-index: 500;
-    background-size: 300px;
+    background-size: 100%;
     display: none;
 }
 
