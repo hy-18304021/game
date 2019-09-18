@@ -98,23 +98,54 @@ esc.setTrigger( 'alcohol',
 	}
 );
 //初期スポーン地点
-esc.setTrigger( 'start',turnSea);
+esc.setTrigger( 'start',function(){
+	
+	turnSea();
+});
 					
 //ゲームオーバーからタイトルへ
 esc.setTrigger('over_title',reset);
 
 //クリアからタイトルへ
 esc.setTrigger('ome_title',reset);
+
 //アイテム拡大
-esc.setTrigger('item_closed_bottle',function(){setMid('cbm')});
-esc.setTrigger('item_open_bottle',function(){setMid('opm')});
-esc.setTrigger('item_filled_bottle',function(){setMid('fbm')});
-esc.setTrigger('item_alcohol',function(){setMid('am')});
-esc.setTrigger('item_letter',function(){setMid('lm')});
-esc.setTrigger('item_alcohol_letter',function(){setMid('alm')});
-esc.setTrigger('item_kindled_letter',function(){setMid('klm')});
-esc.setTrigger('item_dynamite',function(){setMid('dm')});
-esc.setTrigger('item_boxkey',function(){setMid('bkm')});
+esc.setTrigger('item_closed_bottle',function(){
+	setMid('cbm');
+	esc.message( 'フタの閉じた瓶だ。',3000 );
+});
+esc.setTrigger('item_open_bottle',function(){
+	setMid('opm');
+	esc.message( '空き瓶だ。',3000 );
+});
+esc.setTrigger('item_filled_bottle',function(){
+	setMid('fbm');
+	esc.message( '水の入った瓶だ。',3000 );
+});
+esc.setTrigger('item_alcohol',function(){
+	setMid('am');
+	esc.message( '消毒用アルコールだ。',3000 );
+});
+esc.setTrigger('item_letter',function(){
+	setMid('lm');
+	esc.message( '手紙だ。',3000 );
+});
+esc.setTrigger('item_alcohol_letter',function(){
+	setMid('alm');
+	esc.message( 'アルコールの染みた手紙だ。',3000 );
+});
+esc.setTrigger('item_kindled_letter',function(){
+	setMid('klm');
+	esc.message( '火のついた手紙だ。',3000 );
+});
+esc.setTrigger('item_dynamite',function(){
+	setMid('dm');
+	esc.message( 'ダイナマイトだ。',3000 );
+});
+esc.setTrigger('item_boxkey',function(){
+	setMid('bkm');
+	esc.message( '鍵だ。',3000 );
+});
 //アイテム変換
 //item_closed_bottleからアイテム変換
 esc.setTrigger('modal_closed_bottle',function(){
@@ -123,29 +154,39 @@ esc.setTrigger('modal_closed_bottle',function(){
 	$$('item_open_bottle').style.display = 'inherit';
 	$$('item_letter').style.display = 'inherit';
 	$$('close_modal').style.display = 'none';
+	esc.message( 'フタをはずした。',3000 );
 	zoom_id=0;
 });
 
 //item_open_bottleをitem_filled_bottleに変換
 esc.setTrigger('water',function(){
+	//item_open_bottleを選択している時
 	if(atem_id=='opm'){
 		$$('item_open_bottle').style.display = 'none';
 		$$('item_filled_bottle').style.display = 'inherit';
 		$$('item_zoom').style.display = 'none';
+		esc.message( '瓶に水を入れた。',3000 );
 		zoom_id=0;
+	}else{
+		esc.message( '海だ。沖に船が見える。',3000 );
 	}
+
 });
 
 //item_alcohol_letterにする
-esc.setTrigger( 'modal_letter', function(){						
+esc.setTrigger( 'modal_letter', function(){					
+	//item_alcoholを選択している時
 	if(atem_id=='am'){
 		$$('modal_letter').style.display = 'none';
 		$$('item_letter').style.display = 'none';
 		$$('item_alcohol').style.display = 'none';
 		$$('item_alcohol_letter').style.display = 'inherit';
 		$$('close_modal').style.display = 'none';
+		esc.message( '手紙にアルコールを染み込ませた。',3000 );
 		$('.js-modal').fadeOut();
 		zoom_id=0;
+	}else{
+		esc.message( '瓶に守られてここまでたどり着いたのだろうが、文字は掠れてしまっている。',3000 );
 	}
 });
 
@@ -157,6 +198,7 @@ esc.setTrigger( 'modal_alcohol_letter', function(){
 		$$('item_filled_bottle').style.display = 'none';
 		$$('item_kindled_letter').style.display = 'inherit';
 		$$('close_modal').style.display = 'none';
+		esc.message( '光が集まり、煙があがった。',3000 );
 		$('.js-modal').fadeOut();
 		zoom_id=0;
 	}
