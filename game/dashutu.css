@@ -427,8 +427,10 @@ p.text {
     background: url(images/closed_box.png) no-repeat;
     background-position: 0px 0px;
     
-    width: 60px;
-    height: 24px;
+    width: 148px;
+    height: 94px;
+    margin-left: 410px;
+    margin-top: 300px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
@@ -449,8 +451,10 @@ p.text {
     background: url(images/newspaper.png) no-repeat;
     background-position: 0px 0px;
     
-    width: 60px;
-    height: 24px;
+    width: 148px;
+    height: 188px;
+    margin-left: 200px;
+    margin-top: 275px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
