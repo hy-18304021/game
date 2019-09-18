@@ -147,6 +147,7 @@ p.text {
     background: url(images/gameover1.png) no-repeat;
     visibility: hidden;
 }
+
 /* sceans */
 #sea {
     background-position: 0 0px;
@@ -167,6 +168,7 @@ p.text {
     background-position: 0 -1728px;
     background-size: 100%;
 }
+
 #ome {
     background-position: 0 -3456px;
     background-size: 100%;
@@ -181,6 +183,7 @@ p.text {
     background-position: 0 -2880px;
     background-size: 100%;
 }
+
 /* sceansここまで */
 
 /* #box_form {
@@ -312,6 +315,7 @@ p.text {
     position: absolute;
     right: 120px;
 }
+
 /* seaに配置されてるもの */
 /*Bottle*/
 #closed_bottle {
@@ -326,6 +330,7 @@ p.text {
     background-size: 100%;
     position: absolute;
 }
+
 #water {
     background: url(images/gameover1.png) no-repeat;
     background-position: 0px 170px;
@@ -342,28 +347,35 @@ p.text {
     cursor: pointer;
     position: absolute;
 }
+
 #ship_side {
     background: url(images/ship_side.png) no-repeat;
     background-position: 0px 0px;
-    
-    width: 60px;
-    height: 24px;
+
+    width: 100px;
+    height: 100px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
     position: absolute;
+    margin-top: 200px;
+    margin-left: 250px;
 }
+
 #ship_front {
     background: url(images/ship_front.png) no-repeat;
     background-position: 0px 0px;
-    
-    width: 60px;
-    height: 24px;
+
+    width: 100px;
+    height: 100px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
     position: absolute;
+    margin-top: 200px;
+    margin-left: 250px;
 }
+
 /* seaに配置されてるものここまで */
 /* beachに配置されてるもの */
 /* beachに配置されてるものここまで */
@@ -380,10 +392,11 @@ p.text {
     cursor: pointer;
     position: absolute;
 }
+
 #boxkey {
     background: url(images/boxkey.png) no-repeat;
     background-position: 0px 0px;
-    
+
     width: 60px;
     height: 24px;
     z-index: 500;
@@ -391,6 +404,7 @@ p.text {
     background-size: 100%;
     position: absolute;
 }
+
 /* forestに配置されてるものここまで */
 /* houseに配置されてるもの */
 /*dynamite*/
@@ -412,10 +426,11 @@ p.text {
     cursor: pointer;
     position: absolute;
 }
+
 #alcohol {
     background: url(images/alcohol.png) no-repeat;
     background-position: 0px 0px;
-    
+
     width: 60px;
     height: 24px;
     z-index: 500;
@@ -423,10 +438,11 @@ p.text {
     background-size: 100%;
     position: absolute;
 }
-#closed_box{
+
+#closed_box {
     background: url(images/closed_box.png) no-repeat;
     background-position: 0px 0px;
-    
+
     width: 60px;
     height: 24px;
     z-index: 500;
@@ -434,10 +450,11 @@ p.text {
     background-size: 100%;
     position: absolute;
 }
-#open_box{
+
+#open_box {
     background: url(images/open_box.png) no-repeat;
     background-position: 0px 0px;
-    
+
     width: 60px;
     height: 24px;
     z-index: 500;
@@ -445,10 +462,11 @@ p.text {
     background-size: 100%;
     position: absolute;
 }
-#newspaper{
+
+#newspaper {
     background: url(images/newspaper.png) no-repeat;
     background-position: 0px 0px;
-    
+
     width: 60px;
     height: 24px;
     z-index: 500;
@@ -469,6 +487,7 @@ p.text {
     height: 133.5px;
     cursor: pointer;
 }
+
 /* titleに配置されてるものここまで */
 /* overに配置されてるもの */
 #over_title {
@@ -480,6 +499,7 @@ p.text {
     cursor: pointer;
     z-index: 10000;
 }
+
 /* overに配置されてるものここまで */
 /* omeに配置されてるもの */
 #ome_title {
@@ -491,6 +511,7 @@ p.text {
     cursor: pointer;
     z-index: 10000;
 }
+
 /* omeに配置されてるものここまで */
 /* itemboxに配置されてるもの */
 #item_closed_bottle {
@@ -534,8 +555,9 @@ p.text {
     border: hidden #000000;
     padding: 5px;
 }
+
 /*letter*/
-#item_letter{
+#item_letter {
     background: url(images/letter.png) no-repeat;
     background-position: center;
     margin: 15px auto;
@@ -548,7 +570,8 @@ p.text {
     border: hidden #000000;
     padding: 5px;
 }
-#item_alcohol_letter{
+
+#item_alcohol_letter {
     background: url(images/alcoholletter.png) no-repeat;
     background-position: center;
     margin: 15px auto;
@@ -561,7 +584,8 @@ p.text {
     border: hidden #000000;
     padding: 5px;
 }
-#item_kindled_letter{
+
+#item_kindled_letter {
     background: url(images/kindled_letter.png) no-repeat;
     background-position: center;
     margin: 15px auto;
@@ -574,8 +598,9 @@ p.text {
     border: hidden #000000;
     padding: 5px;
 }
+
 /*alcohol*/
-#item_alcohol{
+#item_alcohol {
     background: url(images/alcohol.png) no-repeat;
     background-position: center;
     margin: 15px auto;
@@ -588,8 +613,9 @@ p.text {
     border: hidden #000000;
     padding: 5px;
 }
+
 /*key*/
-#item_boxkey{
+#item_boxkey {
     background: url(images/boxkey.png) no-repeat;
     background-position: center;
     margin: 15px auto;
@@ -630,6 +656,7 @@ p.text {
     bottom: 0;
     display: none;
 }
+
 #close_modal {
     background: url(images/close_zoom.png) no-repeat;
     position: absolute;
@@ -642,6 +669,7 @@ p.text {
     bottom: 0;
     display: none;
 }
+
 /* itemboxに配置されてるものここまで */
 
 /* #content{
@@ -779,4 +807,5 @@ p.text {
     background-size: 100%;
     display: none;
 }
+
 /* modal windowに配置されてるものここまで */
