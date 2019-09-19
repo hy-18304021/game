@@ -422,7 +422,7 @@ p.text {
     /*ペイントで選択して大きさ見る*/
     height: 51px;
     /*ペイントで選択して大きさ見る*/
-    z-index: 500;
+    z-index: 501;
     cursor: pointer;
     position: absolute;
 }
@@ -432,7 +432,7 @@ p.text {
     background-position: 0px 0px;
     width: 60px;
     height: 24px;
-    z-index: 500;
+    z-index: 502;
     cursor: pointer;
     background-size: 100%;
     position: absolute;
@@ -443,10 +443,10 @@ p.text {
     background: url(images/closed_box.png) no-repeat;
     background-position: 0px 0px;
     
-    width: 148px;
-    height: 94px;
+    width: 177.6px;
+    height: 112.8px;
     margin-left: 410px;
-    margin-top: 300px;
+    margin-top: 261px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
@@ -457,8 +457,10 @@ p.text {
     background: url(images/open_box.png) no-repeat;
     background-position: 0px 0px;
 
-    width: 60px;
-    height: 24px;
+    width: 177.6px;
+    height: 169.2px;
+    margin-left: 410px;
+    margin-top: 204.6px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
@@ -468,7 +470,7 @@ p.text {
 #newspaper {
     background: url(images/newspaper.png) no-repeat;
     background-position: 0px 0px;
-    
+
     width: 148px;
     height: 188px;
     margin-left: 200px;
@@ -750,10 +752,10 @@ p.text {
     background: url(images/alcohol.png) no-repeat;
     background-position: 0px 0px;
     margin-top: 12px;
-    width: 300px;
-    height: 150px;
+    width: 150px;
+    height: 200px;
     z-index: 500;
-    background-size: 300px;
+    background-size: 100%;
     display: none;
 }
 
