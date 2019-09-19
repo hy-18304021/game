@@ -2,7 +2,7 @@ var esc = new EscapeGame();
 esc.addPreLoadImages( ['images/gameover1.png'] );
 var flag = [];
 var $$ = function( id ){ return document.getElementById( id ); };
-esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest','house', 'ome','over'] );
+esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest','house', 'ome','over','epilogue','prologue'] );
 //アイテムid
 var atem_id=null;
 //ズームid
@@ -99,13 +99,19 @@ esc.setTrigger( 'newspaper',
 	}
 );
 //初期スポーン地点
-esc.setTrigger( 'start',turnSea);
+esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
+
+//プロローグから開始
+esc.setTrigger( 'prologue',turnSea);
 					
 //ゲームオーバーからタイトルへ
 esc.setTrigger('over_title',reset);
 
 //クリアからタイトルへ
 esc.setTrigger('ome_title',reset);
+
+//クリアへ移動
+esc.setTrigger('epilogue',function(){esc.changeScene( 'ome' );});
 
 //アイテム拡大
 esc.setTrigger('item_closed_bottle',function(){
@@ -230,8 +236,7 @@ esc.setTrigger( 'modal_dynamite', function(){
 			$$('item_kindled_letter').style.display = 'none';
 			$$('close_modal').style.display = 'none';
 			$('.js-modal').fadeOut();
-			esc.changeScene('ome');
-			esc.message( 'やったね！<br>これで海の向こうにいる船が気付いて助けてくれるよ!');
+			esc.changeScene('epilogue');
 			//クリア処理に飛ばす
 		}
 	}else{
