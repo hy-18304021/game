@@ -223,7 +223,7 @@ esc.setTrigger( 'modal_alcohol_letter', function(){
 			zoom_id=0;
 		}
 	}else{
-		esc.message( 'ここでは光が弱い。',3000 );
+		esc.message( 'ここでは光が弱い。光が強い所へ行こう。',3000 );
 	}
 });
 
@@ -273,7 +273,7 @@ function timeOut(){
 	}
 
 function isTime(){
-	esc.message( '残念！時間切れだよ！', 6000 );
+	esc.message( '残念！時間切れだよ！');
 	esc.changeScene( 'over' );
 }
 
