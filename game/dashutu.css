@@ -347,8 +347,8 @@ p.text {
     background-position: 0px 0px;
     width: 177.6px;
     height: 112.8px;
-    margin-left: 410px;
-    margin-top: 261px;
+    margin-left: 200px;
+    margin-top: 275px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
@@ -360,8 +360,8 @@ p.text {
     background-position: 0px 0px;
     width: 177.6px;
     height: 169.2px;
-    margin-left: 410px;
-    margin-top: 204.6px;
+    margin-left: 200px;
+    margin-top: 210px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
@@ -375,8 +375,9 @@ p.text {
 
     width: 148px;
     height: 188px;
-    margin-left: 200px;
-    margin-top: 275px;
+
+    margin-left: 410px;
+    margin-top: 261px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
