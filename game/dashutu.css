@@ -396,7 +396,6 @@ p.text {
 #boxkey {
     background: url(images/boxkey.png) no-repeat;
     background-position: 0px 0px;
-
     width: 60px;
     height: 24px;
     z-index: 500;

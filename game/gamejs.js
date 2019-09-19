@@ -98,10 +98,7 @@ esc.setTrigger( 'alcohol',
 	}
 );
 //初期スポーン地点
-esc.setTrigger( 'start',function(){
-	
-	turnSea();
-});
+esc.setTrigger( 'start',turnSea);
 					
 //ゲームオーバーからタイトルへ
 esc.setTrigger('over_title',reset);
@@ -439,10 +436,11 @@ $$('close_modal').style.display = 'inherit';
 function imgnone(){
     $$('modal_closed_bottle').style.display = 'none';
 	$$('modal_open_bottle').style.display = 'none';
-	$$('modal_letter').style.display = 'none';
 	$$('modal_alcohol').style.display = 'none';
 	$$('modal_filled_bottle').style.display = 'none';
+	$$('modal_letter').style.display = 'none';
 	$$('modal_alcohol_letter').style.display = 'none';
+	$$('modal_kindled_letter').style.display = 'none';
 	$$('modal_dynamite').style.display = 'none';
 	$$('modal_boxkey').style.display = 'none';
 }
@@ -460,8 +458,8 @@ function resetgame(){
 	$$('closed_bottle').style.visibility = 'inherit';
 	$$('dynamite').style.visibility = 'inherit';
 	$$('alcohol').style.visibility = 'inherit';
+	$$('boxkey').style.visibility = 'inherit';
 	$$('closed_box').style.display = 'inherit';
-	$$('boxkey').style.display = 'inherit';
 	$$('open_box').style.display = 'none';
 	$$('item_closed_bottle').style.display = 'none';
 	$$('item_open_bottle').style.display = 'none';
