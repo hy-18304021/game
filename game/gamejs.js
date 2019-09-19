@@ -141,6 +141,7 @@ esc.setTrigger('closed_box',function(){
 	if(atem_id=='bkm'){
 		$$('item_boxkey').style.display = 'none';
 		$$('closed_box').style.display = 'none';
+		$$('alcohol').style.display = 'inherit';
 		$$('open_box').style.display = 'inherit';
 		$$('item_zoom').style.display = 'none';
 		zoom_id=0;
@@ -418,6 +419,7 @@ function resetgame(){
 	$$('dynamite').style.visibility = 'inherit';
 	$$('alcohol').style.visibility = 'inherit';
 	$$('closed_box').style.display = 'inherit';
+	$$('boxkey').style.display = 'inherit';
 	$$('open_box').style.display = 'none';
 	$$('item_closed_bottle').style.display = 'none';
 	$$('item_open_bottle').style.display = 'none';

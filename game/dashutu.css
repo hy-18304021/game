@@ -430,13 +430,13 @@ p.text {
 #alcohol {
     background: url(images/alcohol.png) no-repeat;
     background-position: 0px 0px;
-
     width: 60px;
     height: 24px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
     position: absolute;
+    display: none;
 }
 
 #closed_box {
