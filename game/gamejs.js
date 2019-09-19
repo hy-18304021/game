@@ -97,6 +97,12 @@ esc.setTrigger( 'alcohol',
 		esc.message( '消毒用アルコールを拾った',3000 );
 	}
 );
+esc.setTrigger( 'newspaper',
+	function()
+	{
+		esc.message( '水の入った花瓶がレンズになって火事が起きた事故のことが書いてある。',3000 );
+	}
+);
 //初期スポーン地点
 esc.setTrigger( 'start',turnSea);
 					
