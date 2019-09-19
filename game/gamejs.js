@@ -175,6 +175,8 @@ esc.setTrigger('closed_box',function(){
 		$$('item_zoom').style.display = 'none';
 		zoom_id=0;
 		esc.message( '箱を開けた',3000 );
+	}else{
+		esc.message( '箱がかかっている',3000 );
 	}
 });
 
@@ -223,6 +225,7 @@ esc.setTrigger( 'modal_dynamite', function(){
 			$$('close_modal').style.display = 'none';
 			$('.js-modal').fadeOut();
 			esc.changeScene('ome');
+			esc.message( 'やったね！<br>これで海の向こうにいる船が気付いて助けてくれるよ!');
 			//クリア処理に飛ばす
 		}
 	}else{
@@ -259,7 +262,7 @@ function timeOut(){
 	}
 
 function isTime(){
-	alert("TimeOut");
+	esc.message( '残念！時間切れだよ！', 6000 );
 	esc.changeScene( 'over' );
 }
 
@@ -431,7 +434,7 @@ switch(atem_id){
 	
 }
 console.log(atem_id+'外');
-
+atem_id=null;
 $$('item_zoom').style.display = 'none';
 $$('close_modal').style.display = 'inherit';
 }
