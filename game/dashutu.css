@@ -374,6 +374,7 @@ p.text {
     position: absolute;
     margin-top: 200px;
     margin-left: 250px;
+    display: none;
 }
 
 /* seaに配置されてるものここまで */
@@ -402,6 +403,8 @@ p.text {
     cursor: pointer;
     background-size: 100%;
     position: absolute;
+    margin-top: 400px;
+    margin-left: 600px;
 }
 
 /* forestに配置されてるものここまで */
@@ -429,13 +432,15 @@ p.text {
 #alcohol {
     background: url(images/alcohol.png) no-repeat;
     background-position: 0px 0px;
-    width: 60px;
-    height: 24px;
+    width: 50px;
+    height: 40px;
     z-index: 502;
     cursor: pointer;
     background-size: 100%;
     position: absolute;
     display: none;
+    top: 75px;
+    left: 60px;
 }
 
 #closed_box {
