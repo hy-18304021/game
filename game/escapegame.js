@@ -1,4 +1,4 @@
-﻿var EscapeGame = function()
+var EscapeGame = function()
 {
 	var preloadimgs = [];		// 事前読み込みの画像オブジェクトのリスト
 	var scenes = [];			// シーンのIDリスト
