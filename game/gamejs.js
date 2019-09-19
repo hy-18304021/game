@@ -4,7 +4,7 @@ esc.addPreLoadImages( ['images/gameover1.png'] );
 var stopPoint=0;
 var flag = [];
 var $$ = function( id ){ return document.getElementById( id ); };
-esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest','house', 'ome','over'] );
+esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest','house', 'ome','over','epilogue','prologue'] );
 //アイテムid
 var atem_id=null;
 //ズームid
@@ -100,16 +100,26 @@ esc.setTrigger( 'alcohol',
 	}
 );
 //初期スポーン地点
+<<<<<<< HEAD
 esc.setTrigger( 'start',function(){
 	
 	turnSea();
 });
+=======
+esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
+
+//プロローグから開始
+esc.setTrigger( 'prologue',turnSea);
+>>>>>>> 47dce2369db90dcd2d0f11c63e74aebd8eee2bf7
 					
 //ゲームオーバーからタイトルへ
 esc.setTrigger('over_title',reset);
 
 //クリアからタイトルへ
 esc.setTrigger('ome_title',reset);
+
+//クリアへ移動
+esc.setTrigger('epilogue',function(){esc.changeScene( 'ome' );});
 
 //アイテム拡大
 esc.setTrigger('item_closed_bottle',function(){
@@ -220,6 +230,7 @@ esc.setTrigger( 'modal_alcohol_letter', function(){
 });
 
 //クリアまで
+<<<<<<< HEAD
 esc.setTrigger( 'modal_dynamite', function(){	
 	if(atem_id=="klm"){
 		$$('modal_dynamite').style.display = 'none';
@@ -231,6 +242,22 @@ esc.setTrigger( 'modal_dynamite', function(){
 		stopPoint=1;
 		//クリア処理に飛ばす
     }
+=======
+esc.setTrigger( 'modal_dynamite', function(){
+	if(scene_id=='sea'){	
+		if(atem_id=="klm"){
+			$$('modal_dynamite').style.display = 'none';
+			$$('item_dynamite').style.display = 'none';
+			$$('item_kindled_letter').style.display = 'none';
+			$$('close_modal').style.display = 'none';
+			$('.js-modal').fadeOut();
+			esc.changeScene('epilogue');
+			//クリア処理に飛ばす
+		}
+	}else{
+		esc.message( 'ここでは危険だ。もっと広い場所に行こう。',3000 );
+	}
+>>>>>>> 47dce2369db90dcd2d0f11c63e74aebd8eee2bf7
 });
 
 esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
