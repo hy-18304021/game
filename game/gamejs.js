@@ -96,6 +96,9 @@ esc.setTrigger( 'alcohol',
 		esc.message( '消毒用アルコールを拾った',3000 );
 	}
 );
+esc.setTrigger( 'newspaper', function(){						
+	esc.message( '水の入った花瓶がレンズになって起きた火事が</br>記事になっている',3000 );
+});
 //初期地点
 esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
 
@@ -186,6 +189,8 @@ esc.setTrigger('closed_box',function(){
 		$$('item_zoom').style.display = 'none';
 		zoom_id=0;
 		esc.message( '箱を開けた',3000 );
+	}else{
+		esc.message( '鍵がかかっている',3000 );
 	}
 });
 
