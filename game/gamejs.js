@@ -316,7 +316,7 @@ function isTime(){
 
 	
 
-	var deadline = new Date(Date.parse(new Date()) +  1 * 20 * 1000);
+	var deadline = new Date(Date.parse(new Date()) +  5 * 60 * 1000);
 	initializeClock('clockdiv', deadline);
 }
 })();
