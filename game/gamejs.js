@@ -224,6 +224,8 @@ esc.setTrigger( 'modal_alcohol_letter', function(){
 			$('.js-modal').fadeOut();
 			zoom_id=0;
 		}
+	}else if(atem_id=="alm"){
+		esc.message( '光が強い所へ行こう。',3000 );
 	}else{
 		esc.message( 'ここでは光が弱い。光が強い所へ行こう。',3000 );
 	}
@@ -242,6 +244,8 @@ esc.setTrigger( 'modal_dynamite', function(){
 			stopPoint=1;
 			//クリア処理に飛ばす
 		}
+	}else if(atem_id=="dm"){
+		esc.message( 'ここでは危険だ。もっと広い場所に行こう。',3000 );
 	}else{
 		esc.message( 'ここでは危険だ。もっと広い場所に行こう。',3000 );
 	}
