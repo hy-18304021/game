@@ -103,7 +103,7 @@ esc.setTrigger( 'newspaper', function(){
 esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
 
 //プロローグから開始
-esc.setTrigger( 'prologue',turnSea);
+esc.setTrigger( 'prologue',function(){timeOut();turnSea();});
 
 					
 //ゲームオーバーからタイトルへ
@@ -259,7 +259,7 @@ else if( window.attachEvent )
 		window.attachEvent( 'on'+'load', load );
 	}
 	load = null; // なんとなく
-})();
+
 
 //TimeOut
 function timeOut(){
@@ -284,6 +284,7 @@ function timeOut(){
 
 function isTime(){
 	esc.message( '残念！時間切れだよ！');
+	resetgame();
 	esc.changeScene( 'over' );
 }
 
@@ -304,7 +305,6 @@ function isTime(){
         	}
         	if(stopPoint==1){
         		clearInterval(timeinterval);
-				alert("Congratulation!!");
 				stopPoint=0;
         	}
 
@@ -319,6 +319,7 @@ function isTime(){
 	var deadline = new Date(Date.parse(new Date()) +  5 * 60 * 1000);
 	initializeClock('clockdiv', deadline);
 }
+})();
 
 function popupImage() {
 	var popup = document.getElementById('js-popup');
@@ -507,6 +508,7 @@ function resetgame(){
 	$$('item_boxkey').style.display = 'none';
 	$$('item_zoom').style.display = 'none';
 	$$('close_modal').style.display = 'none';
+	$('.js-modal').fadeOut();
 	zoom_id=0;
 }
 
