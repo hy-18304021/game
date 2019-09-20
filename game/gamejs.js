@@ -9,6 +9,8 @@ esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest','house', 'ome','
 var atem_id=null;
 //ズームid
 var zoom_id=0;
+//シーンid
+var scene_id=null;
 (function()
 {
 var load = function()
@@ -19,21 +21,19 @@ var turnSea = function()
 {
 	esc.changeScene( 'sea' );
 	esc.message( '海だ。', 1000 );
-};
-var turnBeach = function()
-{
-	esc.changeScene( 'beach' );
-	esc.message( '海岸だ。', 1000 );
+	scene_id="sea";
 };
 var turnForest = function()
 {
 	esc.changeScene( 'forest' );
 	esc.message( '森だ。', 1000 );
+	scene_id="forest";
 };
 var turnHouse = function()
 {
 	esc.changeScene( 'house' );
 	esc.message( '小屋の中にいる。', 1000 );
+	scene_id="house";
 };
 		
 var back = function()
@@ -52,7 +52,7 @@ var reset=function(){
 				
 				
 //sea
-esc.setTrigger( 'sea_left_trigger', turnBeach );
+esc.setTrigger( 'sea_left_trigger', turnForest );
 esc.setTrigger( 'sea_right_trigger', turnForest );
 // bottle is clicked
 esc.setTrigger( 'closed_bottle',
@@ -64,13 +64,10 @@ esc.setTrigger( 'closed_bottle',
 		esc.message( 'ボトルを拾った',3000 );
 		}
 );
-//beach
-esc.setTrigger( 'beach_left_trigger', turnForest );
-esc.setTrigger( 'beach_right_trigger', turnSea );
 				
 //forest
 esc.setTrigger( 'forest_left_trigger', turnSea );
-esc.setTrigger( 'forest_right_trigger', turnBeach );
+esc.setTrigger( 'forest_right_trigger', turnSea );
 esc.setTrigger( 'forest_previous_trigger', turnHouse );
 esc.setTrigger( 'boxkey',
 	function()
@@ -99,18 +96,12 @@ esc.setTrigger( 'alcohol',
 		esc.message( '消毒用アルコールを拾った',3000 );
 	}
 );
-//初期スポーン地点
-<<<<<<< HEAD
-esc.setTrigger( 'start',function(){
-	
-	turnSea();
-});
-=======
+//初期地点
 esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
 
 //プロローグから開始
 esc.setTrigger( 'prologue',turnSea);
->>>>>>> 47dce2369db90dcd2d0f11c63e74aebd8eee2bf7
+
 					
 //ゲームオーバーからタイトルへ
 esc.setTrigger('over_title',reset);
@@ -217,32 +208,23 @@ esc.setTrigger( 'modal_letter', function(){
 
 //item_kindled_letterに変換
 esc.setTrigger( 'modal_alcohol_letter', function(){	
-	if(atem_id=="fbm"){
-		$$('modal_alcohol_letter').style.display = 'none';
-		$$('item_alcohol_letter').style.display = 'none';
-		$$('item_filled_bottle').style.display = 'none';
-		$$('item_kindled_letter').style.display = 'inherit';
-		$$('close_modal').style.display = 'none';
-		esc.message( '光が集まり、煙があがった。',3000 );
-		$('.js-modal').fadeOut();
-		zoom_id=0;
+	if(scene_id=='sea'){
+		if(atem_id=="fbm"){
+			$$('modal_alcohol_letter').style.display = 'none';
+			$$('item_alcohol_letter').style.display = 'none';
+			$$('item_filled_bottle').style.display = 'none';
+			$$('item_kindled_letter').style.display = 'inherit';
+			$$('close_modal').style.display = 'none';
+			esc.message( '光が集まり、煙があがった。',3000 );
+			$('.js-modal').fadeOut();
+			zoom_id=0;
+		}
+	}else{
+		esc.message( 'ここでは光が弱い。光が強い所へ行こう。',3000 );
 	}
 });
 
 //クリアまで
-<<<<<<< HEAD
-esc.setTrigger( 'modal_dynamite', function(){	
-	if(atem_id=="klm"){
-		$$('modal_dynamite').style.display = 'none';
-		$$('item_dynamite').style.display = 'none';
-		$$('item_kindled_letter').style.display = 'none';
-		$$('close_modal').style.display = 'none';
-		$('.js-modal').fadeOut();
-		esc.changeScene('ome');
-		stopPoint=1;
-		//クリア処理に飛ばす
-    }
-=======
 esc.setTrigger( 'modal_dynamite', function(){
 	if(scene_id=='sea'){	
 		if(atem_id=="klm"){
@@ -252,12 +234,12 @@ esc.setTrigger( 'modal_dynamite', function(){
 			$$('close_modal').style.display = 'none';
 			$('.js-modal').fadeOut();
 			esc.changeScene('epilogue');
+			stopPoint=1;
 			//クリア処理に飛ばす
 		}
 	}else{
 		esc.message( 'ここでは危険だ。もっと広い場所に行こう。',3000 );
 	}
->>>>>>> 47dce2369db90dcd2d0f11c63e74aebd8eee2bf7
 });
 
 esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
@@ -295,10 +277,10 @@ function timeOut(){
 		};
 	}
 
-	function isTime(){
-		alert("TimeOut");
-		esc.changeScene( 'over' );
-	}
+function isTime(){
+	esc.message( '残念！時間切れだよ！');
+	esc.changeScene( 'over' );
+}
 
 	function initializeClock(id, endtime) {
 		var clock = document.getElementById(id);
@@ -317,7 +299,8 @@ function timeOut(){
         	}
         	if(stopPoint==1){
         		clearInterval(timeinterval);
-        		alert("Congratulation!!");
+				alert("Congratulation!!");
+				stopPoint=0;
         	}
 
     	}
