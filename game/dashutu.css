@@ -180,11 +180,13 @@ p.text {
 }
 
 #prologue{
-    background: rgb(0, 0, 0);
+    background: rgb(0, 0, 0);	
+    color: rgb(255, 255, 255);
 }
 
 #epilogue{
     background: rgb(0, 0, 0);
+    color:  rgb(255, 255, 255);
 }
 
 /* sceansここまで */
