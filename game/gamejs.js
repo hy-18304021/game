@@ -1,5 +1,7 @@
+
 var esc = new EscapeGame();
 esc.addPreLoadImages( ['images/gameover1.png'] );
+var stopPoint=0;
 var flag = [];
 var $$ = function( id ){ return document.getElementById( id ); };
 esc.addScenes( ['nowloading', 'title', 'sea', 'beach', 'forest','house', 'ome','over','epilogue','prologue'] );
@@ -8,7 +10,7 @@ var atem_id=null;
 //ズームid
 var zoom_id=0;
 //シーンid
-scene_id=null;
+var scene_id=null;
 (function()
 {
 var load = function()
@@ -19,20 +21,19 @@ var turnSea = function()
 {
 	esc.changeScene( 'sea' );
 	esc.message( '海だ。', 1000 );
-	scene_id='sea';
+	scene_id="sea";
 };
 var turnForest = function()
 {
 	esc.changeScene( 'forest' );
 	esc.message( '森だ。', 1000 );
-	scene_id='forest';
-
+	scene_id="forest";
 };
 var turnHouse = function()
 {
 	esc.changeScene( 'house' );
 	esc.message( '小屋の中にいる。', 1000 );
-	scene_id='house';
+	scene_id="house";
 };
 		
 var back = function()
@@ -68,12 +69,15 @@ esc.setTrigger( 'closed_bottle',
 esc.setTrigger( 'forest_left_trigger', turnSea );
 esc.setTrigger( 'forest_right_trigger', turnSea );
 esc.setTrigger( 'forest_previous_trigger', turnHouse );
-esc.setTrigger( 'boxkey',function(){
+esc.setTrigger( 'boxkey',
+	function()
+	{
 		$$('item_boxkey').style.display='block';
 		$$('item_boxkey').style.visibility = 'inherit';
 		$$('boxkey').style.visibility = 'hidden';
 		esc.message( '鍵を拾った',3000 );
-	});
+	}
+);
 //house
 esc.setTrigger( 'house_down_trigger', turnForest );
 esc.setTrigger( 'house_door', turnHouse);
@@ -92,17 +96,12 @@ esc.setTrigger( 'alcohol',
 		esc.message( '消毒用アルコールを拾った',3000 );
 	}
 );
-esc.setTrigger( 'newspaper',
-	function()
-	{
-		esc.message( '水の入った花瓶がレンズになって火事が起きた事故のことが書いてある。',3000 );
-	}
-);
-//初期スポーン地点
+//初期地点
 esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
 
 //プロローグから開始
 esc.setTrigger( 'prologue',turnSea);
+
 					
 //ゲームオーバーからタイトルへ
 esc.setTrigger('over_title',reset);
@@ -187,8 +186,6 @@ esc.setTrigger('closed_box',function(){
 		$$('item_zoom').style.display = 'none';
 		zoom_id=0;
 		esc.message( '箱を開けた',3000 );
-	}else{
-		esc.message( '箱がかかっている',3000 );
 	}
 });
 
@@ -260,6 +257,13 @@ else if( window.attachEvent )
 
 //TimeOut
 function timeOut(){
+	// function start(){
+	// 	pause();
+	// 	timeinterval=setInterval(count,1000);
+	// }
+	// function pause(){
+	// 	clearInterval(interval);
+	// }
 	function getTimeRemaining(endtime) {
 		var t = Date.parse(endtime) - Date.parse(new Date());
 		var seconds = Math.floor((t / 1000) % 60);
@@ -277,26 +281,33 @@ function isTime(){
 	esc.changeScene( 'over' );
 }
 
-function initializeClock(id, endtime) {
-	var clock = document.getElementById(id);
-	var minutesSpan = clock.querySelector('.minutes');
-    var secondsSpan = clock.querySelector('.seconds');
+	function initializeClock(id, endtime) {
+		var clock = document.getElementById(id);
+		var minutesSpan = clock.querySelector('.minutes');
+   		var secondsSpan = clock.querySelector('.seconds');
     
-    function updateClock() {
-        var t = getTimeRemaining(endtime);
+    	function updateClock() {
+        	var t = getTimeRemaining(endtime);
 
-        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+        	minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+        	secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-        if (t.total <= 0) {
-    	    clearInterval(timeinterval);
-    	    isTime();
-        }
-    }
+        	if (t.total <= 0) {
+    	    	clearInterval(timeinterval);
+    	    	isTime();
+        	}
+        	if(stopPoint==1){
+        		clearInterval(timeinterval);
+        		alert("Congratulation!!");
+        	}
 
-    updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
-}
+    	}
+
+    	updateClock();
+   		var timeinterval = setInterval(updateClock, 1000);
+	}
+
+	
 
 	var deadline = new Date(Date.parse(new Date()) +  5 * 60 * 1000);
 	initializeClock('clockdiv', deadline);
@@ -445,19 +456,18 @@ switch(atem_id){
 	
 }
 console.log(atem_id+'外');
-atem_id=null;
+
 $$('item_zoom').style.display = 'none';
 $$('close_modal').style.display = 'inherit';
 }
-//モーダル内のアイテムを消す
+
 function imgnone(){
     $$('modal_closed_bottle').style.display = 'none';
 	$$('modal_open_bottle').style.display = 'none';
+	$$('modal_letter').style.display = 'none';
 	$$('modal_alcohol').style.display = 'none';
 	$$('modal_filled_bottle').style.display = 'none';
-	$$('modal_letter').style.display = 'none';
 	$$('modal_alcohol_letter').style.display = 'none';
-	$$('modal_kindled_letter').style.display = 'none';
 	$$('modal_dynamite').style.display = 'none';
 	$$('modal_boxkey').style.display = 'none';
 }
@@ -475,8 +485,8 @@ function resetgame(){
 	$$('closed_bottle').style.visibility = 'inherit';
 	$$('dynamite').style.visibility = 'inherit';
 	$$('alcohol').style.visibility = 'inherit';
-	$$('boxkey').style.visibility = 'inherit';
 	$$('closed_box').style.display = 'inherit';
+	$$('boxkey').style.display = 'inherit';
 	$$('open_box').style.display = 'none';
 	$$('item_closed_bottle').style.display = 'none';
 	$$('item_open_bottle').style.display = 'none';
