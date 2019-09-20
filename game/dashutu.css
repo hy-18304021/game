@@ -726,5 +726,30 @@ p.text {
     background-size: 100%;
     display: none;
 }
-
 /* modal windowに配置されてるものここまで */
+/*ヒントモーダルに使うもの*/
+.content{
+    margin: 0 auto;
+    padding: 40px;
+}
+.modal_Tips{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.modal_Tips_bg{
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+.modal_Tips_content{
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+}
