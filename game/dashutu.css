@@ -181,10 +181,27 @@ p.text {
 
 #prologue{
     background: rgb(0, 0, 0);
+    font-size: 36px;
+    line-height: 48px;
+    font-family: aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
+    color: #CCCCCC;
+    text-align: justify;
+    padding:50px;
+    width: 668px;
+    height: 476px;
 }
 
 #epilogue{
     background: rgb(0, 0, 0);
+    font-size: 36px;
+    line-height: 48px;
+    font-family: aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
+    color: #CCCCCC;
+    text-align: justify;
+    padding:50px;
+    width: 668px;
+    height: 476px;
+
 }
 
 /* sceansここまで */
