@@ -234,6 +234,7 @@ esc.setTrigger( 'modal_dynamite', function(){
 			$$('close_modal').style.display = 'none';
 			$('.js-modal').fadeOut();
 			esc.changeScene('epilogue');
+			stopPoint=1;
 			//クリア処理に飛ばす
 		}
 	}else{
