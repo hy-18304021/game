@@ -161,6 +161,7 @@ esc.setTrigger('modal_closed_bottle',function(){
 	$$('item_letter').style.display = 'inherit';
 	$$('close_modal').style.display = 'none';
 	esc.message( 'フタをはずした。',3000 );
+	$$('tips').style.display='inherit';
 	zoom_id=0;
 });
 
@@ -251,9 +252,8 @@ esc.setTrigger( 'modal_dynamite', function(){
 	}
 });
 
-esc.ifLoadComplete( function(){ esc.changeScene('title'); } );
-};
-				
+esc.ifLoadComplete( function(){ esc.changeScene('title'); } );};
+
 if( window.addEventListener )
 	{
 		window.addEventListener( 'load', load, false );
@@ -323,6 +323,7 @@ function isTime(){
 	var deadline = new Date(Date.parse(new Date()) +  5 * 60 * 1000);
 	initializeClock('clockdiv', deadline);
 }
+
 })();
 
 function popupImage() {

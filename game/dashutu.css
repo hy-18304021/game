@@ -743,6 +743,9 @@ p.text {
 }
 /* modal windowに配置されてるものここまで */
 /*ヒントモーダルに使うもの*/
+#tips{
+    display: none;
+}
 .content{
     margin: 0 auto;
     padding: 40px;
@@ -753,6 +756,7 @@ p.text {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 90000000;    
 }
 .modal_Tips_bg{
     height: 100vh;
@@ -766,5 +770,5 @@ p.text {
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 60%;
+    width: 60%; 
 }
