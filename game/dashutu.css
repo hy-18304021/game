@@ -1,4 +1,4 @@
-body {
+﻿body {
     text-align: center;
     background: #D4CFB8;
 }
@@ -411,7 +411,7 @@ p.text {
     position: absolute;
     left: 106.5px;
     top: 408px;
-    width: 285px;
+    width: 300px;
     height: 97.5px;
     cursor: pointer;
     z-index: 10000;
@@ -421,10 +421,10 @@ p.text {
 /* omeに配置されてるもの */
 #ome_title {
     position: absolute;
-    left: 106.5px;
+    left: 217px;
     top: 408px;
-    width: 285px;
-    height: 97.5px;
+    width: 227px;
+    height: 77px;
     cursor: pointer;
     z-index: 10000;
 }
