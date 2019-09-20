@@ -299,7 +299,8 @@ function isTime(){
         	}
         	if(stopPoint==1){
         		clearInterval(timeinterval);
-        		alert("Congratulation!!");
+				alert("Congratulation!!");
+				stopPoint=0;
         	}
 
     	}
