@@ -1,5 +1,5 @@
 ﻿body {
-    text-align: center;
+    text-align: left;
     background: #D4CFB8;
 }
 
@@ -241,33 +241,38 @@ p.text {
 }
 
 /*目標*/
-#maxpurpose{
+#purpose{
     position: absolute;
-    right: 180px;
+    right: 20px;
     top: 340px;
-    font-size: 25px;
+}
+#maxpurpose{
+    font-size: 30px;
     font-weight: 600;
 }
 
 #minpurpose1{
-    position: absolute;
-    right: 55px;
-    top: 380px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#minpurpose2{
     font-size: 25px;
     font-weight: 600;
 }
 
 /*説明*/
-#explanation{
+#explanationwrap{
     position: absolute;
-    left: 180px;
-    font-size: 25px;
+    left: 50px;
+    width: 420px;
+}
+#explanation{
+    font-size: 50px;
     font-weight: 600;
 }
 #ss{
-    position: absolute;
-    left: 180px;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 600;
 }
 
