@@ -240,6 +240,37 @@ p.text {
     right: 120px;
 }
 
+/*目標*/
+#maxpurpose{
+    position: absolute;
+    right: 180px;
+    top: 340px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#minpurpose1{
+    position: absolute;
+    right: 55px;
+    top: 380px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+/*説明*/
+#explanation{
+    position: absolute;
+    left: 180px;
+    font-size: 25px;
+    font-weight: 600;
+}
+#ss{
+    position: absolute;
+    left: 180px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
 /* seaに配置されてるもの */
 /*Bottle*/
 #closed_bottle {
