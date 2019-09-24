@@ -20,19 +20,19 @@ esc.setMessageBox( 'messagebox' );
 var turnSea = function()
 {
 	esc.changeScene( 'sea' );
-	esc.message( '海だ。', 1000 );
+	esc.message( '海だ。');
 	scene_id="sea";
 };
 var turnForest = function()
 {
 	esc.changeScene( 'forest' );
-	esc.message( '森だ。', 1000 );
+	esc.message( '森だ。');
 	scene_id="forest";
 };
 var turnHouse = function()
 {
 	esc.changeScene( 'house' );
-	esc.message( '小屋の中にいる。', 1000 );
+	esc.message( '小屋の中にいる。');
 	scene_id="house";
 };
 		
@@ -61,7 +61,7 @@ esc.setTrigger( 'closed_bottle',
 		$$('item_closed_bottle').style.display='block';
 		$$('item_closed_bottle').style.visibility = 'inherit';
 		$$('closed_bottle').style.visibility = 'hidden';
-		esc.message( 'ボトルを拾った',3000 );
+		esc.message( 'ボトルを拾った');
 		minpurpose2indicate();
 		}
 );
@@ -76,7 +76,7 @@ esc.setTrigger( 'boxkey',
 		$$('item_boxkey').style.display='block';
 		$$('item_boxkey').style.visibility = 'inherit';
 		$$('boxkey').style.visibility = 'hidden';
-		esc.message( '鍵を拾った',3000 );
+		esc.message( '鍵を拾った');
 	}
 );
 //house
@@ -86,7 +86,7 @@ esc.setTrigger( 'dynamite', function(){
 	$$('item_dynamite').style.display='block';
 	$$('item_dynamite').style.visibility = 'inherit';
 	$$('dynamite').style.visibility = 'hidden';
-	esc.message( 'ダイナマイトを拾った',3000 );
+	esc.message( 'ダイナマイトを拾った');
 	minpurpose2indicate();
 });
 esc.setTrigger( 'alcohol',
@@ -95,12 +95,12 @@ esc.setTrigger( 'alcohol',
 		$$('item_alcohol').style.display='block';
 		$$('item_alcohol').style.visibility = 'inherit';
 		$$('alcohol').style.visibility = 'hidden';
-		esc.message( '消毒用アルコールを拾った',3000 );
+		esc.message( '消毒用アルコールを拾った');
 		minpurpose2indicate();
 	}
 );
 esc.setTrigger( 'newspaper', function(){						
-	esc.message( '水の入った花瓶がレンズになって起きた火事が</br>記事になっている',3000 );
+	esc.message( '水の入った花瓶がレンズになって起きた火事が</br>記事になっている' );
 });
 //初期地点
 esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
@@ -127,39 +127,39 @@ esc.setTrigger('epilogue',function(){esc.changeScene( 'ome' );});
 //アイテム拡大
 esc.setTrigger('item_closed_bottle',function(){
 	setMid('cbm');
-	esc.message( 'フタの閉じた瓶だ。',3000 );
+	esc.message( 'フタの閉じた瓶だ。');
 });
 esc.setTrigger('item_open_bottle',function(){
 	setMid('opm');
-	esc.message( '空き瓶だ。',3000 );
+	esc.message( '空き瓶だ。');
 });
 esc.setTrigger('item_filled_bottle',function(){
 	setMid('fbm');
-	esc.message( '水の入った瓶だ。',3000 );
+	esc.message( '水の入った瓶だ。');
 });
 esc.setTrigger('item_alcohol',function(){
 	setMid('am');
-	esc.message( '消毒用アルコールだ。',3000 );
+	esc.message( '消毒用アルコールだ。' );
 });
 esc.setTrigger('item_letter',function(){
 	setMid('lm');
-	esc.message( '手紙だ。',3000 );
+	esc.message( '手紙だ。');
 });
 esc.setTrigger('item_alcohol_letter',function(){
 	setMid('alm');
-	esc.message( 'アルコールの染みた手紙だ。',3000 );
+	esc.message( 'アルコールの染みた手紙だ。' );
 });
 esc.setTrigger('item_kindled_letter',function(){
 	setMid('klm');
-	esc.message( '火のついた手紙だ。',3000 );
+	esc.message( '火のついた手紙だ。');
 });
 esc.setTrigger('item_dynamite',function(){
 	setMid('dm');
-	esc.message( 'ダイナマイトだ。',3000 );
+	esc.message( 'ダイナマイトだ。' );
 });
 esc.setTrigger('item_boxkey',function(){
 	setMid('bkm');
-	esc.message( '鍵だ。',3000 );
+	esc.message( '鍵だ。' );
 });
 //アイテム変換
 //item_closed_bottleからアイテム変換
@@ -169,7 +169,7 @@ esc.setTrigger('modal_closed_bottle',function(){
 	$$('item_open_bottle').style.display = 'inherit';
 	$$('item_letter').style.display = 'inherit';
 	$$('close_modal').style.display = 'none';
-	esc.message( 'フタをはずした。',3000 );
+	esc.message( 'フタをはずした。');
 	$$('tips').style.display='inherit';
 	zoom_id=0;
 });
@@ -181,10 +181,10 @@ esc.setTrigger('water',function(){
 		$$('item_open_bottle').style.display = 'none';
 		$$('item_filled_bottle').style.display = 'inherit';
 		$$('item_zoom').style.display = 'none';
-		esc.message( '瓶に水を入れた。',3000 );
+		esc.message( '瓶に水を入れた。' );
 		zoom_id=0;
 	}else{
-		esc.message( '海だ。沖に船が見える。',3000 );
+		esc.message( '海だ。沖に船が見える。');
 	}
 
 });
@@ -198,9 +198,9 @@ esc.setTrigger('closed_box',function(){
 		$$('open_box').style.display = 'inherit';
 		$$('item_zoom').style.display = 'none';
 		zoom_id=0;
-		esc.message( '箱を開けた',3000 );
+		esc.message( '箱を開けた');
 	}else{
-		esc.message( '鍵がかかっている',3000 );
+		esc.message( '鍵がかかっている');
 	}
 });
 
@@ -213,11 +213,11 @@ esc.setTrigger( 'modal_letter', function(){
 		$$('item_alcohol').style.display = 'none';
 		$$('item_alcohol_letter').style.display = 'inherit';
 		$$('close_modal').style.display = 'none';
-		esc.message( '手紙にアルコールを染み込ませた。',3000 );
+		esc.message( '手紙にアルコールを染み込ませた。');
 		$('.js-modal').fadeOut();
 		zoom_id=0;
 	}else{
-		esc.message( '瓶に守られてここまでたどり着いたのだろうが、文字は掠れてしまっている。',3000 );
+		esc.message( '瓶に守られてここまでたどり着いたのだろうが、文字は掠れてしまっている。' );
 	}
 });
 
@@ -230,14 +230,14 @@ esc.setTrigger( 'modal_alcohol_letter', function(){
 			$$('item_filled_bottle').style.display = 'none';
 			$$('item_kindled_letter').style.display = 'inherit';
 			$$('close_modal').style.display = 'none';
-			esc.message( '光が集まり、煙があがった。',3000 );
+			esc.message( '光が集まり、煙があがった。');
 			$('.js-modal').fadeOut();
 			zoom_id=0;
 		}
 	}else if(atem_id=="fbm"){
-		esc.message( '光が強い所へ行こう。',3000 );
+		esc.message( '光が強い所へ行こう。');
 	}else{
-		esc.message( 'アルコールの染みた手紙だ',3000 );
+		esc.message( 'アルコールの染みた手紙だ' );
 	}
 });
 
@@ -255,9 +255,9 @@ esc.setTrigger( 'modal_dynamite', function(){
 			//クリア処理に飛ばす
 		}
 	}else if(atem_id=="dm"){
-		esc.message( 'ここでは危険だ。もっと広い場所に行こう。',3000 );
+		esc.message( 'ここでは危険だ。もっと広い場所に行こう。');
 	}else{
-		esc.message( 'ダイナマイトだ。',3000 );
+		esc.message( 'ダイナマイトだ。' );
 	}
 });
 
@@ -296,9 +296,9 @@ function timeOut(){
 	}
 
 function isTime(){
-	esc.message( '残念！時間切れだよ！');
 	resetgame();
 	esc.changeScene( 'over' );
+	esc.message( '残念！時間切れだよ！');
 }
 
 	function initializeClock(id, endtime) {
@@ -477,9 +477,10 @@ switch(atem_id){
 		break;
 	
 }
+atem_id=null;
 console.log(atem_id+'外');
 
-atem_id=null;
+
 $$('item_zoom').style.display = 'none';
 $$('close_modal').style.display = 'inherit';
 }
@@ -529,6 +530,7 @@ function resetgame(){
 	$$('minpurpose1').style.display = 'none';
 	$$('minpurpose1').style.textDecoration = 'none';
 	$$('minpurpose2').style.display = 'none';
+	$$('tips').style.display='none';
 	zoom_id=0;
 }
 
