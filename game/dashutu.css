@@ -3,6 +3,13 @@
     background: #D4CFB8;
 }
 
+h1 {
+    font-size: 380%;
+    font-family: serif;
+    font-weight: 500;
+    color: #2D913E;
+}
+
 p.text {
     line-height: 1.4em;
 }
@@ -179,26 +186,26 @@ p.text {
     background-size: 100%;
 }
 
-#prologue{
+#prologue {
     background: rgb(0, 0, 0);
     font-size: 36px;
     line-height: 48px;
     font-family: aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
     color: #CCCCCC;
     text-align: justify;
-    padding:50px;
+    padding: 50px;
     width: 668px;
     height: 476px;
 }
 
-#epilogue{
+#epilogue {
     background: rgb(0, 0, 0);
     font-size: 36px;
     line-height: 48px;
     font-family: aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
     color: #CCCCCC;
     text-align: justify;
-    padding:50px;
+    padding: 50px;
     width: 668px;
     height: 476px;
 
@@ -253,40 +260,70 @@ img.purposeImg{
 #purpose{
     position: absolute;
     right: 20px;
-    top: 340px;
+    top: 400px;
     display: none;
     color: rgb(139, 57, 19)
 }
-#maxpurpose{
+#goal{
+    font-size: 50px;
+    font-weight: 600;
+    display: none;
+}
+#maxpurpose {
     font-size: 30px;
     font-weight: 600;
     display: none;
-    color: saddlebrown
 }
 
-#minpurpose1{
+#mingoal1 {
     font-size: 25px;
     font-weight: 600;
     display: none;
     text-decoration: none;
-    color: saddlebrown
 }
 
-#minpurpose2{
+#minpurpose1 {
     font-size: 25px;
     font-weight: 600;
     display: none;
-    color: saddlebrown
+    text-decoration: none;
+}
+
+#mingoal2 {
+    font-size: 25px;
+    font-weight: 600;
+    display: none;
+    text-decoration: none;
+}
+
+#minpurpose2 {
+    font-size: 25px;
+    font-weight: 600;
+    display: none;
+}
+
+#mingoal3 {
+    font-size: 25px;
+    font-weight: 600;
+    display: none;
+    text-decoration: none;
+}
+
+#minpurpose3 {
+    font-size: 25px;
+    font-weight: 600;
+    display: none;
 }
 
 /*説明*/
-#explanationwrap{
+#explanationwrap {
     position: absolute;
     left: 50px;
     width: 420px;
-    color: saddlebrown
+    color: saddlebrown;
 }
-#explanation{
+
+#explanation {
     font-size: 50px;
     font-weight: 600;
     color: rgb(118, 45, 12)
@@ -294,7 +331,7 @@ img.purposeImg{
 #ss{
     font-size: 20px;
     font-weight: 600;
-    
+
 }
 
 /* seaに配置されてるもの */
@@ -375,7 +412,7 @@ img.purposeImg{
     position: absolute;
 }
 
-#boxkey {
+#boxkey1 {
     background: url(images/boxkey.png) no-repeat;
     background-position: 0px 0px;
     width: 60px;
@@ -386,6 +423,20 @@ img.purposeImg{
     position: absolute;
     margin-top: 400px;
     margin-left: 600px;
+    visibility: hidden;
+}
+#boxkey3 {
+    background: url(images/boxkey.png) no-repeat;
+    background-position: 0px 0px;
+    width: 60px;
+    height: 24px;
+    z-index: 500;
+    cursor: pointer;
+    background-size: 100%;
+    position: absolute;
+    margin-top: 480px;
+    margin-left: 200px;
+    visibility: hidden;
 }
 
 /* forestに配置されてるものここまで */
@@ -455,13 +506,28 @@ img.purposeImg{
     background: url(images/newspaper.png) no-repeat;
     background-position: 0px 0px;
     width: 148px;
-    height: 188px;
+    height: 98px;
     margin-left: 410px;
     margin-top: 300px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
     position: absolute;
+}
+
+#boxkey2{
+    background: url(images/boxkey.png) no-repeat;
+    background-position: 0px 0px;
+    width: 60px;
+    height: 40px;
+    z-index: 500;
+    cursor: pointer;
+    background-size: 100%;
+    position: absolute;
+    margin-top: 470px;
+    margin-left: 505px;
+    transform: rotate(-90deg);
+    visibility: hidden;
 }
 
 /* houseに配置されてるものここまで */
@@ -796,34 +862,39 @@ img.purposeImg{
     background-size: 100%;
     display: none;
 }
+
 /* modal windowに配置されてるものここまで */
 /*ヒントモーダルに使うもの*/
-#tips{
+#tips {
     display: none;
 }
-.content{
+
+.content {
     margin: 0 auto;
     padding: 40px;
 }
-.modal_Tips{
+
+.modal_Tips {
     display: none;
     height: 100vh;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 90000000;    
+    z-index: 90000000;
 }
-.modal_Tips_bg{
+
+.modal_Tips_bg {
     height: 100vh;
     position: absolute;
     width: 100%;
 }
-.modal_Tips_content{
+
+.modal_Tips_content {
     background: #fff;
     left: 50%;
     padding: 40px;
     position: absolute;
     top: 50%;
-    transform: translate(-50%,-50%);
-    width: 60%; 
+    transform: translate(-50%, -50%);
+    width: 60%;
 }

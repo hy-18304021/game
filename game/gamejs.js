@@ -70,12 +70,21 @@ esc.setTrigger( 'closed_bottle',
 esc.setTrigger( 'forest_left_trigger', turnSea );
 esc.setTrigger( 'forest_right_trigger', turnSea );
 esc.setTrigger( 'forest_previous_trigger', turnHouse );
-esc.setTrigger( 'boxkey',
+esc.setTrigger( 'boxkey1',
 	function()
 	{
 		$$('item_boxkey').style.display='block';
 		$$('item_boxkey').style.visibility = 'inherit';
-		$$('boxkey').style.visibility = 'hidden';
+		$$('boxkey1').style.visibility = 'hidden';
+		esc.message( '鍵を拾った');
+	}
+);
+esc.setTrigger( 'boxkey3',
+	function()
+	{
+		$$('item_boxkey').style.display='block';
+		$$('item_boxkey').style.visibility = 'inherit';
+		$$('boxkey3').style.visibility = 'hidden';
 		esc.message( '鍵を拾った');
 	}
 );
@@ -102,14 +111,25 @@ esc.setTrigger( 'alcohol',
 esc.setTrigger( 'newspaper', function(){						
 	esc.message( '水の入った花瓶がレンズになって起きた火事が</br>記事になっている' );
 });
+esc.setTrigger( 'boxkey2',
+	function()
+	{
+		$$('item_boxkey').style.display='block';
+		$$('item_boxkey').style.visibility = 'inherit';
+		$$('boxkey2').style.visibility = 'hidden';
+		esc.message( '鍵を拾った');
+	}
+);
 //初期地点
-esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
+esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );boxkeyIN();});
 
 //プロローグから開始
 esc.setTrigger( 'prologue',function(){
 	timeOut();
 	turnSea();
 	$$('purpose').style.display = 'inherit';
+	$$('goal').style.display = 'inherit';
+	$$('mingoal1').style.display = 'inherit';
 	$$('maxpurpose').style.display = 'inherit';
 	$$('minpurpose1').style.display = 'inherit';
 });
@@ -233,6 +253,9 @@ esc.setTrigger( 'modal_alcohol_letter', function(){
 			esc.message( '光が集まり、煙があがった。');
 			$('.js-modal').fadeOut();
 			zoom_id=0;
+			$$('mingoal3').style.display = 'inherit';
+			$$('minpurpose3').style.display = 'inherit';
+			$$('minpurpose2').style.textDecoration = 'line-through';
 		}
 	}else if(atem_id=="fbm"){
 		esc.message( '光が強い所へ行こう。');
@@ -333,29 +356,20 @@ function isTime(){
 	initializeClock('clockdiv', deadline);
 }
 
+var boxkeyIN=function(){
+	var disc=Math.floor(Math.random() * 3) + 1;
+	console.log(disc);
+	if(disc==1){
+		$$('boxkey1').style.visibility = 'inherit';
+	}else if(disc==2){
+		$$('boxkey2').style.visibility = 'inherit';
+	}else if(disc==3){
+		$$('boxkey3').style.visibility = 'inherit';
+	}
+};
+
+
 })();
-
-function popupImage() {
-	var popup = document.getElementById('js-popup');
-	if(!popup) return;
-		var blackBg = document.getElementById('js-black-bg');
-
-		var blackBg = document.getElementById('js-black-bg');
-		var closeBtn = document.getElementById('js-close-btn');
-		var showBtn = document.getElementById('js-show-popup');
-
-		closePopUp(blackBg);
-		closePopUp(closeBtn);
-		closePopUp(showBtn);
-		function closePopUp(elem) {
-   		if(!elem) return;
-    		elem.addEventListener('click', function() {
-	    	popup.classList.toggle('is-show');
-   	    });
-    }
-}
-
-popupImage();
 
 function setMid(m_img){
 atem_id=m_img;
@@ -510,7 +524,9 @@ function resetgame(){
 	$$('closed_bottle').style.visibility = 'inherit';
 	$$('dynamite').style.visibility = 'inherit';
 	$$('alcohol').style.visibility = 'inherit';
-	$$('boxkey').style.visibility = 'inherit';
+	$$('boxkey1').style.visibility = 'hidden';
+	$$('boxkey2').style.visibility = 'hidden';
+	$$('boxkey3').style.visibility = 'hidden';
 	$$('closed_box').style.display = 'inherit';
 	$$('open_box').style.display = 'none';
 	$$('item_closed_bottle').style.display = 'none';
@@ -526,11 +542,16 @@ function resetgame(){
 	$$('close_modal').style.display = 'none';
 	$('.js-modal').fadeOut();
 	$$('purpose').style.display = 'none';
+	$$('goal').style.display = 'none';
+	$$('mingoal1').style.display = 'none';
+	$$('mingoal2').style.display = 'none';
+	$$('mingoal3').style.display = 'none';
 	$$('maxpurpose').style.display = 'none';
 	$$('minpurpose1').style.display = 'none';
 	$$('minpurpose1').style.textDecoration = 'none';
 	$$('minpurpose2').style.display = 'none';
-	$$('tips').style.display='none';
+	$$('minpurpose2').style.textDecoration = 'none';
+	$$('minpurpose3').style.display = 'none';
 	zoom_id=0;
 	atem_id=null;
 	scene_id=null;
@@ -555,6 +576,7 @@ function minpurpose2indicate(){
 	var dystyle=$$('alcohol').style.visibility;
 
 	if(icbstyle=='hidden'&&alstyle=='hidden'&&dystyle=='hidden'){
+	$$('mingoal2').style.display = 'inherit';
 	$$('minpurpose2').style.display = 'inherit';
 	$$('minpurpose1').style.textDecoration = 'line-through';
 	}

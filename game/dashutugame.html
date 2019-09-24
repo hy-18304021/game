@@ -13,6 +13,8 @@
 		</script>
 		<script type="text/javascript" src="escapegame.js"></script>
 		<script type="text/javascript" src="gamejs.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 	</head>
 	<body>
@@ -72,10 +74,15 @@
 		</div>
 
 		<div id="purpose">
+			<div id="goal">目標</div>
 			<div id="maxpurpose">ダイナマイトを爆発させて、<br>船に見つけてもらおう!!</div><br>
-			<ul>	
-				<li id="minpurpose1">脱出につかうアイテムを集めよう!!</li><br>
-				<li id="minpurpose2">ダイナマイトを爆発させよう!!</li>
+			<ul>
+				<li id="mingoal1">小目標1</li>	
+				<li id="minpurpose1">船に見つけてもらうための、<br>アイテムを集めよう!!</li><br>
+				<li id="mingoal2">小目標2</li>
+				<li id="minpurpose2">火をつけよう!!</li><br>
+				<li id="mingoal3">小目標3</li>
+				<li id="minpurpose3">ダイナマイトに火をつけよう!!</li>
 			</ul>
 		</div>
 
@@ -86,20 +93,21 @@
 		<div id="itembox_outer1">
 			<div id="itembox_outer2">
 				<div id="itembox">
-					<div id="item_closed_bottle"></div>
-					<div id="item_open_bottle"></div>
-					<div id="item_filled_bottle"></div>
-					<div id="item_alcohol"></div>
-					<div id="item_letter"></div>
-					<div id="item_alcohol_letter"></div>
-					<div id="item_kindled_letter"></div>
-					<div id="item_dynamite"></div>
-					<div id="item_boxkey"></div>
+					<div id="item_closed_bottle" ondblclick="doubleclick()"></div>
+					<div id="item_open_bottle" ondblclick="doubleclick()"></div>
+					<div id="item_filled_bottle" ondblclick="doubleclick()"></div>
+					<div id="item_alcohol" ondblclick="doubleclick()"></div>
+					<div id="item_letter" ondblclick="doubleclick()"></div>
+					<div id="item_alcohol_letter" ondblclick="doubleclick()"></div>
+					<div id="item_kindled_letter" ondblclick="doubleclick()"></div>
+					<div id="item_dynamite" ondblclick="doubleclick()"></div>
+					<div id="item_boxkey" ondblclick="doubleclick()"></div>
 					<div id="item_zoom" class="js-modal-open" onclick="itemModal()"></div>
 					<div id="close_modal" class="js-modal-close" onclick="eraseimg()"></div>
 				</div>
 			</div>
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<!--メッセージボックス-->
 		<div id="messagebox_outer1">
 			<div id="messagebox_outer2">
@@ -124,13 +132,13 @@
 			<div id="forest_right_trigger" class="right_arrow"></div>
 			<div id="forest_previous_trigger" class="up_arrow"></div>
 			<div id="house_door"></div>
-			<div id="boxkey"></div>
+			<div id="boxkey1"></div>
+			<div id="boxkey3"></div>
 		</div>
 		<!-- House's inside -->
 		<div id="house" class="scene">
 			<div id="house_down_trigger" class="down_arrow"></div>
-			<div id="tips_small"></div>
-			<div id="box_small"></div>
+			<div id="boxkey2"></div>
 			<div id="dynamite"></div>
 			<div id="closed_box"></div>
 			<div id="open_box"><div id="alcohol"></div></div>
@@ -185,19 +193,7 @@
 					<div id="modal_boxkey"></div>
 				</div><!--modal__inner-->
 			</div><!--modal-->
-			<br><br><br><br><br><br><br>
 			
 		</div>
-		<!--アイテム取得でヒントが出てくる-->
-		<div id="tips"  class="content">
-			<a id="tips-1" class="js-tips-open" href="">ヒント(仮)</a>
-		</div>
-		<div class="modal_Tips js-tips">
-			<div class="modal_Tips_bg"></div>
-				<div　id="tips_1" class="modal_Tips_content">
-					<p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
-					<a class="js-tips-close" href="">閉じる</a>
-				</div><!--modal__inner-->
-		</div><!--modal-->
 	</body>
 </html>
