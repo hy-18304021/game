@@ -290,7 +290,7 @@ p.text {
     background: url(images/closed_bottle.png) no-repeat;
     background-position: 0px 0px;
     margin-left: 637.5px;
-    margin-top: 300px;
+    margin-top: 325px;
     width: 60px;
     height: 24px;
     z-index: 500;
@@ -441,10 +441,8 @@ p.text {
 #newspaper {
     background: url(images/newspaper.png) no-repeat;
     background-position: 0px 0px;
-
     width: 148px;
     height: 188px;
-
     margin-left: 410px;
     margin-top: 300px;
     z-index: 500;

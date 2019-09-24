@@ -532,6 +532,8 @@ function resetgame(){
 	$$('minpurpose2').style.display = 'none';
 	$$('tips').style.display='none';
 	zoom_id=0;
+	atem_id=null;
+	scene_id=null;
 }
 
 //borderを無くす
