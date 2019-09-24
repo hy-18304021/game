@@ -17,3 +17,9 @@ $(function(){
         return false;
     });
 });
+
+function doubleclick(){
+    $('.js-modal').fadeIn();
+    itemModal();
+}
+
