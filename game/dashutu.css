@@ -241,6 +241,15 @@ p.text {
 }
 
 /*目標*/
+.purposePart{
+    clear:both;
+}
+img.purposeImg{
+    float:left;
+}
+.purposeText{
+    
+}
 #purpose{
     position: absolute;
     right: 20px;
@@ -280,10 +289,10 @@ p.text {
 #explanation{
     font-size: 50px;
     font-weight: 600;
-    color: rgb(139, 57, 19)
+    color: rgb(118, 45, 12)
 }
 #ss{
-    font-size: 23px;
+    font-size: 20px;
     font-weight: 600;
     
 }
