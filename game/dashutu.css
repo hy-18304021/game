@@ -245,20 +245,24 @@ p.text {
     position: absolute;
     right: 20px;
     top: 340px;
+    display: none;
 }
 #maxpurpose{
     font-size: 30px;
     font-weight: 600;
+    display: none;
 }
 
 #minpurpose1{
     font-size: 25px;
     font-weight: 600;
+    display: none;
 }
 
 #minpurpose2{
     font-size: 25px;
     font-weight: 600;
+    display: none;
 }
 
 /*説明*/

@@ -62,6 +62,7 @@ esc.setTrigger( 'closed_bottle',
 		$$('item_closed_bottle').style.visibility = 'inherit';
 		$$('closed_bottle').style.visibility = 'hidden';
 		esc.message( 'ボトルを拾った',3000 );
+		minpurpose2indicate()
 		}
 );
 				
@@ -86,6 +87,7 @@ esc.setTrigger( 'dynamite', function(){
 	$$('item_dynamite').style.visibility = 'inherit';
 	$$('dynamite').style.visibility = 'hidden';
 	esc.message( 'ダイナマイトを拾った',3000 );
+	minpurpose2indicate()
 });
 esc.setTrigger( 'alcohol',
 	function()
@@ -94,6 +96,7 @@ esc.setTrigger( 'alcohol',
 		$$('item_alcohol').style.visibility = 'inherit';
 		$$('alcohol').style.visibility = 'hidden';
 		esc.message( '消毒用アルコールを拾った',3000 );
+		minpurpose2indicate()
 	}
 );
 esc.setTrigger( 'newspaper', function(){						
@@ -103,7 +106,13 @@ esc.setTrigger( 'newspaper', function(){
 esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
 
 //プロローグから開始
-esc.setTrigger( 'prologue',function(){timeOut();turnSea();});
+esc.setTrigger( 'prologue',function(){
+	timeOut();
+	turnSea();
+	$$('purpose').style.display = 'inherit';
+	$$('maxpurpose').style.display = 'inherit';
+	$$('minpurpose1').style.display = 'inherit';
+});
 
 					
 //ゲームオーバーからタイトルへ
@@ -514,6 +523,10 @@ function resetgame(){
 	$$('item_zoom').style.display = 'none';
 	$$('close_modal').style.display = 'none';
 	$('.js-modal').fadeOut();
+	$$('purpose').style.display = 'none';
+	$$('maxpurpose').style.display = 'none';
+	$$('minpurpose1').style.display = 'none';
+	$$('minpurpose2').style.display = 'none';
 	zoom_id=0;
 }
 
@@ -528,4 +541,17 @@ function bordernone(){
 	$$('item_alcohol_letter').style.border = 'none';
 	$$('item_dynamite').style.border = 'none';
 	$$('item_boxkey').style.border = 'none';
+}
+
+function minpurpose2indicate(){
+	var icb=document.getElementById('item_closed_bottle');
+	var al=document.getElementById('item_alcohol');
+	var dy=document.getElementById('item_dynamite');
+	var icbstyle=icb.style;
+	var alstyle=al.style;
+	var dystyle=dy.style;
+
+	if(icbstyle.display=='inherit'||alstyle.display=='inherit'||dystyle.display=='inherit'){
+	$$('minpurpose2').style.display = 'inherit';		
+	}
 }
