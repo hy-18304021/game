@@ -3,6 +3,13 @@
     background: #D4CFB8;
 }
 
+h1 {
+    font-size: 380%;
+    font-family: serif;
+    font-weight: 500;
+    color: #2D913E;
+}
+
 p.text {
     line-height: 1.4em;
 }
@@ -179,26 +186,26 @@ p.text {
     background-size: 100%;
 }
 
-#prologue{
+#prologue {
     background: rgb(0, 0, 0);
     font-size: 36px;
     line-height: 48px;
     font-family: aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
     color: #CCCCCC;
     text-align: justify;
-    padding:50px;
+    padding: 50px;
     width: 668px;
     height: 476px;
 }
 
-#epilogue{
+#epilogue {
     background: rgb(0, 0, 0);
     font-size: 36px;
     line-height: 48px;
     font-family: aqua_pfont, "あくあＰフォント", aquafont, "あくあフォント";
     color: #CCCCCC;
     text-align: justify;
-    padding:50px;
+    padding: 50px;
     width: 668px;
     height: 476px;
 
@@ -241,21 +248,22 @@ p.text {
 }
 
 /*目標*/
-#purpose{
+#purpose {
     position: absolute;
     right: 20px;
     top: 340px;
     display: none;
     color: rgb(139, 57, 19)
 }
-#maxpurpose{
+
+#maxpurpose {
     font-size: 30px;
     font-weight: 600;
     display: none;
     color: saddlebrown
 }
 
-#minpurpose1{
+#minpurpose1 {
     font-size: 25px;
     font-weight: 600;
     display: none;
@@ -263,7 +271,7 @@ p.text {
     color: saddlebrown
 }
 
-#minpurpose2{
+#minpurpose2 {
     font-size: 25px;
     font-weight: 600;
     display: none;
@@ -271,21 +279,23 @@ p.text {
 }
 
 /*説明*/
-#explanationwrap{
+#explanationwrap {
     position: absolute;
     left: 50px;
     width: 420px;
     color: saddlebrown
 }
-#explanation{
+
+#explanation {
     font-size: 50px;
     font-weight: 600;
     color: rgb(139, 57, 19)
 }
-#ss{
+
+#ss {
     font-size: 23px;
     font-weight: 600;
-    
+
 }
 
 /* seaに配置されてるもの */
@@ -787,34 +797,39 @@ p.text {
     background-size: 100%;
     display: none;
 }
+
 /* modal windowに配置されてるものここまで */
 /*ヒントモーダルに使うもの*/
-#tips{
+#tips {
     display: none;
 }
-.content{
+
+.content {
     margin: 0 auto;
     padding: 40px;
 }
-.modal_Tips{
+
+.modal_Tips {
     display: none;
     height: 100vh;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 90000000;    
+    z-index: 90000000;
 }
-.modal_Tips_bg{
+
+.modal_Tips_bg {
     height: 100vh;
     position: absolute;
     width: 100%;
 }
-.modal_Tips_content{
+
+.modal_Tips_content {
     background: #fff;
     left: 50%;
     padding: 40px;
     position: absolute;
     top: 50%;
-    transform: translate(-50%,-50%);
-    width: 60%; 
+    transform: translate(-50%, -50%);
+    width: 60%;
 }
