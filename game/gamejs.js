@@ -552,6 +552,7 @@ function resetgame(){
 	$$('minpurpose2').style.display = 'none';
 	$$('minpurpose2').style.textDecoration = 'none';
 	$$('minpurpose3').style.display = 'none';
+	$$('tips').style.display = 'none';
 	zoom_id=0;
 	atem_id=null;
 	scene_id=null;
@@ -579,5 +580,6 @@ function minpurpose2indicate(){
 	$$('mingoal2').style.display = 'inherit';
 	$$('minpurpose2').style.display = 'inherit';
 	$$('minpurpose1').style.textDecoration = 'line-through';
+	$$('tips').style.display = 'inherit';
 	}
 }
