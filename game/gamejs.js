@@ -128,6 +128,8 @@ esc.setTrigger( 'prologue',function(){
 	timeOut();
 	turnSea();
 	$$('purpose').style.display = 'inherit';
+	$$('goal').style.display = 'inherit';
+	$$('mingoal1').style.display = 'inherit';
 	$$('maxpurpose').style.display = 'inherit';
 	$$('minpurpose1').style.display = 'inherit';
 });
@@ -251,6 +253,9 @@ esc.setTrigger( 'modal_alcohol_letter', function(){
 			esc.message( '光が集まり、煙があがった。');
 			$('.js-modal').fadeOut();
 			zoom_id=0;
+			$$('mingoal3').style.display = 'inherit';
+			$$('minpurpose3').style.display = 'inherit';
+			$$('minpurpose2').style.textDecoration = 'line-through';
 		}
 	}else if(atem_id=="fbm"){
 		esc.message( '光が強い所へ行こう。');
@@ -537,11 +542,16 @@ function resetgame(){
 	$$('close_modal').style.display = 'none';
 	$('.js-modal').fadeOut();
 	$$('purpose').style.display = 'none';
+	$$('goal').style.display = 'none';
+	$$('mingoal1').style.display = 'none';
+	$$('mingoal2').style.display = 'none';
+	$$('mingoal3').style.display = 'none';
 	$$('maxpurpose').style.display = 'none';
 	$$('minpurpose1').style.display = 'none';
 	$$('minpurpose1').style.textDecoration = 'none';
 	$$('minpurpose2').style.display = 'none';
-	$$('tips').style.display='none';
+	$$('minpurpose2').style.textDecoration = 'none';
+	$$('minpurpose3').style.display = 'none';
 	zoom_id=0;
 	atem_id=null;
 	scene_id=null;
@@ -566,6 +576,7 @@ function minpurpose2indicate(){
 	var dystyle=$$('alcohol').style.visibility;
 
 	if(icbstyle=='hidden'&&alstyle=='hidden'&&dystyle=='hidden'){
+	$$('mingoal2').style.display = 'inherit';
 	$$('minpurpose2').style.display = 'inherit';
 	$$('minpurpose1').style.textDecoration = 'line-through';
 	}

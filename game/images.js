@@ -8,14 +8,6 @@ $(function(){
         $('.js-modal').fadeOut();
         return false;
     });
-    $('.js-tips-open').on('click',function(){
-        $('.js-tips').fadeIn();
-        return false;
-    });
-    $('.js-tips-close').on('click',function(){
-        $('.js-tips').fadeOut();
-        return false;
-    });
 });
 
 function doubleclick(){

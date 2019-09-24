@@ -255,12 +255,22 @@ p.text {
     display: none;
     color: rgb(139, 57, 19)
 }
-
+#goal{
+    font-size: 50px;
+    font-weight: 600;
+    display: none;
+}
 #maxpurpose {
     font-size: 30px;
     font-weight: 600;
     display: none;
-    color: saddlebrown
+}
+
+#mingoal1 {
+    font-size: 25px;
+    font-weight: 600;
+    display: none;
+    text-decoration: none;
 }
 
 #minpurpose1 {
@@ -268,14 +278,32 @@ p.text {
     font-weight: 600;
     display: none;
     text-decoration: none;
-    color: saddlebrown
+}
+
+#mingoal2 {
+    font-size: 25px;
+    font-weight: 600;
+    display: none;
+    text-decoration: none;
 }
 
 #minpurpose2 {
     font-size: 25px;
     font-weight: 600;
     display: none;
-    color: saddlebrown
+}
+
+#mingoal3 {
+    font-size: 25px;
+    font-weight: 600;
+    display: none;
+    text-decoration: none;
+}
+
+#minpurpose3 {
+    font-size: 25px;
+    font-weight: 600;
+    display: none;
 }
 
 /*説明*/
@@ -283,13 +311,12 @@ p.text {
     position: absolute;
     left: 50px;
     width: 420px;
-    color: saddlebrown
+    color: saddlebrown;
 }
 
 #explanation {
     font-size: 50px;
     font-weight: 600;
-    color: rgb(139, 57, 19)
 }
 
 #ss {
