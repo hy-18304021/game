@@ -62,7 +62,7 @@ esc.setTrigger( 'closed_bottle',
 		$$('item_closed_bottle').style.visibility = 'inherit';
 		$$('closed_bottle').style.visibility = 'hidden';
 		esc.message( 'ボトルを拾った',3000 );
-		minpurpose2indicate()
+		minpurpose2indicate();
 		}
 );
 				
@@ -87,7 +87,7 @@ esc.setTrigger( 'dynamite', function(){
 	$$('item_dynamite').style.visibility = 'inherit';
 	$$('dynamite').style.visibility = 'hidden';
 	esc.message( 'ダイナマイトを拾った',3000 );
-	minpurpose2indicate()
+	minpurpose2indicate();
 });
 esc.setTrigger( 'alcohol',
 	function()
@@ -96,7 +96,7 @@ esc.setTrigger( 'alcohol',
 		$$('item_alcohol').style.visibility = 'inherit';
 		$$('alcohol').style.visibility = 'hidden';
 		esc.message( '消毒用アルコールを拾った',3000 );
-		minpurpose2indicate()
+		minpurpose2indicate();
 	}
 );
 esc.setTrigger( 'newspaper', function(){						
@@ -544,14 +544,12 @@ function bordernone(){
 }
 
 function minpurpose2indicate(){
-	var icb=document.getElementById('item_closed_bottle');
-	var al=document.getElementById('item_alcohol');
-	var dy=document.getElementById('item_dynamite');
-	var icbstyle=icb.style;
-	var alstyle=al.style;
-	var dystyle=dy.style;
+	var icbstyle=$$('closed_bottle').style.visibility;
+	var alstyle=$$('dynamite').style.visibility;
+	var dystyle=$$('alcohol').style.visibility;
 
-	if(icbstyle.display=='inherit'||alstyle.display=='inherit'||dystyle.display=='inherit'){
-	$$('minpurpose2').style.display = 'inherit';		
+	if(icbstyle=='hidden'&&alstyle=='hidden'&&dystyle=='hidden'){
+	$$('minpurpose2').style.display = 'inherit';
+	$$('minpurpose1').style.textDecoration = 'line-through';
 	}
 }

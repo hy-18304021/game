@@ -257,6 +257,7 @@ p.text {
     font-size: 25px;
     font-weight: 600;
     display: none;
+    text-decoration: none;
 }
 
 #minpurpose2{
