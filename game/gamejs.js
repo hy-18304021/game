@@ -70,12 +70,21 @@ esc.setTrigger( 'closed_bottle',
 esc.setTrigger( 'forest_left_trigger', turnSea );
 esc.setTrigger( 'forest_right_trigger', turnSea );
 esc.setTrigger( 'forest_previous_trigger', turnHouse );
-esc.setTrigger( 'boxkey',
+esc.setTrigger( 'boxkey1',
 	function()
 	{
 		$$('item_boxkey').style.display='block';
 		$$('item_boxkey').style.visibility = 'inherit';
-		$$('boxkey').style.visibility = 'hidden';
+		$$('boxkey1').style.visibility = 'hidden';
+		esc.message( '鍵を拾った');
+	}
+);
+esc.setTrigger( 'boxkey3',
+	function()
+	{
+		$$('item_boxkey').style.display='block';
+		$$('item_boxkey').style.visibility = 'inherit';
+		$$('boxkey3').style.visibility = 'hidden';
 		esc.message( '鍵を拾った');
 	}
 );
@@ -102,8 +111,17 @@ esc.setTrigger( 'alcohol',
 esc.setTrigger( 'newspaper', function(){						
 	esc.message( '水の入った花瓶がレンズになって起きた火事が</br>記事になっている' );
 });
+esc.setTrigger( 'boxkey2',
+	function()
+	{
+		$$('item_boxkey').style.display='block';
+		$$('item_boxkey').style.visibility = 'inherit';
+		$$('boxkey2').style.visibility = 'hidden';
+		esc.message( '鍵を拾った');
+	}
+);
 //初期地点
-esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );});
+esc.setTrigger( 'start',function(){esc.changeScene( 'prologue' );boxkeyIN();});
 
 //プロローグから開始
 esc.setTrigger( 'prologue',function(){
@@ -333,6 +351,19 @@ function isTime(){
 	initializeClock('clockdiv', deadline);
 }
 
+var boxkeyIN=function(){
+	var disc=Math.floor(Math.random() * 3) + 1;
+	console.log(disc);
+	if(disc==1){
+		$$('boxkey1').style.visibility = 'inherit';
+	}else if(disc==2){
+		$$('boxkey2').style.visibility = 'inherit';
+	}else if(disc==3){
+		$$('boxkey3').style.visibility = 'inherit';
+	}
+};
+
+
 })();
 
 function popupImage() {
@@ -510,7 +541,9 @@ function resetgame(){
 	$$('closed_bottle').style.visibility = 'inherit';
 	$$('dynamite').style.visibility = 'inherit';
 	$$('alcohol').style.visibility = 'inherit';
-	$$('boxkey').style.visibility = 'inherit';
+	$$('boxkey1').style.visibility = 'hidden';
+	$$('boxkey2').style.visibility = 'hidden';
+	$$('boxkey3').style.visibility = 'hidden';
 	$$('closed_box').style.display = 'inherit';
 	$$('open_box').style.display = 'none';
 	$$('item_closed_bottle').style.display = 'none';

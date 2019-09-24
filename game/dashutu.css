@@ -366,7 +366,7 @@ p.text {
     position: absolute;
 }
 
-#boxkey {
+#boxkey1 {
     background: url(images/boxkey.png) no-repeat;
     background-position: 0px 0px;
     width: 60px;
@@ -377,6 +377,20 @@ p.text {
     position: absolute;
     margin-top: 400px;
     margin-left: 600px;
+    visibility: hidden;
+}
+#boxkey3 {
+    background: url(images/boxkey.png) no-repeat;
+    background-position: 0px 0px;
+    width: 60px;
+    height: 24px;
+    z-index: 500;
+    cursor: pointer;
+    background-size: 100%;
+    position: absolute;
+    margin-top: 480px;
+    margin-left: 200px;
+    visibility: hidden;
 }
 
 /* forestに配置されてるものここまで */
@@ -446,13 +460,28 @@ p.text {
     background: url(images/newspaper.png) no-repeat;
     background-position: 0px 0px;
     width: 148px;
-    height: 188px;
+    height: 98px;
     margin-left: 410px;
     margin-top: 300px;
     z-index: 500;
     cursor: pointer;
     background-size: 100%;
     position: absolute;
+}
+
+#boxkey2{
+    background: url(images/boxkey.png) no-repeat;
+    background-position: 0px 0px;
+    width: 60px;
+    height: 40px;
+    z-index: 500;
+    cursor: pointer;
+    background-size: 100%;
+    position: absolute;
+    margin-top: 470px;
+    margin-left: 505px;
+    transform: rotate(-90deg);
+    visibility: hidden;
 }
 
 /* houseに配置されてるものここまで */
