@@ -867,6 +867,8 @@ img.purposeImg{
 /*ヒントモーダルに使うもの*/
 #tips {
     display: none;
+    float: right;
+    font-size: 15px;
 }
 
 .content {
@@ -897,4 +899,5 @@ img.purposeImg{
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
+    font-size: 30px;
 }
