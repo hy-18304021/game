@@ -248,18 +248,14 @@ p.text {
 }
 
 /*目標*/
-.purposePart{
-    clear:both;
-}
-img.purposeImg{
-    float:left;
-}
-.purposeText{
-    
+.smallpurposes{
+    font-size: 23px;
+    font-weight: 600;
+    background-color: #e09c9cc6
 }
 #purpose{
     position: absolute;
-    right: 20px;
+    right: 100px;
     top: 400px;
     display: none;
     color: rgb(139, 57, 19)
@@ -270,52 +266,53 @@ img.purposeImg{
     display: none;
 }
 #maxpurpose {
-    font-size: 30px;
+    font-size: 27px;
     font-weight: 600;
     display: none;
+    background-color: #e09c9cc6
 }
 
 #mingoal1 {
-    font-size: 25px;
-    font-weight: 600;
     display: none;
     text-decoration: none;
 }
 
 #minpurpose1 {
-    font-size: 25px;
-    font-weight: 600;
     display: none;
     text-decoration: none;
 }
 
 #mingoal2 {
-    font-size: 25px;
-    font-weight: 600;
     display: none;
     text-decoration: none;
 }
 
 #minpurpose2 {
-    font-size: 25px;
-    font-weight: 600;
     display: none;
 }
 
 #mingoal3 {
-    font-size: 25px;
-    font-weight: 600;
     display: none;
     text-decoration: none;
 }
 
 #minpurpose3 {
-    font-size: 25px;
-    font-weight: 600;
     display: none;
 }
 
 /*説明*/
+.purposePart{
+    clear:both;
+    list-style-type: none;
+}
+img.purposeImg{
+    float:left;
+    margin-bottom: 10px;
+}
+.purposeText{
+    padding-left: 130px;
+    background: rgba(45, 145, 62, 0.238);
+}
 #explanationwrap {
     position: absolute;
     left: 50px;
