@@ -246,11 +246,13 @@ p.text {
     right: 20px;
     top: 340px;
     display: none;
+    color: rgb(139, 57, 19)
 }
 #maxpurpose{
     font-size: 30px;
     font-weight: 600;
     display: none;
+    color: saddlebrown
 }
 
 #minpurpose1{
@@ -258,12 +260,14 @@ p.text {
     font-weight: 600;
     display: none;
     text-decoration: none;
+    color: saddlebrown
 }
 
 #minpurpose2{
     font-size: 25px;
     font-weight: 600;
     display: none;
+    color: saddlebrown
 }
 
 /*説明*/
@@ -276,7 +280,7 @@ p.text {
 #explanation{
     font-size: 50px;
     font-weight: 600;
-    color: rgb(139, 63, 19)
+    color: rgb(139, 57, 19)
 }
 #ss{
     font-size: 23px;
