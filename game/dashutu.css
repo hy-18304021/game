@@ -271,14 +271,17 @@ p.text {
     position: absolute;
     left: 50px;
     width: 420px;
+    color: saddlebrown
 }
 #explanation{
     font-size: 50px;
     font-weight: 600;
+    color: rgb(139, 63, 19)
 }
 #ss{
     font-size: 23px;
     font-weight: 600;
+    
 }
 
 /* seaに配置されてるもの */
