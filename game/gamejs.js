@@ -526,6 +526,7 @@ function resetgame(){
 	$$('purpose').style.display = 'none';
 	$$('maxpurpose').style.display = 'none';
 	$$('minpurpose1').style.display = 'none';
+	$$('minpurpose1').style.textDecoration = 'none';
 	$$('minpurpose2').style.display = 'none';
 	zoom_id=0;
 }
