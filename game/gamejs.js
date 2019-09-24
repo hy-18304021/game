@@ -109,7 +109,7 @@ esc.setTrigger( 'alcohol',
 	}
 );
 esc.setTrigger( 'newspaper', function(){						
-	esc.message( '水の入った花瓶がレンズになって起きた火事が</br>記事になっている' );
+	esc.message( '水の入った瓶がレンズになって起きた火事が</br>記事になっている' );
 });
 esc.setTrigger( 'boxkey2',
 	function()
