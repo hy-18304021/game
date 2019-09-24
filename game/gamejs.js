@@ -234,10 +234,10 @@ esc.setTrigger( 'modal_alcohol_letter', function(){
 			$('.js-modal').fadeOut();
 			zoom_id=0;
 		}
-	}else if(atem_id=="alm"){
+	}else if(atem_id=="fbm"){
 		esc.message( '光が強い所へ行こう。',3000 );
 	}else{
-		esc.message( 'ここでは光が弱い。光が強い所へ行こう。',3000 );
+		esc.message( 'アルコールの染みた手紙だ',3000 );
 	}
 });
 
@@ -257,7 +257,7 @@ esc.setTrigger( 'modal_dynamite', function(){
 	}else if(atem_id=="dm"){
 		esc.message( 'ここでは危険だ。もっと広い場所に行こう。',3000 );
 	}else{
-		esc.message( 'ここでは危険だ。もっと広い場所に行こう。',3000 );
+		esc.message( 'ダイナマイトだ。',3000 );
 	}
 });
 
@@ -479,6 +479,7 @@ switch(atem_id){
 }
 console.log(atem_id+'外');
 
+atem_id=null;
 $$('item_zoom').style.display = 'none';
 $$('close_modal').style.display = 'inherit';
 }
