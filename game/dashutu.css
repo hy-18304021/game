@@ -319,6 +319,7 @@ img.purposeImg{
     left: 50px;
     width: 430px;
     color: saddlebrown;
+    height: 720px;
 }
 
 #explanation {
@@ -765,7 +766,7 @@ img.purposeImg{
     top: 0px;
     width: 768px;
     height: 576px;
-    z-index: 100000000;
+    z-index: 999999;
 }
 
 .modal__bg {
@@ -885,8 +886,7 @@ img.purposeImg{
 /*ヒントモーダルに使うもの*/
 #tips {
     display: none;
-    float: right;
-    font-size: 15px;
+    font-size: 25px;
 }
 
 .content {
@@ -900,7 +900,7 @@ img.purposeImg{
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 90000000;
+    z-index: 100000000;
 }
 
 .modal_Tips_bg {
