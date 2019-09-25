@@ -196,6 +196,7 @@ p.text {
     padding: 50px;
     width: 668px;
     height: 476px;
+    cursor: pointer;
 }
 
 #epilogue {
@@ -208,7 +209,7 @@ p.text {
     padding: 50px;
     width: 668px;
     height: 476px;
-
+    cursor: pointer;
 }
 
 /* sceansここまで */
@@ -316,7 +317,7 @@ img.purposeImg{
 #explanationwrap {
     position: absolute;
     left: 50px;
-    width: 420px;
+    width: 430px;
     color: saddlebrown;
 }
 
@@ -330,7 +331,27 @@ img.purposeImg{
     font-weight: 600;
 
 }
-
+/* 点滅 */
+.blinking{
+	-webkit-animation:blink 1.5s ease-in-out infinite alternate;
+    -moz-animation:blink 1.5s ease-in-out infinite alternate;
+    animation:blink 1.5s ease-in-out infinite alternate;
+    float:right;
+    pointer-events: none;
+    cursor: pointer;
+}
+@-webkit-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@-moz-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
 /* seaに配置されてるもの */
 /*Bottle*/
 #closed_bottle {
