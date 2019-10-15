@@ -384,6 +384,23 @@ img.purposeImg{
     cursor: pointer;
     position: absolute;
 }
+#sun {
+    background: url(images/gameover1.png) no-repeat;
+    background-position: 0px 170px;
+    /*ペイントで選択して大きさ見る*/
+    background-size: 100%;
+    /*指定しないと元の画像サイズになってしまう*/
+    margin-left: 525px;
+    margin-top: 8px;
+    /*#forestのbackgroundpositionの1152を1310から引いて*1.5*/
+    width: 216px;
+    /*ペイントで選択して大きさ見る*/
+    height: 120px;
+    /*ペイントで選択して大きさ見る*/
+    z-index: 501;
+    cursor: pointer;
+    position: absolute;
+}
 
 #ship_side {
     background: url(images/ship_side.png) no-repeat;

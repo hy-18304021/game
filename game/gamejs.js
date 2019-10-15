@@ -54,6 +54,12 @@ var reset=function(){
 //sea
 esc.setTrigger( 'sea_left_trigger', turnForest );
 esc.setTrigger( 'sea_right_trigger', turnForest );
+esc.setTrigger( 'sun',
+	function()
+	{
+		esc.message( '日差しが強い。木陰にいないと日焼けしそう。');
+	}
+);
 // bottle is clicked
 esc.setTrigger( 'closed_bottle',
 	function()
@@ -63,7 +69,7 @@ esc.setTrigger( 'closed_bottle',
 		$$('closed_bottle').style.visibility = 'hidden';
 		esc.message( 'ボトルを拾った');
 		minpurpose2indicate();
-		}
+	}
 );
 				
 //forest
