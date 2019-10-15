@@ -580,6 +580,8 @@ function minpurpose2indicate(){
 	$$('mingoal2').style.display = 'inherit';
 	$$('minpurpose2').style.display = 'inherit';
 	$$('minpurpose1').style.textDecoration = 'line-through';
+	$$('mingoal1').style.backgroundColor = 'rgba(0,0,0,0)';
+	$$('minpurpose1').style.backgroundColor = 'rgba(0,0,0,0)';
 	$$('tips').style.display = 'inherit';
 	}
 }
