@@ -140,6 +140,8 @@ esc.setTrigger( 'prologue',function(){
 	$$('minpurpose1').style.display = 'inherit';
 });
 
+//船
+esc.setTrigger('ship_side',function(){esc.message( 'どうにかしてあの船に見つけてもらおう。');});
 					
 //ゲームオーバーからタイトルへ
 esc.setTrigger('over_title',reset);
